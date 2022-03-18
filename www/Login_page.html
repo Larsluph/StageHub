@@ -5,6 +5,40 @@
         <meta charset="utf-8">
         <title>StageHub</title>
         <link rel="stylesheet" href="style.css">
+        <style>
+            .background--custom {
+              background-color: #7434FD;
+              width: 100vw;
+              height: 100vh;
+              position: absolute;
+              overflow: hidden;
+              z-index: -2;
+              top: 0;
+              left: 0;
+            }
+            canvas#canvas {
+              z-index: -1;
+              position: absolute;
+              width: 100%;
+              height: 60%;
+              transform: rotate(8deg) scale(2) translateY(0%);
+              --gradient-color-1: #905CFF; 
+              --gradient-color-2: #7435FC; 
+              --gradient-color-3: #641CFF;  
+              --gradient-color-4: #7132FA;
+              --gradient-speed: 0.000002;
+            }
+          </style>
+        </head>
+        <body>
+          <div class="background--custom">
+            <canvas id="canvas" />
+          </div>
+          <script src="background.js"></script>
+          <script>
+          var gradient = new Gradient();
+          gradient.initGradient("#canvas");
+          </script>
     </head>
     <body>
         <img id="logo-header" src ="StageHub logo fort bleu.png">

@@ -1,11 +1,90 @@
+/*############Principal page#######*/
+
+h2 {
+    font-size: 22px;
+    font-weight: 300;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding-top: 10px;
+    margin-top:130px;
+    font-family: "Roboto", sans-serif;
+    letter-spacing: 2px;
+}
+
 #logo-centre {
-    height: 150px;
-    margin-top: 100px;
+    height: 160px;
+    margin-top: 20px;
     border-radius: 20px;
     display: block;
     margin-left: auto;
     margin-right: auto
 }
+
+.button-principal-toregister {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2b31d9bb;
+    padding: 0px 25px 0px 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    text-decoration: none;
+    width: 100px; height: 35px; 
+    -webkit-border-radius: 5px; 
+    -moz-border-radius: 5px; 
+    border-radius: 5px; 
+    border-color: rgba(255, 255, 255, 0);
+    background-color: #ffffff; 
+    -webkit-box-shadow: 0 3px rgba(58,87,175,.75); 
+    -moz-box-shadow: 0 3px rgba(58,87,175,.75); 
+    box-shadow: 0 3px rgba(58,87,175,.75);
+    transition: all 0.1s linear 0s; 
+    top: 0px;
+    position: relative;
+}
+  
+.button-principal-toregister:hover {
+    top: 3px;
+    background-color:#ffffff;
+    -webkit-box-shadow: none; 
+    -moz-box-shadow: none; 
+    box-shadow: none;
+}
+
+.button-principal-tologin {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2b31d9bb;
+    padding: 0px 25px 0px 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    text-decoration: none;
+    width: 100px; height: 35px; 
+    -webkit-border-radius: 5px; 
+    -moz-border-radius: 5px; 
+    border-radius: 5px;
+    border-color: rgba(255, 255, 255, 0);
+    background-color: #ffffff; 
+    -webkit-box-shadow: 0 3px rgba(58,87,175,.75); 
+    -moz-box-shadow: 0 3px rgba(58,87,175,.75); 
+    box-shadow: 0 3px rgba(58,87,175,.75);
+    transition: all 0.1s linear 0s; 
+    top: 0px;
+    position: relative;
+}
+  
+.button-principal-tologin:hover {
+    top: 3px;
+    background-color:#ffffff;
+    -webkit-box-shadow: none; 
+    -moz-box-shadow: none; 
+    box-shadow: none;
+}
+
+/*#########search stage#########*/
 
 html, body, p { 
 	margin:0; 
@@ -129,7 +208,7 @@ html, body, p {
     
 }
 
-/*####################################*/
+/*#########Register#########*/
 
 #logo-header{
     height: 100px;
@@ -277,6 +356,7 @@ input[type=textRegister],input[type=password],input[type=password]{
     -webkit-border-radius: 5px; 
     -moz-border-radius: 5px; 
     border-radius: 5px; 
+    border-color: rgba(255, 255, 255, 0);
     background-color: #2b31d9bb; 
     -webkit-box-shadow: 0 3px rgba(58,87,175,.75); 
     -moz-box-shadow: 0 3px rgba(58,87,175,.75); 
@@ -336,7 +416,8 @@ input[type=textRegister],input[type=password],input[type=password]{
     -webkit-border-radius: 5px; 
     -moz-border-radius: 5px; 
     border-radius: 5px; 
-    background-color: #2b31d9bb; 
+    border-color: #cbc9c900;
+    background-color: #2b31d900; 
     -webkit-box-shadow: 0 3px rgba(58,87,175,.75); 
     -moz-box-shadow: 0 3px rgba(58,87,175,.75); 
     box-shadow: 0 3px rgba(58,87,175,.75);
