@@ -410,19 +410,19 @@ input[type=textRegister],input[type=password],input[type=password]{
     padding: 0px 25px 0px 20px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 25px;
+    margin-top: 20px;
+    display: block;
     text-decoration: none;
     width: 100px; height: 35px; 
     -webkit-border-radius: 5px; 
     -moz-border-radius: 5px; 
     border-radius: 5px; 
-    border-color: #cbc9c900;
-    background-color: #2b31d900; 
+    border-color: rgba(255, 255, 255, 0);
+    background-color: #2b31d9bb; 
     -webkit-box-shadow: 0 3px rgba(58,87,175,.75); 
     -moz-box-shadow: 0 3px rgba(58,87,175,.75); 
     box-shadow: 0 3px rgba(58,87,175,.75);
     transition: all 0.1s linear 0s; 
-    display: block;
 }
 
 .button-login:hover {

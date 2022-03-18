@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <title>StageHub</title>
-        <link rel="stylesheet" href="/www/assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/style.css" type="text/css">
         <style>
             .background--custom {
               background-color: #7434FD;
@@ -34,18 +34,18 @@
           <div class="background--custom">
             <canvas id="canvas" />
           </div>
-          <script src="/www/assets/js/background.js"></script>
+          <script src="assets/js/background.js"></script>
           <script>
           var gradient = new Gradient();
           gradient.initGradient("#canvas");
           </script>
     </head>
     <body>
-        <img id="logo-header" src ="StageHub logo fort bleu.png">
+        <img id="logo-header" src ="assets/img/StageHub logo fort bleu.png" href="Principal_page.html">
     <div class="testbox-register">
     <h1>Registration</h1>
 
-    <form action="/">
+    <form method="post" action="index.html">
         <hr>
         <div class="accounttype">
             <input type="radio" value="Personal" id="radioOne" name="account" checked/>
@@ -65,10 +65,10 @@
                 <label for="female" class="radio">Pas Zizi</label>
             </div> 
             <p>By clicking Register, you agree on our terms and condition.</p>
-            <button href="#" class="button-register">Register</button>
+            <button href="index.html" class="button-register">Register</button>
     </form>
     </div>
-    <button class="button-toLogin" type="button">
+    <button class="button-toLogin" type="button" href="Login_page.html">
         or Login
       </button>
     </body>

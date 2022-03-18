@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <title>StageHub</title>
-        <link rel="stylesheet" href="/www/assets/css/style.css" type = "text / css">
+        <link rel="stylesheet" href="assets/css/style.css" type="text/css">
         <style>
             .background--custom {
               background-color: #7434FD;
@@ -34,25 +34,25 @@
           <div class="background--custom">
             <canvas id="canvas" />
           </div>
-          <script src="/www/assets/js/background.js"></script>
+          <script src="assets/js/background.js"></script>
           <script>
-          var gradient = new Gradient();
-          gradient.initGradient("#canvas");
-          </script>
+            var gradient = new Gradient();
+            gradient.initGradient("#canvas");
+            </script>
     </head>
     <body>
-        <img id="logo-header" src ="StageHub logo fort bleu.png">
+        <img id="logo-header" src ="assets/img/StageHub logo fort bleu.png">
     <div class="testbox-login">
     <h1>Login</h1>
 
-    <form action="/">
+    <form method="post" action="index.html">
         <hr>
             <input type="textlogin" name="Email" id="name" placeholder="Email" required/>
             <input type="password" name="password" id="name" placeholder="Password" required/>
-            <button href="#" class="button-login">Login</button>
+            <button href="index.html" class="button-login">Login</button>
     </form>
     </div>
-    <button class="button-toregister" type="button">
+    <button class="button-toregister" type="button" href="/www/Register_page.html">
         or Register
       </button>
     </body>
