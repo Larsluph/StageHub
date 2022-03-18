@@ -161,7 +161,7 @@ html {
 .testbox-register {
     margin: 20px auto;
     width: 343px; 
-    height: 464px; 
+    height: 480px; 
     -webkit-border-radius: 8px/7px; 
     -moz-border-radius: 8px/7px; 
     border-radius: 8px/7px; 
@@ -242,6 +242,7 @@ input[type=textRegister],input[type=password],input[type=password]{
     background-color: #fff; 
     border: solid 1px #cbc9c9;
     margin-left: 33px;
+    margin-bottom: 3px;
     padding-left: 10px;
 }
   
@@ -287,7 +288,7 @@ input[type=textRegister],input[type=password],input[type=password]{
 }
 
 .button-toLogin {
-    height: 100px;
+    height: 60px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -362,7 +363,7 @@ input[type=textRegister],input[type=password],input[type=password]{
 }
 
 .button-toregister {
-    height: 100px;
+    height: 60px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -400,5 +401,6 @@ input[type=textlogin],input[type=password]{
     background-color: #fff; 
     border: solid 1px #cbc9c9;
     margin-left: 33px;
+    margin-bottom: 3px;
     padding-left: 10px;
 }
