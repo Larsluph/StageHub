@@ -74,7 +74,7 @@ CREATE TABLE roles(
 
 CREATE TABLE users(
         id_user     Int  Auto_increment  NOT NULL ,
-        hash        Char (128) NOT NULL ,
+        hash        Char (64) NOT NULL ,
         nom_user    Varchar (30) NOT NULL ,
         prenom_user Varchar (30) NOT NULL ,
         username    Varchar (24) NOT NULL ,
