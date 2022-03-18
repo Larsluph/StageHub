@@ -92,7 +92,7 @@ CREATE TABLE users(
 
 CREATE TABLE promotions(
         id_promo  Int  Auto_increment  NOT NULL ,
-        nom_promo Varchar (20) NOT NULL
+        nom_promo Varchar (50) NOT NULL
 	,CONSTRAINT promotions_AK UNIQUE (nom_promo)
 	,CONSTRAINT promotions_PK PRIMARY KEY (id_promo)
 )ENGINE=InnoDB;
