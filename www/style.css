@@ -158,7 +158,7 @@ html {
     background-color: #2b31d9bb;
 }
   
-.testbox {
+.testbox-register {
     margin: 20px auto;
     width: 343px; 
     height: 464px; 
@@ -232,9 +232,10 @@ input[type=radio]:checked + label:after {
 hr{
     color: rgb(63,72,204);
     opacity: 0.3;
+    margin-bottom: 15px;
 }
   
-input[type=textRegister],input[type=password]{
+input[type=textRegister],input[type=password],input[type=password]{
     width: 200px; 
     height: 39px; 
     border-radius: 4px; 
@@ -244,13 +245,10 @@ input[type=textRegister],input[type=password]{
     padding-left: 10px;
 }
   
-input[type=password]{
-    margin-bottom: 25px;
-}
-  
 .gender {
     margin-left: 0px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
   
 .accounttype{
@@ -322,9 +320,9 @@ input[type=password]{
     font-weight: 600;
     color: #ffffff;
     padding: 0px 25px 0px 20px;
-    margin: 10px 8px 20px 0px;
-    display: inline-block;
-    float: right;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
     text-decoration: none;
     width: 100px; height: 35px; 
     -webkit-border-radius: 5px; 
@@ -335,8 +333,7 @@ input[type=password]{
     -moz-box-shadow: 0 3px rgba(58,87,175,.75); 
     box-shadow: 0 3px rgba(58,87,175,.75);
     transition: all 0.1s linear 0s; 
-    top: 0px;
-    position: relative;
+    display: block;
 }
 
 .button-login:hover {
@@ -345,4 +342,63 @@ input[type=password]{
     -webkit-box-shadow: none; 
     -moz-box-shadow: none; 
     box-shadow: none;
+}
+
+.testbox-login {
+    margin: 20px auto;
+    width: 343px; 
+    height: 280px; 
+    -webkit-border-radius: 8px/7px; 
+    -moz-border-radius: 8px/7px; 
+    border-radius: 8px/7px; 
+    background-color: #ffffff; 
+    -webkit-box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+    -moz-box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+    box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+    border: solid 1px #cbc9c9;
+    font-family: "Roboto", sans-serif;
+    letter-spacing: 2px;
+    font-size: 14px;
+}
+
+.button-toregister {
+    height: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    border-radius: 5px;
+    float: center;
+    border: 0;
+    padding: 0 10px;
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0);
+    transition: 0.5s;
+    letter-spacing: 2px;
+}
+
+.button-toregister:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0);
+    text-decoration: underline rgb(255, 255, 255);
+}
+  
+hr{
+    color: rgb(63,72,204);
+    opacity: 0.3;
+}
+  
+input[type=textlogin],input[type=password]{
+    width: 200px; 
+    height: 39px; 
+    border-radius: 4px; 
+    background-color: #fff; 
+    border: solid 1px #cbc9c9;
+    margin-left: 33px;
+    padding-left: 10px;
 }
