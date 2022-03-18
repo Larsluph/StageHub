@@ -60,13 +60,13 @@ INSERT INTO `entreprise_secteur` (`id_secteur_activite`, `id_entreprise`) VALUES
 
 INSERT INTO `localites` (`id_localite`, `nom_localite`) VALUES
 ('1', 'Lille'),
-('2', 'Paris - La Defense'),
+('2', 'Paris'),
 ('3', 'Rouen'),
 ('4', 'Marseille'),
 ('5', 'Toulouse'),
 ('6', 'Brest'),
 ('7', 'Mulhouse'),
-('8', 'Toulouse'),
+('8', 'Le Mans'),
 ('9', 'Bordeaux'),
 ('10', 'Orléans'),
 ('11', 'Strasbourg'),
