@@ -74,7 +74,7 @@ CREATE TABLE roles(
 
 CREATE TABLE users(
         id_user     Int  Auto_increment  NOT NULL ,
-        hash        Char (128) NOT NULL ,
+        hash        Char (64) NOT NULL ,
         nom_user    Varchar (30) NOT NULL ,
         prenom_user Varchar (30) NOT NULL ,
         username    Varchar (24) NOT NULL ,
@@ -92,7 +92,7 @@ CREATE TABLE users(
 
 CREATE TABLE promotions(
         id_promo  Int  Auto_increment  NOT NULL ,
-        nom_promo Varchar (20) NOT NULL
+        nom_promo Varchar (50) NOT NULL
 	,CONSTRAINT promotions_AK UNIQUE (nom_promo)
 	,CONSTRAINT promotions_PK PRIMARY KEY (id_promo)
 )ENGINE=InnoDB;
