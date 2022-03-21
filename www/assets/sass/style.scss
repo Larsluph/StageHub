@@ -1,3 +1,320 @@
-$primary: #3946c7;
+$primary: #7132FA;
 
 @import "../vendors/bootstrap/scss/bootstrap";
+
+a {
+    text-decoration: none;
+}
+
+.background--custom {
+    background-color: #7434FD;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    overflow: hidden;
+    z-index: -2;
+    top: 0;
+    left: 0;
+  }
+  canvas#canvas {
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 60%;
+    transform: rotate(8deg) scale(2) translateY(0%);
+    --gradient-color-1: #905CFF; 
+    --gradient-color-2: #7435FC; 
+    --gradient-color-3: #641CFF;  
+    --gradient-color-4: #7132FA;
+    --gradient-speed: 0.000002;
+  }
+
+/*############Principal page#######*/
+
+h2 {
+    font-weight: 300;
+    color: rgb(255, 255, 255);
+    font-family: "Roboto", sans-serif;
+    letter-spacing: 2px;
+}
+
+#logo-centre {
+    border-radius: 20px;
+}
+
+.button-principal-toregister {
+    font-weight: 600;
+    color: #2b31d9bb;
+    border-radius: 5px; 
+    border-color: rgba(255, 255, 255, 0);
+    background-color: #ffffff; 
+    box-shadow: 0 3px rgba(58,87,175,.75);
+    transition: all 0.1s linear 0s; 
+}
+  
+.button-principal-toregister:hover {
+    background-color:#ffffff;
+}
+
+.button-principal-tologin {
+    font-weight: 600;
+    color: #2b31d9bb;
+    text-decoration: none; 
+    border-radius: 5px;
+    border-color: rgba(255, 255, 255, 0);
+    background-color: #ffffff; 
+    box-shadow: 0 3px rgba(58,87,175,.75);
+    transition: all 0.1s linear 0s; 
+}
+  
+.button-principal-tologin:hover {
+    background-color:#ffffff;
+}
+
+/*#########search stage#########*/
+
+html, body, p { 
+    background-color: #641cff00;
+}
+
+#header {
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+#logo {
+    border-radius: 20px;
+}
+
+.profile {
+    border-radius: 5px;
+    font-family: "Roboto", sans-serif;
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0);
+    transition: 0.5s;
+    letter-spacing: 2px;
+}
+
+.profile:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0);
+    text-decoration: underline rgb(255, 255, 255);
+}
+
+.separator {
+    border-radius: 80%;
+    background:radial-gradient(rgb(196, 196, 196),rgb(255, 255, 255));
+    border-color: rgba(0, 0, 0, 0);
+}
+
+.separator2 {
+    border-radius: 80%;
+    background:radial-gradient(rgb(196, 196, 196),rgb(255, 255, 255));
+    border-color: rgba(0, 0, 0, 0);
+}
+
+.form {
+    color: rgb(63,72,204);
+}
+
+.form-search {
+    color: rgb(63,72,204);
+    font-family: "Roboto", sans-serif;
+    background-color: #fff;
+    border-radius: 5px;
+    border-color: rgba(255, 255, 255, 0);
+}
+
+.form-location {
+    color: rgb(63,72,204);
+    font-family: "Roboto", sans-serif;
+    background-color: #fff;
+    border-radius: 5px;
+    border-color: #cbc9c900;
+}
+
+.button-search{
+    color: #2b31d9bb;
+    background-color: #ffffff;
+    font-family:"Roboto", sans-serif;
+    transition: 0.5s;
+    overflow: hidden;
+    border-color: rgba(240, 248, 255, 0);
+    border-radius: 10px;
+    letter-spacing: 2px;
+}
+.button-search:hover {
+    background-color:#ffffff;
+    box-shadow: none;
+    
+}
+
+/*#########Register#########*/
+
+p {
+    font-family: "Roboto", sans-serif;
+    background-color: #2b31d900;
+    color: #2b31d9bb;
+}
+
+h1 {
+    font-weight: 300;
+    color: #2b31d9bb;
+    font-family: "Roboto", sans-serif;
+    letter-spacing: 2px;
+}
+  
+html {
+    background-color: #2b31d9bb;
+}
+  
+.testbox-register {
+    border-radius: 8px/7px; 
+    background-color: #ffffff;  
+    box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+    border: solid 1px #cbc9c9;
+    font-family: "Roboto", sans-serif;
+    letter-spacing: 2px;
+}
+  
+input[type=radio] {
+    visibility: hidden;
+}
+
+label.radio {
+    cursor: pointer;
+    text-indent: 35px;
+    overflow: visible;
+    display: inline-block;
+    position: relative;
+    margin-bottom: 15px;
+    color: #2b31d9bb;
+}
+  
+label.radio:before {
+    background: #2b31d9bb;
+    content:'';
+    position: absolute;
+    top:2px;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+}
+  
+label.radio:after {
+    opacity: 0;
+    content: '';
+    position: absolute;
+    width: 0.5em;
+    height: 0.25em;
+    background: transparent;
+    top: 7.5px;
+    left: 4.5px;
+    border: 3px solid #ffffffbb;
+    border-top: none;
+    border-right: none;
+  
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+  
+input[type=radio]:checked + label:after {
+      opacity: 1;
+}
+  
+hr{
+    color: rgb(63,72,204);
+    opacity: 0.3;
+}
+  
+input[type=textRegister],input[type=textlogin],input[type=password],input[type=password]{
+    border-radius: 4px; 
+    background-color: #fff; 
+    border: solid 1px #cbc9c9;
+}
+  
+.button-register {
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px; 
+    border-color: rgba(255, 255, 255, 0);
+    background-color: #2b31d9bb; 
+    box-shadow: 0 3px rgba(58,87,175,.75);
+    transition: all 0.1s linear 0s; 
+}
+  
+.button-register:hover {
+    background-color:#2b31d9bb;
+}
+
+.button-toLogin {
+    border-radius: 5px;
+    border: 0;
+    font-family: "Roboto", sans-serif;
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0);
+    transition: 0.5s;
+    letter-spacing: 2px;
+}
+
+.button-toLogin:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0);
+    text-decoration: underline rgb(255, 255, 255);
+}
+
+/*############LOGIN#############*/
+
+.button-login {
+    font-weight: 600;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px; 
+    border-color: rgba(255, 255, 255, 0);
+    background-color: #2b31d9bb; 
+    box-shadow: 0 3px rgba(58,87,175,.75);
+    transition: all 0.1s linear 0s; 
+}
+
+.button-login:hover {
+    top: 3px;
+    background-color:#2b31d9bb;
+    box-shadow: none;
+}
+
+.testbox-login {
+    border-radius: 8px/7px; 
+    background-color: #ffffff; 
+    box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+    border: solid 1px #cbc9c9;
+    font-family: "Roboto", sans-serif;
+    letter-spacing: 2px;
+}
+
+.button-toregister {
+    border-radius: 5px;
+    border: 0;
+    font-family: "Roboto", sans-serif;
+    color: rgb(63,72,204);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0);
+    transition: 0.5s;
+    letter-spacing: 2px;
+}
+
+.button-toregister:hover {
+    color: rgb(63,72,204);
+    background-color: rgba(255, 255, 255, 0);
+    text-decoration: underline rgb(63,72,204);
+}
+  
+hr{
+    color: rgb(63,72,204);
+    opacity: 0.3;
+}
