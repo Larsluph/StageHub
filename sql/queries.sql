@@ -48,10 +48,10 @@ WHERE
     `candidatures`.`evaluation` = $evaluation;
 
 -- SFx3 - Créer une entreprise
-INSERT INTO `entreprises` (nom_entreprise, hidden) VALUES ('$nom_entreprise', '$hidden');
-INSERT INTO `secteurs_activite` (nom_secteur_activite) VALUES ('$nom_secteur_activite');
+INSERT INTO `entreprises` (`nom_entreprise`, `hidden`) VALUES ('$nom_entreprise', '$hidden');
+INSERT INTO `secteurs_activite` (`nom_secteur_activite`) VALUES ('$nom_secteur_activite');
 INSERT INTO `entreprise_secteur` (`id_entreprise`, `id_secteur_activite`) VALUES ('$id_entreprise', '$id_secteur_activite');
-INSERT INTO `localites` (nom_localite) VALUES ('$nom_localite');
+INSERT INTO `localites` (`nom_localite`) VALUES ('$nom_localite');
 INSERT INTO `entreprise_loc` (`id_entreprise`, `id_localite`) VALUES ('$id_entreprise', '$id_localite');
 
 -- SFx4 - Modifier une entreprise
