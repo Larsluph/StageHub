@@ -38,14 +38,13 @@ WHERE
 GROUP BY
     `entreprises`.`id_entreprise`;
 
-
 --Rechercher une entreprise avec le critère "evaluation"
 SELECT 
     `candidatures`.`evaluation`, `entreprises`.`nom_entreprise` 
 FROM 
     `candidatures` LEFT JOIN `offres_stage` USING (`id_offre`) LEFT JOIN `entreprises` USING (`id_entreprise`) 
 WHERE 
-    `candidatures`.`evaluation` = $evaluation;
+    `candidatures`.`evaluation` = `$evaluation`;
 
 -- SFx3 - Créer une entreprise
 INSERT INTO `entreprises` (`nom_entreprise`, `hidden`) VALUES ('$nom_entreprise', '$hidden');
@@ -55,10 +54,12 @@ INSERT INTO `localites` (`nom_localite`) VALUES ('$nom_localite');
 INSERT INTO `entreprise_loc` (`id_entreprise`, `id_localite`) VALUES ('$id_entreprise', '$id_localite');
 
 -- SFx4 - Modifier une entreprise
-UPDATE `entreprises` 
+UPDATE `entreprises` SET nom_entreprise = '$nom_entreprise', hidden = '$hidden' WHERE id_entreprise = $id_entreprise;
+UPDATE `secteurs_activite` SET nom_secteur_activite = '$nom_secteur_activite' WHERE id_secteur_activite = $id_secteur_activite;
+UPDATE `localites` SET nom_localite = `$nom_localite` WHERE id_localite = $id_localite;
 
 -- SFx5 - Evaluer une entreprise
-
+UPDATE `candidature` SET evaluation = '$evaluation' WHERE id_offre = $id_offre; 
 
 -- SFx6 - Rendre invisible pour les étudiants
 
