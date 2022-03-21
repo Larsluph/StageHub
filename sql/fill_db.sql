@@ -264,3 +264,11 @@ INSERT INTO `user_permission` (`id_user`, `id_permission`, `is_enabled`) VALUES
 ('1', '32', '1'),
 ('1', '33', '1'),
 ('1', '34', '1');
+
+INSERT INTO `candidatures`(`id_offre`, `id_user`, `is_in_wishlist`, `statut_reponse`, `evaluation`, `cv`, `lettre_motivation`, `fiche_validation`, `convention_stage`) VALUES 
+('2','1','1','-1','5',NULL,NULL,NULL,NULL),
+('1','2','1','5','2',NULL,NULL,NULL,NULL),
+('3','2','0','0','4',NULL,NULL,NULL,NULL),
+('1','3','1','-1','3',NULL,NULL,NULL,NULL),
+('2','3','1','3','5',NULL,NULL,NULL,NULL),
+('3','3','0','0','1',NULL,NULL,NULL,NULL);

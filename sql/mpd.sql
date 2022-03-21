@@ -226,11 +226,11 @@ CREATE TABLE candidatures(
         id_user           Int NOT NULL ,
         is_in_wishlist    Bool ,
         statut_reponse    Int NOT NULL ,
-        evaluation        Float NOT NULL ,
-        cv                Blob NOT NULL ,
-        lettre_motivation Blob NOT NULL ,
-        fiche_validation  Blob NOT NULL ,
-        convention_stage  Blob NOT NULL
+        evaluation        Float NULL ,
+        cv                Blob NULL ,
+        lettre_motivation Blob NULL ,
+        fiche_validation  Blob NULL ,
+        convention_stage  Blob NULL
 	,CONSTRAINT candidatures_PK PRIMARY KEY (id_offre,id_user)
 
 	,CONSTRAINT candidatures_offres_stage_FK FOREIGN KEY (id_offre) REFERENCES offres_stage(id_offre)
