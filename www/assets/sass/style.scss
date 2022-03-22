@@ -136,6 +136,7 @@ p {
     border-radius: 5px;
     border-color: rgba(255, 255, 255, 0);
     outline:0;
+    border-style: none;
 }
 
 .form-location {
@@ -145,6 +146,7 @@ p {
     border-radius: 5px;
     border-color: #cbc9c900;
     outline: 0;
+    border-style: none;
 }
 
 .button-search {
@@ -267,20 +269,21 @@ input[type="password_2"] {
 }
 
 .button-register {
-    font-weight: 600;
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 5px;
-    border-color: rgba(255, 255, 255, 0);
+    transition: all 0.35s;
+    color: rgb(255, 255, 255);
     background-color: #2b31d9bb;
-    box-shadow: 0 3px rgba(58, 87, 175, 0.75);
-    transition: all 0.1s linear 0s;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    border-radius: 5px;
+    border-color: #2b31d900;
+    border-style: solid;
+    letter-spacing: 2px;
 }
 
 .button-register:hover {
-    top: 3px;
-    background-color: #2b31d9bb;
-    box-shadow: none;
+    color: #2b31d9bb;
+    border-color: #2b31d9bb;
+    background-color: #641cff00;
 }
 
 .button-toLogin {
@@ -303,20 +306,21 @@ input[type="password_2"] {
 /*############LOGIN#############*/
 
 .button-login {
-    font-weight: 600;
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 5px;
-    border-color: rgba(255, 255, 255, 0);
+    transition: all 0.35s;
+    color: rgb(255, 255, 255);
     background-color: #2b31d9bb;
-    box-shadow: 0 3px rgba(58, 87, 175, 0.75);
-    transition: all 0.1s linear 0s;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    border-radius: 5px;
+    border-color: #2b31d900;
+    border-style: solid;
+    letter-spacing: 2px;
 }
 
 .button-login:hover {
-    top: 3px;
-    background-color: #2b31d9bb;
-    box-shadow: none;
+    color: #2b31d9bb;
+    border-color: #2b31d9bb;
+    background-color: #641cff00;
 }
 
 .testbox-login {
