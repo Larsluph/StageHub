@@ -1,47 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
   <meta charset="utf-8">
   <title>StageHub</title>
-  <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+  <link rel="stylesheet" href="../assets/css/style.css" type="text/css">
 </head>
 
 <body>
   <div class="background--custom">
-    <canvas id="canvas">
+    <canvas id="canvas"></canvas>
   </div>
-  <script src="assets/js/background.js"></script>
+  <script src="../assets/js/background.js"></script>
   <script>
     var gradient = new Gradient();
     gradient.initGradient("#canvas");
   </script>
-  </head>
 
-  <body>
-    <img class="col-2 mx-auto mt-3 mb-3 d-block" onclick="document.location='Principal_page.html'" id="logo-header"
-      src="assets/img/StageHub logo fort bleu.png" href="Principal_page.html">
+    <img alt="StageHub logo" class="col-2 mx-auto mt-3 mb-3 d-block" onclick="document.location='Principal_page.html'" id="logo-header"
+         src="../assets/img/StageHub%20logo%20fort%20bleu.png" href="Principal_page.html">
     <div class="col-3 mx-auto d-block">
       <div class="testbox-register text-center">
         <h1 class="mt-3">Registration</h1>
-        <form method="post" action="index.html" class="mx-auto d-block">
+        <form method="post" action="register.php" class="mx-auto d-block">
           <hr class="mx-5 mb-4">
           <div class="accounttype">
             <input type="radio" value="Personal" id="radioOne" name="account" checked />
-            <label for="radioOne" class="radio" chec>Personal</label>
+            <label for="radioOne" class="radio">Personal</label>
             <input type="radio" value="Company" id="radioTwo" name="account" />
             <label for="radioTwo" class="radio">Company</label>
           </div>
           <div>
-            <input class="text_case mb-2" type="textRegister" name="Email" id="name" placeholder="Email" required />
-            <input class="text_case mb-2" type="textRegister" name="name" id="name" placeholder="Name" required />
-            <input class="text_case mb-2" type="password" name="password" id="name" placeholder="Password" required />
-            <input class="text_case mb-4" type="password" name="password-comfirm" id="name" placeholder="Comfirm password"
-              required />
+            <input class="text_case mb-2" type="text" name="Email" id="email" placeholder="Email" required>
+            <input class="text_case mb-2" type="text" name="Name" id="name" placeholder="Name" required>
+            <input class="text_case mb-2" type="password" name="Password" id="password" placeholder="Password" required>
+            <input class="text_case mb-4" type="password" name="PasswordConfirm" id="password_confirm" placeholder="Confirm password" required>
           </div>
           <div class="gender">
             <input type="radio" value="Male" id="male" name="gender" checked />
-            <label for="male" class=" radio" chec>Male</label>
+            <label for="male" class="radio">Male</label>
             <input type="radio" value="Female" id="female" name="gender" />
             <label for="female" class="radio">Female</label>
           </div>

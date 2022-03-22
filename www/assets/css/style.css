@@ -12333,9 +12333,10 @@ h3, .h3 {
   font-family: "Roboto", sans-serif;
 }
 
-.back_arrow {
+#back_arrow {
   overflow: hidden;
   position: absolute;
+  height: 40px;
 }
 
 .Term-of-use-link {
@@ -12345,4 +12346,3 @@ h3, .h3 {
   z-index: 9999;
   color: #fff;
 }
-/*# sourceMappingURL=style.css.map */
