@@ -224,7 +224,7 @@ CREATE TABLE user_centre(
 CREATE TABLE candidatures(
         id_offre          Int NOT NULL ,
         id_user           Int NOT NULL ,
-        is_in_wishlist    Bool ,
+        is_in_wishlist    Bool NOT NULL,
         statut_reponse    Int NOT NULL ,
         evaluation        Float NULL ,
         cv                Blob NULL ,
