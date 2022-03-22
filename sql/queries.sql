@@ -195,3 +195,6 @@ SET
     nom_competence = '$nom_competence' 
 WHERE 
     id_competence = $id_competence;
+
+-- SFx11 - Supprimer une offre
+DELETE FROM `offres_stage` WHERE `id_offre` = `$id_offre`;
