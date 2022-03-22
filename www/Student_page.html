@@ -1,33 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>StageHub</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-  </head>
-  <body>
-    <div id="header">
-      <img id="logo" src ="assets/img/StageHub logo fort bleu.png">
-      <button class="profile" type="button">
-        PROFILE
-      </button>
+
+<head>
+  <meta charset="utf-8">
+  <title>StageHub</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <div class="background--custom">
+    <canvas id="canvas">
+  </div>
+  <script src="assets/js/background.js"></script>
+  <script>
+    var gradient = new Gradient();
+    gradient.initGradient("#canvas");
+  </script>
+  <div id="header">
+    <img class="col-2 mx-5 mt-2 mb-3" id="logo" src="assets/img/logo_white_alpha.png">
+    <button class="profile float-end mx-lg-5 mt-5 fs-5" type="button">
+      PROFILE
+    </button>
+  </div>
+  <div id="contenu">
+    <div class="search">
+      <div class="separator"></div>
+      <form class="form text-center col-8 mx-auto mt-0">
+        <input class="text_case col-5 pt-1 pb-1 fs-6" type="text" class="form-search" placeholder="Type of internship...">
+        <input class="text_case col-4 pt-1 pb-1 fs-6" type="text" class="form-location" placeholder="Location...">
+        <button type="submit" class="button-search pt-1">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Search
+        </button>
+      </form>
     </div>
-    <div id="contenu">
-      <div class="search">
-          <div class="separator"></div>
-          <form class="form">
-            <input type="text" class="form-search" placeholder="Type of internship...">
-            <input type="text" class="form-location" placeholder="Location...">
-            <button type="submit" class="button-search">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              SEARCH
-            </button>
-          </form>
-        </div>
-      </div>
-      <div class="separator2"></div>
-  </body>
+  </div>
+  <div class="separator2"></div>
+</body>
+
 </html>
