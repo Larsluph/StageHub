@@ -12053,6 +12053,7 @@ html, body, p {
 
 #logo {
   border-radius: 20px;
+  position: relative;
 }
 
 .profile {
@@ -12316,5 +12317,18 @@ h3, .h3 {
 .condition_utilisation {
   color: #7435FC;
   font-family: "Roboto", sans-serif;
+}
+
+.back_arrow {
+  overflow: hidden;
+  position: absolute;
+}
+
+.Term-of-use-link {
+  position: fixed;
+  bottom: 1%;
+  right: 1%;
+  z-index: 9999;
+  color: #fff;
 }
 /*# sourceMappingURL=style.css.map */
