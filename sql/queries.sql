@@ -129,3 +129,9 @@ WHERE
     `offres_stage`.`nbr_places_offre` like '%$nbr_places_offre%';
 
 -- SFx9 - Créer une offre
+INSERT INTO 
+    `offres_stage` (`nom_poste_offre`, `duree_stage`,`base_remuneration`,`date_stage`,`nbr_places_offre`) 
+VALUES 
+    (`$nom_poste_offre`, `$duree_stage`,`$base_remuneration`,`$date_stage`,`$nbr_places_offre`);
+INSERT INTO `competences` (`nom_competence`) VALUES (`$nom_competence`);
+INSERT INTO `offre_competence` (`id_competence`, `id_offre`) VALUES (`$id_competence`, `$id_offre`);
