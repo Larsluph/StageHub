@@ -1,10 +1,13 @@
 $primary: #7132FA;
+$cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='128' height='80' viewport='0 0 0 0' style='fill:black;font-size:300px;'><text y='216%' x='-70%'>💩</text></svg>") 16 0,auto;
 
 @import "../vendors/bootstrap/scss/bootstrap";
 
 a {
     text-decoration: none;
 }
+
+
 
 .background--custom {
     background-color: #7434FD;
@@ -44,31 +47,36 @@ h2 {
 
 .button-principal-toregister {
     font-weight: 600;
-    color: #2b31d9bb;
+    color: rgb(63,72,204);
+    text-decoration: none;
     border-radius: 5px; 
     border-color: rgba(255, 255, 255, 0);
     background-color: #ffffff; 
     box-shadow: 0 3px rgba(58,87,175,.75);
-    transition: all 0.1s linear 0s; 
+    transition: all 0.1s linear 0s;  
 }
   
 .button-principal-toregister:hover {
-    background-color:#ffffff;
+    background-color:#ffffffbb;
+    top: 3px;
+    box-shadow: none;
 }
 
 .button-principal-tologin {
     font-weight: 600;
-    color: #2b31d9bb;
-    text-decoration: none; 
-    border-radius: 5px;
+    color: rgb(63,72,204);
+    text-decoration: none;
+    border-radius: 5px; 
     border-color: rgba(255, 255, 255, 0);
     background-color: #ffffff; 
     box-shadow: 0 3px rgba(58,87,175,.75);
-    transition: all 0.1s linear 0s; 
+    transition: all 0.1s linear 0s;  
 }
   
 .button-principal-tologin:hover {
-    background-color:#ffffff;
+    background-color:#ffffffbb;
+    top: 3px;
+    box-shadow: none;
 }
 
 /*#########search stage#########*/

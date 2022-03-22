@@ -12000,7 +12000,8 @@ h2, .h2 {
 
 .button-principal-toregister {
   font-weight: 600;
-  color: #2b31d9bb;
+  color: #3f48cc;
+  text-decoration: none;
   border-radius: 5px;
   border-color: rgba(255, 255, 255, 0);
   background-color: #ffffff;
@@ -12011,12 +12012,15 @@ h2, .h2 {
 }
 
 .button-principal-toregister:hover {
-  background-color: #ffffff;
+  background-color: #ffffffbb;
+  top: 3px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .button-principal-tologin {
   font-weight: 600;
-  color: #2b31d9bb;
+  color: #3f48cc;
   text-decoration: none;
   border-radius: 5px;
   border-color: rgba(255, 255, 255, 0);
@@ -12028,7 +12032,10 @@ h2, .h2 {
 }
 
 .button-principal-tologin:hover {
-  background-color: #ffffff;
+  background-color: #ffffffbb;
+  top: 3px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 /*#########search stage#########*/

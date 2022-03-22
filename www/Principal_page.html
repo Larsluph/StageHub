@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
   </head>
   <body>
-      <h2 class="text-center mt-5">Welcome on</h2>
+      <h2 class="text-center mt-xl-5">Welcome on</h2>
     <div class="background--custom">
       <canvas id="canvas">
     </div>
@@ -15,11 +15,13 @@
     gradient.initGradient("#canvas");
     </script>
     <img class="col-4 mx-auto mt-2 mb-3 d-block" id="logo-centre" src ="assets/img/StageHub logo fort bleu.png">
-    <button onclick="document.location='Login_page.html'" class="button-principal-tologin" type="button" href="/www/Login_page.html">
+    <div class="text-center mt-5">
+      <button class="button-principal-tologin col-1 mx-1 h-50" onclick="document.location='Login_page.html'" type="button" href="/www/Login_page.html">
         Login
-    </button>
-    <button onclick="document.location='Register_page.html'" class="button-principal-toregister" type="button">
+      </button>
+      <button class="button-principal-toregister col-1 h-50" onclick="document.location='Register_page.html'" type="button">
         Register
-    </button>
+      </button>
+    </div>
   </body>
 </html>
