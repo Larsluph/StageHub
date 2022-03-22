@@ -1,5 +1,4 @@
 $primary: #7132FA;
-$cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='128' height='80' viewport='0 0 0 0' style='fill:black;font-size:300px;'><text y='216%' x='-70%'>💩</text></svg>") 16 0,auto;
 
 @import "../vendors/bootstrap/scss/bootstrap";
 
@@ -11,6 +10,9 @@ a {
 
 .background--custom {
     background-color: #7434FD;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     width: 100vw;
     height: 100vh;
     position: absolute;
@@ -309,7 +311,6 @@ input[type=textRegister],input[type=textlogin],input[type=password],input[type=p
 }
 
 .button-toregister {
-    border-radius: 5px;
     border: 0;
     font-family: "Roboto", sans-serif;
     color: rgb(63,72,204);
@@ -328,4 +329,23 @@ input[type=textRegister],input[type=textlogin],input[type=password],input[type=p
 hr{
     color: rgb(63,72,204);
     opacity: 0.3;
+}
+
+/*######Condition page#######*/
+
+.container {
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+h3 {
+    color:#7435FC;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.condition_utilisation {
+    color: #7435FC;
+    font-family: "Roboto", sans-serif;
 }
