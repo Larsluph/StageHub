@@ -12097,9 +12097,9 @@ p {
   font-family: "Roboto", sans-serif;
   background-color: #fff;
   border-radius: 5px;
-  border-color: rgba(255, 255, 255, 0);
+  border-color: #fff;
+  border: 2px;
   outline: 0;
-  border-style: none;
 }
 
 .form-location {
@@ -12107,26 +12107,28 @@ p {
   font-family: "Roboto", sans-serif;
   background-color: #fff;
   border-radius: 5px;
-  border-color: #cbc9c900;
+  border-color: #fff;
+  border: 2px;
   outline: 0;
-  border-style: none;
 }
 
 .button-search {
   -webkit-transition: all 0.35s;
   transition: all 0.35s;
   color: #3f48cc;
-  background-color: #ffffff;
+  background-color: #fff;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
   border-radius: 5px;
-  border-color: #ffffff;
+  border: 2px;
+  border-color: #ffffff00;
   border-style: solid;
   letter-spacing: 2px;
 }
 
 .button-search:hover {
   color: #fff;
+  border-color: #fff;
   background-color: #641cff00;
 }
 
