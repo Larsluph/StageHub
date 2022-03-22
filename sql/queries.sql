@@ -104,6 +104,7 @@ UPDATE `candidature` SET evaluation = '$evaluation' WHERE id_offre = $id_offre;
 
 -- SFx7 - Consulter les statistiques de l'entreprise
 
+
 -- Gestion des offres de stage
 -- SFx8 - Rechercher une offre
 -- Rechercher une offre avec le critère "nom_competence"
@@ -198,3 +199,10 @@ WHERE
 
 -- SFx11 - Supprimer une offre
 DELETE FROM `offres_stage` WHERE `id_offre` = `$id_offre`;
+
+-- SFx12 - Consulter les statistiques des offres
+
+
+-- Gestion des pilotes de promotions
+-- SFx13 - Rechercher un compte pilote
+-- Rechercher un pilote avec le critère "nom_user"
