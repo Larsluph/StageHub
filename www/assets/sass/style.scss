@@ -1,4 +1,4 @@
-$primary: #7132FA;
+$primary: #7132fa;
 
 @import "../vendors/bootstrap/scss/bootstrap";
 
@@ -6,10 +6,8 @@ a {
     text-decoration: none;
 }
 
-
-
 .background--custom {
-    background-color: #7434FD;
+    background-color: #7434fd;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -20,19 +18,19 @@ a {
     z-index: -2;
     top: 0;
     left: 0;
-  }
-  canvas#canvas {
+}
+canvas#canvas {
     z-index: -1;
     position: absolute;
     width: 100%;
     height: 60%;
     transform: rotate(8deg) scale(2) translateY(0%);
-    --gradient-color-1: #905CFF; 
-    --gradient-color-2: #7435FC; 
-    --gradient-color-3: #641CFF;  
-    --gradient-color-4: #7132FA;
+    --gradient-color-1: #905cff;
+    --gradient-color-2: #7435fc;
+    --gradient-color-3: #641cff;
+    --gradient-color-4: #7132fa;
     --gradient-speed: 0.000002;
-  }
+}
 
 /*############Principal page#######*/
 
@@ -49,41 +47,43 @@ h2 {
 
 .button-principal-toregister {
     font-weight: 600;
-    color: rgb(63,72,204);
+    color: rgb(63, 72, 204);
     text-decoration: none;
-    border-radius: 5px; 
+    border-radius: 5px;
     border-color: rgba(255, 255, 255, 0);
-    background-color: #ffffff; 
-    box-shadow: 0 3px rgba(58,87,175,.75);
-    transition: all 0.1s linear 0s;  
+    background-color: #ffffff;
+    box-shadow: 0 3px rgba(58, 87, 175, 0.75);
+    transition: all 0.1s linear 0s;
 }
-  
+
 .button-principal-toregister:hover {
-    background-color:#ffffffbb;
+    background-color: #ffffffbb;
     top: 3px;
     box-shadow: none;
 }
 
 .button-principal-tologin {
     font-weight: 600;
-    color: rgb(63,72,204);
+    color: rgb(63, 72, 204);
     text-decoration: none;
-    border-radius: 5px; 
+    border-radius: 5px;
     border-color: rgba(255, 255, 255, 0);
-    background-color: #ffffff; 
-    box-shadow: 0 3px rgba(58,87,175,.75);
-    transition: all 0.1s linear 0s;  
+    background-color: #ffffff;
+    box-shadow: 0 3px rgba(58, 87, 175, 0.75);
+    transition: all 0.1s linear 0s;
 }
-  
+
 .button-principal-tologin:hover {
-    background-color:#ffffffbb;
+    background-color: #ffffffbb;
     top: 3px;
     box-shadow: none;
 }
 
 /*#########search stage#########*/
 
-html, body, p { 
+html,
+body,
+p {
     background-color: #641cff00;
 }
 
@@ -115,22 +115,22 @@ html, body, p {
 
 .separator {
     border-radius: 80%;
-    background:radial-gradient(rgb(196, 196, 196),rgb(255, 255, 255));
+    background: radial-gradient(rgb(196, 196, 196), rgb(255, 255, 255));
     border-color: rgba(0, 0, 0, 0);
 }
 
 .separator2 {
     border-radius: 80%;
-    background:radial-gradient(rgb(196, 196, 196),rgb(255, 255, 255));
+    background: radial-gradient(rgb(196, 196, 196), rgb(255, 255, 255));
     border-color: rgba(0, 0, 0, 0);
 }
 
 .form {
-    color: rgb(63,72,204);
+    color: rgb(63, 72, 204);
 }
 
 .form-search {
-    color: rgb(63,72,204);
+    color: rgb(63, 72, 204);
     font-family: "Roboto", sans-serif;
     background-color: #fff;
     border-radius: 5px;
@@ -138,17 +138,17 @@ html, body, p {
 }
 
 .form-location {
-    color: rgb(63,72,204);
+    color: rgb(63, 72, 204);
     font-family: "Roboto", sans-serif;
     background-color: #fff;
     border-radius: 5px;
     border-color: #cbc9c900;
 }
 
-.button-search{
+.button-search {
     color: #2b31d9bb;
     background-color: #ffffff;
-    font-family:"Roboto", sans-serif;
+    font-family: "Roboto", sans-serif;
     transition: 0.5s;
     overflow: hidden;
     border-color: rgba(240, 248, 255, 0);
@@ -156,9 +156,8 @@ html, body, p {
     letter-spacing: 2px;
 }
 .button-search:hover {
-    background-color:#ffffff;
+    background-color: #ffffff;
     box-shadow: none;
-    
 }
 
 /*#########Register#########*/
@@ -175,21 +174,21 @@ h1 {
     font-family: "Roboto", sans-serif;
     letter-spacing: 2px;
 }
-  
+
 html {
     background-color: #2b31d9bb;
 }
-  
+
 .testbox-register {
-    border-radius: 8px/7px; 
-    background-color: #ffffff;  
-    box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+    border-radius: 8px/7px;
+    background-color: #ffffff;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.31);
     border: solid 1px #cbc9c9;
     font-family: "Roboto", sans-serif;
     letter-spacing: 2px;
 }
-  
-input[type=radio] {
+
+input[type="radio"] {
     visibility: hidden;
 }
 
@@ -202,21 +201,21 @@ label.radio {
     margin-bottom: 15px;
     color: #2b31d9bb;
 }
-  
+
 label.radio:before {
     background: #2b31d9bb;
-    content:'';
+    content: "";
     position: absolute;
-    top:2px;
+    top: 2px;
     left: 0;
     width: 20px;
     height: 20px;
     border-radius: 100%;
 }
-  
+
 label.radio:after {
     opacity: 0;
-    content: '';
+    content: "";
     position: absolute;
     width: 0.75em;
     height: 0.5em;
@@ -226,43 +225,46 @@ label.radio:after {
     border: 3px solid #ffffffbb;
     border-top: none;
     border-right: none;
-  
+
     -webkit-transform: rotate(-45deg);
     -moz-transform: rotate(-45deg);
     -o-transform: rotate(-45deg);
     -ms-transform: rotate(-45deg);
     transform: rotate(-45deg);
 }
-  
-input[type=radio]:checked + label:after {
-      opacity: 1;
+
+input[type="radio"]:checked + label:after {
+    opacity: 1;
 }
-  
-hr{
-    color: rgb(63,72,204);
+
+hr {
+    color: rgb(63, 72, 204);
     opacity: 0.3;
 }
-  
-input[type=textRegister],input[type=textlogin],input[type=password],input[type=password]{
-    border-radius: 4px; 
-    background-color: #fff; 
+
+input[type="textRegister"],
+input[type="textlogin"],
+input[type="password"],
+input[type="password"] {
+    border-radius: 4px;
+    background-color: #fff;
     border: solid 1px #cbc9c9;
 }
-  
+
 .button-register {
     font-weight: 600;
     color: #ffffff;
     text-decoration: none;
-    border-radius: 5px; 
+    border-radius: 5px;
     border-color: rgba(255, 255, 255, 0);
-    background-color: #2b31d9bb; 
-    box-shadow: 0 3px rgba(58,87,175,.75);
-    transition: all 0.1s linear 0s;  
+    background-color: #2b31d9bb;
+    box-shadow: 0 3px rgba(58, 87, 175, 0.75);
+    transition: all 0.1s linear 0s;
 }
-  
+
 .button-register:hover {
     top: 3px;
-    background-color:#2b31d9bb;
+    background-color: #2b31d9bb;
     box-shadow: none;
 }
 
@@ -270,7 +272,7 @@ input[type=textRegister],input[type=textlogin],input[type=password],input[type=p
     border-radius: 5px;
     border: 0;
     font-family: "Roboto", sans-serif;
-    color: rgb(63,72,204);
+    color: rgb(63, 72, 204);
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0);
     transition: 0.5s;
@@ -278,9 +280,9 @@ input[type=textRegister],input[type=textlogin],input[type=password],input[type=p
 }
 
 .button-toLogin:hover {
-    color: rgb(63,72,204);
+    color: rgb(63, 72, 204);
     background-color: rgba(255, 255, 255, 0);
-    text-decoration: underline rgb(63,72,204);
+    text-decoration: underline rgb(63, 72, 204);
 }
 
 /*############LOGIN#############*/
@@ -289,23 +291,23 @@ input[type=textRegister],input[type=textlogin],input[type=password],input[type=p
     font-weight: 600;
     color: #ffffff;
     text-decoration: none;
-    border-radius: 5px; 
+    border-radius: 5px;
     border-color: rgba(255, 255, 255, 0);
-    background-color: #2b31d9bb; 
-    box-shadow: 0 3px rgba(58,87,175,.75);
-    transition: all 0.1s linear 0s; 
+    background-color: #2b31d9bb;
+    box-shadow: 0 3px rgba(58, 87, 175, 0.75);
+    transition: all 0.1s linear 0s;
 }
 
 .button-login:hover {
     top: 3px;
-    background-color:#2b31d9bb;
+    background-color: #2b31d9bb;
     box-shadow: none;
 }
 
 .testbox-login {
-    border-radius: 8px/7px; 
-    background-color: #ffffff; 
-    box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+    border-radius: 8px/7px;
+    background-color: #ffffff;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.31);
     border: solid 1px #cbc9c9;
     font-family: "Roboto", sans-serif;
     letter-spacing: 2px;
@@ -314,7 +316,7 @@ input[type=textRegister],input[type=textlogin],input[type=password],input[type=p
 .button-toregister {
     border: 0;
     font-family: "Roboto", sans-serif;
-    color: rgb(63,72,204);
+    color: rgb(63, 72, 204);
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0);
     transition: 0.5s;
@@ -322,13 +324,13 @@ input[type=textRegister],input[type=textlogin],input[type=password],input[type=p
 }
 
 .button-toregister:hover {
-    color: rgb(63,72,204);
+    color: rgb(63, 72, 204);
     background-color: rgba(255, 255, 255, 0);
-    text-decoration: underline rgb(63,72,204);
+    text-decoration: underline rgb(63, 72, 204);
 }
-  
-hr{
-    color: rgb(63,72,204);
+
+hr {
+    color: rgb(63, 72, 204);
     opacity: 0.3;
 }
 
@@ -340,14 +342,14 @@ hr{
 }
 
 h3 {
-    color:#7435FC;
+    color: #7435fc;
     font-family: "Roboto", sans-serif;
     font-weight: 300;
     letter-spacing: 2px;
 }
 
 .condition_utilisation {
-    color: #7435FC;
+    color: #7435fc;
     font-family: "Roboto", sans-serif;
 }
 
@@ -357,9 +359,9 @@ h3 {
 }
 
 .Term-of-use-link {
-    position:fixed;
-  bottom:1%;
-  right:1%;
-  z-index:9999;
-  color: #fff;
+    position: fixed;
+    bottom: 1%;
+    right: 1%;
+    z-index: 9999;
+    color: #fff;
 }
