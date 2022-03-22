@@ -48,16 +48,53 @@ WHERE
     `candidatures`.`evaluation` = `$evaluation`;
 
 -- SFx3 - Créer une entreprise
-INSERT INTO `entreprises` (`nom_entreprise`, `hidden`) VALUES ('$nom_entreprise', '$hidden');
-INSERT INTO `secteurs_activite` (`nom_secteur_activite`) VALUES ('$nom_secteur_activite');
-INSERT INTO `entreprise_secteur` (`id_entreprise`, `id_secteur_activite`) VALUES ('$id_entreprise', '$id_secteur_activite');
-INSERT INTO `localites` (`nom_localite`) VALUES ('$nom_localite');
-INSERT INTO `entreprise_loc` (`id_entreprise`, `id_localite`) VALUES ('$id_entreprise', '$id_localite');
+INSERT INTO 
+    `entreprises` (`nom_entreprise`, `hidden`) 
+VALUES 
+    ('$nom_entreprise', '$hidden');
+
+INSERT INTO 
+    `secteurs_activite` (`nom_secteur_activite`) 
+VALUES 
+    ('$nom_secteur_activite');
+
+INSERT INTO 
+    `entreprise_secteur` (`id_entreprise`, `id_secteur_activite`) 
+VALUES 
+    ('$id_entreprise', '$id_secteur_activite');
+
+INSERT INTO 
+    `localites` (`nom_localite`) 
+VALUES 
+    ('$nom_localite');
+
+INSERT INTO 
+    `entreprise_loc` (`id_entreprise`, `id_localite`) 
+VALUES 
+    ('$id_entreprise', '$id_localite');
 
 -- SFx4 - Modifier une entreprise
-UPDATE `entreprises` SET nom_entreprise = '$nom_entreprise', hidden = '$hidden' WHERE id_entreprise = $id_entreprise;
-UPDATE `secteurs_activite` SET nom_secteur_activite = '$nom_secteur_activite' WHERE id_secteur_activite = $id_secteur_activite;
-UPDATE `localites` SET nom_localite = `$nom_localite` WHERE id_localite = $id_localite;
+UPDATE 
+    `entreprises` 
+SET 
+    nom_entreprise = '$nom_entreprise', hidden = '$hidden' 
+WHERE 
+    id_entreprise = $id_entreprise;
+
+UPDATE 
+    `secteurs_activite` 
+SET 
+    nom_secteur_activite = '$nom_secteur_activite' 
+WHERE 
+    id_secteur_activite = $id_secteur_activite;
+
+UPDATE 
+    `localites` 
+SET 
+    nom_localite = `$nom_localite` 
+WHERE 
+    
+    id_localite = $id_localite;
 
 -- SFx5 - Evaluer une entreprise
 UPDATE `candidature` SET evaluation = '$evaluation' WHERE id_offre = $id_offre; 
@@ -133,5 +170,28 @@ INSERT INTO
     `offres_stage` (`nom_poste_offre`, `duree_stage`,`base_remuneration`,`date_stage`,`nbr_places_offre`) 
 VALUES 
     (`$nom_poste_offre`, `$duree_stage`,`$base_remuneration`,`$date_stage`,`$nbr_places_offre`);
-INSERT INTO `competences` (`nom_competence`) VALUES (`$nom_competence`);
-INSERT INTO `offre_competence` (`id_competence`, `id_offre`) VALUES (`$id_competence`, `$id_offre`);
+
+INSERT INTO 
+    `competences` (`nom_competence`) 
+VALUES 
+    (`$nom_competence`);
+
+INSERT INTO 
+    `offre_competence` (`id_competence`, `id_offre`) 
+VALUES 
+    (`$id_competence`, `$id_offre`);
+
+-- SFx10 - Modifier une offre
+UPDATE 
+    `offres_stage` 
+SET 
+    nom_poste_offre = '$nom_poste_offre', duree_stage = '$duree_stage', base_remuneration = '$base_remuneration', date_stage = '$date_stage', nbr_places_offre = '$nbr_place_offre'
+WHERE 
+    id_offre = $id_offre;
+
+UPDATE 
+    `competences` 
+SET 
+    nom_competence = '$nom_competence' 
+WHERE 
+    id_competence = $id_competence;
