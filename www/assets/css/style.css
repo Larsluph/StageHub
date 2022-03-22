@@ -12098,6 +12098,7 @@ p {
   background-color: #fff;
   border-radius: 5px;
   border-color: rgba(255, 255, 255, 0);
+  outline: 0;
 }
 
 .form-location {
@@ -12106,24 +12107,25 @@ p {
   background-color: #fff;
   border-radius: 5px;
   border-color: #cbc9c900;
+  outline: 0;
 }
 
 .button-search {
-  color: #2b31d9bb;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+  color: #3f48cc;
   background-color: #ffffff;
   font-family: "Roboto", sans-serif;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  overflow: hidden;
-  border-color: rgba(240, 248, 255, 0);
+  font-weight: 300;
   border-radius: 5px;
+  border-color: #ffffff;
+  border-style: solid;
   letter-spacing: 2px;
 }
 
 .button-search:hover {
-  background-color: #ffffff;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  color: #fff;
+  background-color: #641cff00;
 }
 
 /*#########Register#########*/
@@ -12139,7 +12141,8 @@ p {
   font-family: "Roboto", sans-serif;
   letter-spacing: 2px;
   border-radius: 5px;
-  border: 0;
+  outline: 0;
+  border-color: #641cff;
 }
 
 h1, .h1 {
@@ -12213,10 +12216,10 @@ hr {
   opacity: 0.3;
 }
 
-input[type="textRegister"],
-input[type="textlogin"],
-input[type="password"],
-input[type="password"] {
+input[type="name"],
+input[type="email"],
+input[type="password_1"],
+input[type="password_2"] {
   border-radius: 4px;
   background-color: #fff;
   border: solid 1px #cbc9c9;
@@ -12346,3 +12349,4 @@ h3, .h3 {
   z-index: 9999;
   color: #fff;
 }
+/*# sourceMappingURL=style.css.map */
