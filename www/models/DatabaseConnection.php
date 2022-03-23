@@ -75,12 +75,11 @@ class DatabaseConnection
         if ($param_count > 0) {
             $stmt = $this->conn->prepare($query);
             $stmt->execute($params);
-            $rows = 0;
         } else {
-            $rows = $this->conn->exec($query);
+            $this->conn->exec($query);
         }
 
-        return $rows;
+        return $this->conn->lastInsertId();
     }
 }
 

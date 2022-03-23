@@ -4,6 +4,8 @@ namespace App\Models\Services;
 
 use App\Models\Components\DatabaseConnection;
 use App\Models\Maps\MapEntreprise;
+use App\Models\Maps\MapLocalite;
+use App\Models\Maps\MapSecteurActivite;
 
 class Entreprise
 {
@@ -13,13 +15,23 @@ class Entreprise
         $this->db = new DatabaseConnection(DatabaseConnection::new_connection());
     }
 
-    public function create(MapEntreprise $entreprise): bool
+    public function create(MapEntreprise $entreprise, MapSecteurActivite $secteurActivite, MapLocalite $localite): bool
     {
+        if ($secteurActivite->getId())
+            $secteurActivite->setId($this->db->execute("INSERT INTO `secteurs_activite` (nom_secteur_activite) VALUES (?)", $secteurActivite->getName()));
+
+        if ($localite->getId())
+            $localite->setId($this->db->execute("INSERT INTO `localites` (`nom_localite`) VALUES (?)", $localite->getName()));
+
         $this->db->execute(
-            "INSERT INTO `entreprises` (`nom_entreprise`, `hidden`) VALUES ('?', '?');",
+            "INSERT INTO `entreprises` (`nom_entreprise`, `hidden`) VALUES (?, ?);",
             $entreprise->getName(),
             $entreprise->getHidden()
         );
+
+        $this->db->execute("INSERT INTO `entreprise_secteur` (`id_entreprise`, `id_secteur_activite`) VALUES (?, ?)", $entreprise->getId(), $secteurActivite->getId());
+        $this->db->execute("INSERT INTO `entreprise_loc` (`id_entreprise`, `id_localite`) VALUES (?, ?)", $entreprise->getId(), $localite->getId());
+
         return true;
     }
 

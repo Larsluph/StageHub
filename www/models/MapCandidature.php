@@ -17,9 +17,9 @@ class MapCandidature
     /**
      * @return int
      */
-    public function getIdOffre(): int
+    public function getIdOffre(): ?int
     {
-        return $this->idOffre;
+        return $this->idOffre ?? null;
     }
 
     /**
@@ -33,9 +33,9 @@ class MapCandidature
     /**
      * @return int
      */
-    public function getIdUser(): int
+    public function getIdUser(): ?int
     {
-        return $this->idUser;
+        return $this->idUser ?? null;
     }
 
     /**
@@ -49,9 +49,9 @@ class MapCandidature
     /**
      * @return bool
      */
-    public function isInWishlist(): bool
+    public function isInWishlist(): ?bool
     {
-        return $this->isInWishlist;
+        return $this->isInWishlist ?? null;
     }
 
     /**
@@ -65,9 +65,9 @@ class MapCandidature
     /**
      * @return int
      */
-    public function getStatutReponse(): int
+    public function getStatutReponse(): ?int
     {
-        return $this->statutReponse;
+        return $this->statutReponse ?? null;
     }
 
     /**
@@ -81,9 +81,9 @@ class MapCandidature
     /**
      * @return float
      */
-    public function getEvaluation(): float
+    public function getEvaluation(): ?float
     {
-        return $this->evaluation;
+        return $this->evaluation ?? null;
     }
 
     /**
@@ -97,9 +97,9 @@ class MapCandidature
     /**
      * @return string
      */
-    public function getCv(): string
+    public function getCv(): ?string
     {
-        return $this->cv;
+        return $this->cv ?? null;
     }
 
     /**
@@ -113,9 +113,9 @@ class MapCandidature
     /**
      * @return string
      */
-    public function getLettreMotivation(): string
+    public function getLettreMotivation(): ?string
     {
-        return $this->lettreMotivation;
+        return $this->lettreMotivation ?? null;
     }
 
     /**
@@ -129,9 +129,9 @@ class MapCandidature
     /**
      * @return string
      */
-    public function getFicheValidation(): string
+    public function getFicheValidation(): ?string
     {
-        return $this->ficheValidation;
+        return $this->ficheValidation ?? null;
     }
 
     /**
@@ -145,9 +145,9 @@ class MapCandidature
     /**
      * @return string
      */
-    public function getConventionStage(): string
+    public function getConventionStage(): ?string
     {
-        return $this->conventionStage;
+        return $this->conventionStage ?? null;
     }
 
     /**

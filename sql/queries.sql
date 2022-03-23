@@ -9,7 +9,7 @@ AND
 -- Gestion des entreprises
 -- SFx2 - Rechercher une entreprise
 -- Rechercher une entreprise avec le critère "nom_entreprise"
-SELECT nom_entreprise FROM entreprises WHERE NOT hidden AND nom_entreprise like '%$nom_entreprise%' 
+SELECT nom_entreprise FROM entreprises WHERE NOT hidden AND nom_entreprise like '%$nom_entreprise%';
 
 -- Rechercher une entreprise avec le critère "secteurs_activite"
 SELECT
@@ -39,7 +39,7 @@ WHERE
 GROUP BY
     `entreprises`.`id_entreprise`;
 
---Rechercher une entreprise avec le critère "evaluation"
+-- Rechercher une entreprise avec le critère "evaluation"
 SELECT 
     `candidatures`.`evaluation`, `entreprises`.`nom_entreprise` 
 FROM 

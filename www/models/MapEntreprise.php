@@ -8,27 +8,27 @@ class MapEntreprise
     protected string $name;
     protected bool $hidden;
 
-    public function getId(): int
+    public function getId(): ?int
     {
-        return $this->id;
+        return $this->id ?? null;
     }
 
     public function setId(int $id) {
         $this->id = $id;
     }
 
-    public function getName(): string
+    public function getName(): ?string
     {
-        return $this->name;
+        return $this->name ?? null;
     }
 
     public function setName(string $name) {
         $this->name = $name;
     }
 
-    public function getHidden(): bool
+    public function getHidden(): ?bool
     {
-        return $this->hidden;
+        return $this->hidden ?? null;
     }
 
     public function setHidden(bool $isHidden) {

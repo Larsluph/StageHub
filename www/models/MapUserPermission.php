@@ -11,9 +11,9 @@ class MapUserPermission
     /**
      * @return int
      */
-    public function getIdUser(): int
+    public function getIdUser(): ?int
     {
-        return $this->idUser;
+        return $this->idUser ?? null;
     }
 
     /**
@@ -27,9 +27,9 @@ class MapUserPermission
     /**
      * @return int
      */
-    public function getIdPermission(): int
+    public function getIdPermission(): ?int
     {
-        return $this->idPermission;
+        return $this->idPermission ?? null;
     }
 
     /**
@@ -43,9 +43,9 @@ class MapUserPermission
     /**
      * @return bool
      */
-    public function isEnabled(): bool
+    public function isEnabled(): ?bool
     {
-        return $this->isEnabled;
+        return $this->isEnabled ?? null;
     }
 
     /**

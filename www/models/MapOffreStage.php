@@ -17,9 +17,9 @@ class MapOffreStage
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId(): ?int
     {
-        return $this->id;
+        return $this->id ?? null;
     }
 
     /**
@@ -33,9 +33,9 @@ class MapOffreStage
     /**
      * @return int
      */
-    public function getIdEntreprise(): int
+    public function getIdEntreprise(): ?int
     {
-        return $this->idEntreprise;
+        return $this->idEntreprise ?? null;
     }
 
     /**
@@ -49,9 +49,9 @@ class MapOffreStage
     /**
      * @return string
      */
-    public function getNomPoste(): string
+    public function getNomPoste(): ?string
     {
-        return $this->nomPoste;
+        return $this->nomPoste ?? null;
     }
 
     /**
@@ -65,9 +65,9 @@ class MapOffreStage
     /**
      * @return int
      */
-    public function getDureeStage(): int
+    public function getDureeStage(): ?int
     {
-        return $this->dureeStage;
+        return $this->dureeStage ?? null;
     }
 
     /**
@@ -81,9 +81,9 @@ class MapOffreStage
     /**
      * @return float
      */
-    public function getBaseRemuneration(): float
+    public function getBaseRemuneration(): ?float
     {
-        return $this->baseRemuneration;
+        return $this->baseRemuneration ?? null;
     }
 
     /**
@@ -97,9 +97,9 @@ class MapOffreStage
     /**
      * @return DateTime
      */
-    public function getDateStage(): DateTime
+    public function getDateStage(): ?DateTime
     {
-        return $this->dateStage;
+        return $this->dateStage ?? null;
     }
 
     /**
@@ -113,9 +113,9 @@ class MapOffreStage
     /**
      * @return int
      */
-    public function getNbrPlaces(): int
+    public function getNbrPlaces(): ?int
     {
-        return $this->nbrPlaces;
+        return $this->nbrPlaces ?? null;
     }
 
     /**
