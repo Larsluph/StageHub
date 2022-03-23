@@ -12168,10 +12168,10 @@ h5, .h5 {
   text-decoration: none;
   background-color: #fff;
   border: 1px solid #2b31d94d;
-  -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 }
 
 .page-link:hover {
@@ -12185,8 +12185,69 @@ h5, .h5 {
           box-shadow: none;
 }
 
+.table > :not(caption) > * > * {
+  padding: 0rem 0rem;
+  background-color: var(--bs-table-bg);
+  border-bottom-width: 1px;
+  -webkit-box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
+  box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
+}
+
 .Filter_dashboard {
-  background-color: #fff;
+  border-radius: 8px/7px;
+  background-color: #ffffff;
+  -webkit-box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.31);
+          box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.31);
+  border: solid 1px #cbc9c9;
+}
+
+.table_filter {
+  border: 1px solid rgba(0, 0, 0, 0);
+  vertical-align: middle;
+}
+
+label {
+  color: #2b31d9bb;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 2px;
+  font-size: 16px;
+}
+
+.box select {
+  background-color: #ffffff;
+  color: #2b31d9bb;
+  border: none;
+  -webkit-box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+  -webkit-appearance: button;
+  -moz-appearance: button;
+       appearance: button;
+  outline: none;
+}
+
+.box::before {
+  content: "\f13a";
+  font-family: FontAwesome;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  font-size: 28px;
+  line-height: 45px;
+  color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.box:hover::before {
+  color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.box select option {
+  padding: 30px;
 }
 
 /*#########Register#########*/
