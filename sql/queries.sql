@@ -206,3 +206,45 @@ DELETE FROM `offres_stage` WHERE `id_offre` = `$id_offre`;
 -- Gestion des pilotes de promotions
 -- SFx13 - Rechercher un compte pilote
 -- Rechercher un pilote avec le critère "nom_user"
+SELECT
+    `users`.`nom_user`, 
+    `roles`.`nom_role` 
+FROM 
+    `users` 
+    LEFT JOIN `roles` USING (`id_role`)
+WHERE 
+    `users`.`nom_user` LIKE '%$nom_user%' 
+AND 
+    `roles`.`nom_role` like '%pilote%';
+
+-- Rechercher un pilote avec le critère "prenom_user"
+SELECT
+    `users`.`prenom_user`, 
+    `roles`.`nom_role` 
+FROM 
+    `users` 
+    LEFT JOIN `roles` USING (`id_role`)
+WHERE 
+    `users`.`prenom_user` LIKE '%$prenom_user%' 
+AND 
+    `roles`.`nom_role` LIKE '%pilote%';
+
+-- Rechercher un pilote avec le critère "nom_centre"
+SELECT
+    `users`.`prenom_user`,
+    `roles`.`nom_role`,
+    `centres`.`nom_centre` 
+FROM 
+    `users` 
+    LEFT JOIN `user_centre` USING (`id_user`) 
+    LEFT JOIN `centres` USING (`id_centre`) 
+    LEFT JOIN `roles` USING (`id_role`)
+WHERE 
+    `centres`.`nom_centre` LIKE '%$nom_centre%' 
+AND 
+	`roles`.`nom_role` LIKE '%pilote%';
+
+--Rechercher un pilote avec le critère "promo concernee"
+
+
+-- SFx14 - Créer un compte pilote
