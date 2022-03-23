@@ -14,9 +14,9 @@ class MapUser
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId(): ?int
     {
-        return $this->id;
+        return $this->id ?? null;
     }
 
     /**
@@ -30,9 +30,9 @@ class MapUser
     /**
      * @return int
      */
-    public function getIdRole(): int
+    public function getIdRole(): ?int
     {
-        return $this->idRole;
+        return $this->idRole ?? null;
     }
 
     /**
@@ -46,9 +46,9 @@ class MapUser
     /**
      * @return string
      */
-    public function getUsername(): string
+    public function getUsername(): ?string
     {
-        return $this->username;
+        return $this->username ?? null;
     }
 
     /**
@@ -62,9 +62,9 @@ class MapUser
     /**
      * @return string
      */
-    public function getHash(): string
+    public function getHash(): ?string
     {
-        return $this->hash;
+        return $this->hash ?? null;
     }
 
     /**
@@ -78,9 +78,9 @@ class MapUser
     /**
      * @return string
      */
-    public function getFirstName(): string
+    public function getFirstName(): ?string
     {
-        return $this->firstName;
+        return $this->firstName ?? null;
     }
 
     /**
@@ -94,9 +94,9 @@ class MapUser
     /**
      * @return string
      */
-    public function getLastName(): string
+    public function getLastName(): ?string
     {
-        return $this->lastName;
+        return $this->lastName ?? null;
     }
 
     /**

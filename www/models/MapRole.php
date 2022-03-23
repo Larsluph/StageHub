@@ -10,9 +10,9 @@ class MapRole
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId(): ?int
     {
-        return $this->id;
+        return $this->id ?? null;
     }
 
     /**
@@ -26,9 +26,9 @@ class MapRole
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
-        return $this->name;
+        return $this->name ?? null;
     }
 
     /**
