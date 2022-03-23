@@ -270,4 +270,62 @@ VALUES
 --manque promo concernée
 
 -- SFx 15 - Modifier un compte pilote
+UPDATE
+    `users` 
+SET 
+    nom_user = '$nom_user', prenom_user = '$prenom_user', hash = '$hash', username = '$username' 
+WHERE 
+    id_user = $id_user;
 
+UPDATE 
+    `centres`
+SET 
+    nom_centre = '$nom_centre'
+WHERE 
+    id_centre = $id_centre;
+
+-- SFx 16 - Supprimer un compte pilote
+DELETE FROM `users` FROM 'id_user' = '$id_user';
+
+-- Gestion des délégués
+-- SFx 17 - Rechercher un compte délégué
+-- Rechercher un compte délégué avec le critère "nom_user"
+SELECT
+    `users`.`nom_user`, 
+    `roles`.`nom_role` 
+FROM 
+    `users` 
+    LEFT JOIN `roles` USING (`id_role`)
+WHERE 
+    `users`.`nom_user` LIKE '%$nom_user%' 
+AND 
+    `roles`.`nom_role` like '%délégué%';
+
+-- Rechercher un compte délégué avec le critère "prenom_user"
+SELECT
+    `users`.`nom_user`, 
+    `roles`.`nom_role` 
+FROM 
+    `users` 
+    LEFT JOIN `roles` USING (`id_role`)
+WHERE 
+    `users`.`nom_user` LIKE '%$prenom_user%' 
+AND 
+    `roles`.`nom_role` like '%délégué%';
+
+-- Rechercher un compte délégué avec le critère "centre"
+SELECT
+    `users`.`prenom_user`,
+    `roles`.`nom_role`,
+    `centres`.`nom_centre` 
+FROM 
+    `users` 
+    LEFT JOIN `user_centre` USING (`id_user`) 
+    LEFT JOIN `centres` USING (`id_centre`) 
+    LEFT JOIN `roles` USING (`id_role`)
+WHERE 
+    `centres`.`nom_centre` LIKE '%$nom_centre%' 
+AND 
+	`roles`.`nom_role` LIKE '%délégué%';
+
+-- Rechercher un compte délégué avec le critère "promo concernée"
