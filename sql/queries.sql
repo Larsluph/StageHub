@@ -206,3 +206,126 @@ DELETE FROM `offres_stage` WHERE `id_offre` = `$id_offre`;
 -- Gestion des pilotes de promotions
 -- SFx13 - Rechercher un compte pilote
 -- Rechercher un pilote avec le critère "nom_user"
+SELECT
+    `users`.`nom_user`, 
+    `roles`.`nom_role` 
+FROM 
+    `users` 
+    LEFT JOIN `roles` USING (`id_role`)
+WHERE 
+    `users`.`nom_user` LIKE '%$nom_user%' 
+AND 
+    `roles`.`nom_role` like '%pilote%';
+
+-- Rechercher un pilote avec le critère "prenom_user"
+SELECT
+    `users`.`prenom_user`, 
+    `roles`.`nom_role` 
+FROM 
+    `users` 
+    LEFT JOIN `roles` USING (`id_role`)
+WHERE 
+    `users`.`prenom_user` LIKE '%$prenom_user%' 
+AND 
+    `roles`.`nom_role` LIKE '%pilote%';
+
+-- Rechercher un pilote avec le critère "nom_centre"
+SELECT
+    `users`.`prenom_user`,
+    `roles`.`nom_role`,
+    `centres`.`nom_centre` 
+FROM 
+    `users` 
+    LEFT JOIN `user_centre` USING (`id_user`) 
+    LEFT JOIN `centres` USING (`id_centre`) 
+    LEFT JOIN `roles` USING (`id_role`)
+WHERE 
+    `centres`.`nom_centre` LIKE '%$nom_centre%' 
+AND 
+	`roles`.`nom_role` LIKE '%pilote%';
+
+--Rechercher un pilote avec le critère "promo concernee"
+
+
+-- SFx14 - Créer un compte pilote
+INSERT INTO 
+    `users` (`nom_user`, `prenom_user`, `username`, `hash`)
+VALUES 
+    (`$nom_user`, `$prenom_user`, `$username`, `$hash`);
+
+INSERT INTO
+    `roles` (`nom_role`)
+VALUES 
+    (`$nom_role`);
+
+INSERT INTO 
+    `centres` (`nom_centre`)
+VALUES 
+    (`$nom_centre`);
+
+INSERT INTO 
+    `user_centre` (`id_ user`, `id_centre`)
+VALUES 
+    (`$id_ user`, `$id_centre`);
+--manque promo concernée
+
+-- SFx 15 - Modifier un compte pilote
+UPDATE
+    `users` 
+SET 
+    nom_user = '$nom_user', prenom_user = '$prenom_user', hash = '$hash', username = '$username' 
+WHERE 
+    id_user = $id_user;
+
+UPDATE 
+    `centres`
+SET 
+    nom_centre = '$nom_centre'
+WHERE 
+    id_centre = $id_centre;
+
+-- SFx 16 - Supprimer un compte pilote
+DELETE FROM `users` FROM 'id_user' = '$id_user';
+
+-- Gestion des délégués
+-- SFx 17 - Rechercher un compte délégué
+-- Rechercher un compte délégué avec le critère "nom_user"
+SELECT
+    `users`.`nom_user`, 
+    `roles`.`nom_role` 
+FROM 
+    `users` 
+    LEFT JOIN `roles` USING (`id_role`)
+WHERE 
+    `users`.`nom_user` LIKE '%$nom_user%' 
+AND 
+    `roles`.`nom_role` like '%délégué%';
+
+-- Rechercher un compte délégué avec le critère "prenom_user"
+SELECT
+    `users`.`nom_user`, 
+    `roles`.`nom_role` 
+FROM 
+    `users` 
+    LEFT JOIN `roles` USING (`id_role`)
+WHERE 
+    `users`.`nom_user` LIKE '%$prenom_user%' 
+AND 
+    `roles`.`nom_role` like '%délégué%';
+
+-- Rechercher un compte délégué avec le critère "centre"
+SELECT
+    `users`.`prenom_user`,
+    `roles`.`nom_role`,
+    `centres`.`nom_centre` 
+FROM 
+    `users` 
+    LEFT JOIN `user_centre` USING (`id_user`) 
+    LEFT JOIN `centres` USING (`id_centre`) 
+    LEFT JOIN `roles` USING (`id_role`)
+WHERE 
+    `centres`.`nom_centre` LIKE '%$nom_centre%' 
+AND 
+	`roles`.`nom_role` LIKE '%délégué%';
+
+-- Rechercher un compte délégué avec le critère "promo concernée"
