@@ -1,5 +1,10 @@
 <?php
 
+namespace App\Models\Services;
+
+use App\Models\Components\DatabaseConnection;
+use App\Models\Maps\MapEntreprise;
+
 class Entreprise
 {
     private DatabaseConnection $db;
