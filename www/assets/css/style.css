@@ -12076,18 +12076,13 @@ p {
           text-decoration: underline white;
 }
 
-.separator {
-  background: radial-gradient(#c4c4c4, white);
-  border-color: rgba(0, 0, 0, 0);
-}
-
-.separator2 {
-  background: radial-gradient(#c4c4c4, white);
-  border-color: rgba(0, 0, 0, 0);
-}
-
 .form {
   color: #3f48cc;
+}
+
+.separate {
+  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), color-stop(#ffffff), to(rgba(255, 255, 255, 0)));
+  background: linear-gradient(0.25turn, rgba(255, 255, 255, 0), #ffffff, rgba(255, 255, 255, 0));
 }
 
 .form-search {
@@ -12116,7 +12111,6 @@ p {
   font-family: "Roboto", sans-serif;
   font-weight: 300;
   border-radius: 5px;
-  border: 2px;
   border-color: #ffffff00;
   border-style: solid;
   letter-spacing: 2px;
@@ -12192,7 +12186,7 @@ h5, .h5 {
 }
 
 .Filter_dashboard {
-  border-radius: 5px;
+  background-color: #fff;
 }
 
 /*#########Register#########*/
@@ -12375,11 +12369,6 @@ input {
   background-color: rgba(255, 255, 255, 0);
   -webkit-text-decoration: underline #3f48cc;
           text-decoration: underline #3f48cc;
-}
-
-hr {
-  color: #3f48cc;
-  opacity: 0.3;
 }
 
 /*######Condition page#######*/
