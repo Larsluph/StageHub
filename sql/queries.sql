@@ -248,3 +248,26 @@ AND
 
 
 -- SFx14 - Créer un compte pilote
+INSERT INTO 
+    `users` (`nom_user`, `prenom_user`, `username`, `hash`)
+VALUES 
+    (`$nom_user`, `$prenom_user`, `$username`, `$hash`);
+
+INSERT INTO
+    `roles` (`nom_role`)
+VALUES 
+    (`$nom_role`);
+
+INSERT INTO 
+    `centres` (`nom_centre`)
+VALUES 
+    (`$nom_centre`);
+
+INSERT INTO 
+    `user_centre` (`id_ user`, `id_centre`)
+VALUES 
+    (`$id_ user`, `$id_centre`);
+--manque promo concernée
+
+-- SFx 15 - Modifier un compte pilote
+
