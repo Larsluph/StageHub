@@ -279,7 +279,11 @@ INSERT INTO
     `user_centre` (`id_ user`, `id_centre`)
 VALUES 
     (`$id_ user`, `$id_centre`);
---manque promo concernée
+
+INSERT INTO
+    `promotions` (`nom_promo`)
+VALUES
+    (`$nom_promo`);
 
 -- SFx 15 - Modifier un compte pilote
 UPDATE
@@ -296,8 +300,15 @@ SET
 WHERE 
     id_centre = $id_centre;
 
+UPDATE
+    `promotions`
+SET
+    nom_promo = '$nom_promo'
+WHERE 
+    id_promo = $id_promo;
+
 -- SFx 16 - Supprimer un compte pilote
-DELETE FROM `users` FROM 'id_user' = '$id_user';
+DELETE FROM `users` WHERE 'id_user' = '$id_user';
 
 -- Gestion des délégués
 -- SFx 17 - Rechercher un compte délégué
@@ -356,3 +367,109 @@ AND
 	`roles`.`nom_role` LIKE '%délégué%';
 
 -- SFx 18 - Créer un compte délégué
+INSERT INTO 
+    `users` (`nom_user`, `prenom_user`, `username`, `hash`)
+VALUES 
+    (`$nom_user`, `$prenom_user`, `$username`, `$hash`);
+
+INSERT INTO
+    `roles` (`nom_role`)
+VALUES 
+    (`$nom_role`);
+
+INSERT INTO 
+    `centres` (`nom_centre`)
+VALUES 
+    (`$nom_centre`);
+
+INSERT INTO 
+    `user_centre` (`id_ user`, `id_centre`)
+VALUES 
+    (`$id_ user`, `$id_centre`);
+
+INSERT INTO
+    `promotions` (`nom_promo`)
+VALUES
+    (`$nom_promo`);
+
+-- SFx 19 - Modifier un compte délégué
+UPDATE
+    `users` 
+SET 
+    nom_user = '$nom_user', prenom_user = '$prenom_user', hash = '$hash', username = '$username' 
+WHERE 
+    id_user = $id_user;
+
+UPDATE 
+    `centres`
+SET 
+    nom_centre = '$nom_centre'
+WHERE 
+    id_centre = $id_centre;
+
+UPDATE
+    `promotions`
+SET
+    nom_promo = '$nom_promo'
+WHERE 
+    id_promo = $id_promo;
+
+-- SFx 20 - Supprimer un compte délégué
+DELETE FROM `users` WHERE 'id_user' = '$id_user';
+
+-- Gestion des étudiants
+-- SFx 21 - Rechercher un étudiant avec le critère "nom"
+-- Rechercher un compte étudiant avec le critère "nom_user"
+SELECT
+    `users`.`nom_user`, 
+    `roles`.`nom_role` 
+FROM 
+    `users` 
+    LEFT JOIN `roles` USING (`id_role`)
+WHERE 
+    `users`.`nom_user` LIKE '%$nom_user%' 
+AND 
+    `roles`.`nom_role` like '%etudiant%';
+
+-- Rechercher un compte étudiant avec le critère "prenom_user"
+SELECT
+    `users`.`nom_user`, 
+    `roles`.`nom_role` 
+FROM 
+    `users` 
+    LEFT JOIN `roles` USING (`id_role`)
+WHERE 
+    `users`.`nom_user` LIKE '%$prenom_user%' 
+AND 
+    `roles`.`nom_role` like '%etudiant%';
+
+-- Rechercher un compte étudiant avec le critère "centre"
+SELECT
+    `users`.`prenom_user`,
+    `roles`.`nom_role`,
+    `centres`.`nom_centre` 
+FROM 
+    `users` 
+    LEFT JOIN `user_centre` USING (`id_user`) 
+    LEFT JOIN `centres` USING (`id_centre`) 
+    LEFT JOIN `roles` USING (`id_role`)
+WHERE 
+    `centres`.`nom_centre` LIKE '%$nom_centre%' 
+AND 
+	`roles`.`nom_role` LIKE '%etudiant%';
+
+-- Rechercher un compte étudiant avec le critère "promo concernée"
+SELECT
+    `users`.`prenom_user`,
+    `promotions`.`nom_promo`,
+   	`roles`.`nom_role`
+FROM 
+    `users` 
+    LEFT JOIN `user_promo` USING (`id_user`) 
+    LEFT JOIN `promotions` USING (`id_promo`)
+    LEFT JOIN `roles` USING (`id_role`)
+WHERE 
+    `promotions`.`nom_promo` LIKE '%$nom_promo%' 
+AND 
+	`roles`.`nom_role` LIKE '%etudiant%';
+
