@@ -245,7 +245,19 @@ AND
 	`roles`.`nom_role` LIKE '%pilote%';
 
 --Rechercher un pilote avec le critère "promo concernee"
-
+SELECT
+    `users`.`prenom_user`,
+    `promotions`.`nom_promo`,
+   	`roles`.`nom_role`
+FROM 
+    `users` 
+    LEFT JOIN `user_promo` USING (`id_user`) 
+    LEFT JOIN `promotions` USING (`id_promo`)
+    LEFT JOIN `roles` USING (`id_role`)
+WHERE 
+    `promotions`.`nom_promo` LIKE '%$nom_promo%' 
+AND 
+	`roles`.`nom_role` LIKE '%pilote%';
 
 -- SFx14 - Créer un compte pilote
 INSERT INTO 
@@ -329,3 +341,18 @@ AND
 	`roles`.`nom_role` LIKE '%délégué%';
 
 -- Rechercher un compte délégué avec le critère "promo concernée"
+SELECT
+    `users`.`prenom_user`,
+    `promotions`.`nom_promo`,
+   	`roles`.`nom_role`
+FROM 
+    `users` 
+    LEFT JOIN `user_promo` USING (`id_user`) 
+    LEFT JOIN `promotions` USING (`id_promo`)
+    LEFT JOIN `roles` USING (`id_role`)
+WHERE 
+    `promotions`.`nom_promo` LIKE '%$nom_promo%' 
+AND 
+	`roles`.`nom_role` LIKE '%délégué%';
+
+-- SFx 18 - Créer un compte délégué
