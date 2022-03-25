@@ -118,41 +118,48 @@ class Entreprise extends \Core\Model
 
     /**
      * Updates an entreprise
-     * @param $id
-     * @param $nom_entreprise
-     * @param $localites
-     * @param $secteurs_activite
+     * @param int $id
+     * @param string|null $nom_entreprise
+     * @param array|null $localites
+     * @param array|null $secteurs_activite
      * @return void
      */
-    public static function update($id, $nom_entreprise, $localites, $secteurs_activite)
+    public static function update(int $id, string $nom_entreprise = null, array $localites = null, array $secteurs_activite = null)
     {
         // fetch db connection
         $db = static::getDB();
 
-        // update entreprise
-        $stmt = $db->prepare("UPDATE entreprises SET nom_entreprise = :nom_entreprise WHERE id_entreprise = :id");
-        $stmt->bindValue(':nom_entreprise', $nom_entreprise);
-        $stmt->bindValue(':id', $id);
-        $stmt->execute();
+        if ($nom_entreprise !== null) {
+            // update entreprise
+            $stmt = $db->prepare("UPDATE entreprises SET nom_entreprise = :nom_entreprise WHERE id_entreprise = :id");
+            $stmt->bindValue(':nom_entreprise', $nom_entreprise);
+            $stmt->bindValue(':id', $id);
+            $stmt->execute();
+        }
 
-        // delete localites
-        $stmt = $db->prepare("DELETE FROM entreprise_loc WHERE id_entreprise = :id");
-        $stmt->bindValue(':id', $id);
-        $stmt->execute();
+        if ($localites !== null) {
+            // delete localites
+            $stmt = $db->prepare("DELETE FROM entreprise_loc WHERE id_entreprise = :id");
+            $stmt->bindValue(':id', $id);
+            $stmt->execute();
 
-        // bind localites
-        self::bindLocalites($db, $localites, $id);
+            // bind localites
+            self::bindLocalites($db, $localites, $id);
+        }
 
-        // delete secteurs d'activite
-        $stmt = $db->prepare("DELETE FROM entreprise_secteur WHERE id_entreprise = :id");
-        $stmt->bindValue(':id', $id);
-        $stmt->execute();
+        if ($secteurs_activite !== null) {
+            // delete secteurs d'activite
+            $stmt = $db->prepare("DELETE FROM entreprise_secteur WHERE id_entreprise = :id");
+            $stmt->bindValue(':id', $id);
+            $stmt->execute();
 
-        // bind secteurs d'activite
-        self::bindSecteurs($db, $secteurs_activite, $id);
+            // bind secteurs d'activite
+            self::bindSecteurs($db, $secteurs_activite, $id);
+        }
     }
 
     /**
+     * Binds localites to an entreprise
      * @param PDO $db
      * @param array $localites
      * @param int $id_entreprise
@@ -162,16 +169,10 @@ class Entreprise extends \Core\Model
     {
         foreach ($localites as $localite) {
             // check if localite exists
-            $stmt = $db->prepare("SELECT id_localite FROM localites WHERE nom_localite = :nom_localite");
-            $stmt->bindValue(':nom_localite', $localite);
-            $stmt->execute();
-            $id_localite = $stmt->fetchColumn();
+            $id_localite = Localite::readOneByName($localite);
             // if not, create it
             if (!$id_localite) {
-                $stmt = $db->prepare("INSERT INTO localites (nom_localite) VALUES (:nom_localite)");
-                $stmt->bindValue(':nom_localite', $localite);
-                $stmt->execute();
-                $id_localite = $db->lastInsertId();
+                $id_localite = Localite::create($localite);
             }
             // bind localite to entreprise
             $stmt = $db->prepare("INSERT INTO entreprise_loc (id_entreprise, id_localite) VALUES (:id_entreprise, :id_localite)");
@@ -182,6 +183,7 @@ class Entreprise extends \Core\Model
     }
 
     /**
+     * Binds secteurs d'activite to an entreprise
      * @param PDO $db
      * @param array $secteurs_activite
      * @param int $id
@@ -191,16 +193,10 @@ class Entreprise extends \Core\Model
     {
         foreach ($secteurs_activite as $secteur_activite) {
             // check if secteur d'activite exists
-            $stmt = $db->prepare("SELECT id_secteur_activite FROM secteurs_activite WHERE nom_secteur_activite = :nom_secteur_activite");
-            $stmt->bindValue(':nom_secteur_activite', $secteur_activite);
-            $stmt->execute();
-            $id_secteur_activite = $stmt->fetchColumn();
+            $id_secteur_activite = SecteurActivite::readOneByName($secteur_activite);
             // if not, create it
             if (!$id_secteur_activite) {
-                $stmt = $db->prepare("INSERT INTO secteurs_activite (nom_secteur_activite) VALUES (:nom_secteur_activite)");
-                $stmt->bindValue(':nom_secteur_activite', $secteur_activite);
-                $stmt->execute();
-                $id_secteur_activite = $db->lastInsertId();
+                $id_secteur_activite = SecteurActivite::create($secteur_activite);
             }
             // bind secteur d'activite to entreprise
             $stmt = $db->prepare("INSERT INTO entreprise_secteur (id_entreprise, id_secteur_activite) VALUES (:id_entreprise, :id_secteur_activite)");
