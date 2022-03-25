@@ -12205,7 +12205,8 @@ h5, .h5 {
   background-color: #ffffff;
   -webkit-box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.31);
           box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.31);
-  border: solid 1px #cbc9c9;
+  border: solid 1px #cbc9c900;
+  list-style-image: url(../img/notif_ico.ico);
 }
 
 .table_filter {
@@ -12275,6 +12276,13 @@ p {
 }
 
 h1, .h1 {
+  font-weight: 300;
+  color: #2b31d9bb;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 2px;
+}
+
+h6, .h6 {
   font-weight: 300;
   color: #2b31d9bb;
   font-family: "Roboto", sans-serif;
@@ -12464,10 +12472,17 @@ h3, .h3 {
 }
 
 .Term-of-use-link {
-  position: fixed;
-  bottom: 1%;
-  right: 1%;
   z-index: 9999;
   color: #fff;
+}
+
+.copyright {
+  background-color: rgba(0, 0, 0, 0);
+  color: #fff;
+}
+
+footer {
+  position: absolute;
+  bottom: 0px;
 }
 /*# sourceMappingURL=style.css.map */
