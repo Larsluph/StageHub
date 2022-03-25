@@ -473,3 +473,56 @@ WHERE
 AND 
 	`roles`.`nom_role` LIKE '%etudiant%';
 
+-- SFx 22 - Créer un compte étudiant
+INSERT INTO 
+    `users` (`nom_user`, `prenom_user`, `username`, `hash`)
+VALUES 
+    (`$nom_user`, `$prenom_user`, `$username`, `$hash`);
+
+INSERT INTO
+    `roles` (`nom_role`)
+VALUES 
+    (`$nom_role`);
+
+INSERT INTO 
+    `centres` (`nom_centre`)
+VALUES 
+    (`$nom_centre`);
+
+INSERT INTO 
+    `user_centre` (`id_ user`, `id_centre`)
+VALUES 
+    (`$id_ user`, `$id_centre`);
+
+INSERT INTO
+    `promotions` (`nom_promo`)
+VALUES
+    (`$nom_promo`);
+
+-- SFx 19 - Modifier un compte étudiant
+UPDATE
+    `users` 
+SET 
+    nom_user = '$nom_user', prenom_user = '$prenom_user', hash = '$hash', username = '$username' 
+WHERE 
+    id_user = $id_user;
+
+UPDATE 
+    `centres`
+SET 
+    nom_centre = '$nom_centre'
+WHERE 
+    id_centre = $id_centre;
+
+UPDATE
+    `promotions`
+SET
+    nom_promo = '$nom_promo'
+WHERE 
+    id_promo = $id_promo;
+
+-- SFx 20 - Supprimer un compte étudiant
+DELETE FROM `users` WHERE 'id_user' = '$id_user';
+
+-- Gestion des candidatures
+-- SFx 26 - Ajouter une offre à la wish-list
