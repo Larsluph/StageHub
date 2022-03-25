@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\User;
+use App\Models\Entreprise;
 use \Core\View;
 
 /**
@@ -20,7 +20,7 @@ class Home extends \Core\Controller
      */
     public function indexAction()
     {
-        $users = User::readAll();
-        View::render('Home/index.php', compact("users"));
+        $entreprises = Entreprise::readAll();
+        View::render('Home/index.php', compact("entreprises"));
     }
 }

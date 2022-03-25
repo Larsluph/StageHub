@@ -8,8 +8,10 @@
 </head>
 <body>
     <ul>
-        <?php foreach ($users as $user) {
-            echo "<li>$user[id_user] | $user[username]</li>";
+        <?php foreach ($entreprises as $entreprise) {
+            echo "<li>$entreprise[nom_entreprise]<ul>";
+            echo "<li>$entreprise[localites]</li>";
+            echo "<li>$entreprise[secteurs_activite]</li></ul></li>";
         } ?>
     </ul>
 </body>
