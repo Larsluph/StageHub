@@ -27,8 +27,7 @@ class Entreprise extends \Core\Model
                     LEFT JOIN entreprise_secteur USING (id_entreprise)
                     LEFT JOIN secteurs_activite USING (id_secteur_activite)
                 WHERE id_entreprise = :id
-                GROUP BY id_entreprise
-                LIMIT 1";
+                GROUP BY id_entreprise";
         $db = static::getDB();
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
@@ -159,7 +158,7 @@ class Entreprise extends \Core\Model
      * @param int $id_entreprise
      * @return void
      */
-    public static function bindLocalites(PDO $db, array $localites, int $id_entreprise)
+    protected static function bindLocalites(PDO $db, array $localites, int $id_entreprise)
     {
         foreach ($localites as $localite) {
             // check if localite exists
@@ -188,7 +187,7 @@ class Entreprise extends \Core\Model
      * @param int $id
      * @return void
      */
-    public static function bindSecteurs(PDO $db, array $secteurs_activite, int $id): void
+    protected static function bindSecteurs(PDO $db, array $secteurs_activite, int $id): void
     {
         foreach ($secteurs_activite as $secteur_activite) {
             // check if secteur d'activite exists
