@@ -142,7 +142,7 @@ class Entreprise extends \Core\Model
         $stmt->execute();
 
         // bind localites
-        self::bindLocalites($localites, $db, $id);
+        self::bindLocalites($db, $localites, $id);
 
         // delete secteurs d'activite
         $stmt = $db->prepare("DELETE FROM entreprise_secteur WHERE id_entreprise = :id");
