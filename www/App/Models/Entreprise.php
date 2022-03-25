@@ -60,6 +60,37 @@ class Entreprise extends \Core\Model
     }
 
     /**
+     * Filters entreprise with the given parameters
+     * @param array $params
+     * @return array
+     */
+    public static function filterBy(...$params): array
+    {
+        $filters = [];
+        foreach ($params as $k => $v) {
+            $filters[] = "$k LIKE '%:$k%'";
+        }
+        $formatted_params = join(" AND ", $filters);
+        $sql = "SELECT
+                    nom_entreprise,
+                    GROUP_CONCAT(DISTINCT localites.nom_localite SEPARATOR '|') AS localites,
+                    GROUP_CONCAT(DISTINCT secteurs_activite.nom_secteur_activite SEPARATOR '|') AS secteurs_activite
+                FROM entreprises
+                    LEFT JOIN entreprise_loc USING (id_entreprise)
+                    LEFT JOIN localites USING (id_localite)
+                    LEFT JOIN entreprise_secteur USING (id_entreprise)
+                    LEFT JOIN secteurs_activite USING (id_secteur_activite)
+                WHERE $formatted_params
+                GROUP BY id_entreprise";
+        $db = static::getDB();
+        $stmt = $db->prepare($sql);
+        foreach ($params as $k => $v) {
+            $stmt->bindValue(":$k", $v);
+        }
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    /**
      * Creates a new entreprise
      * @param string $nom_entreprise
      * @param array $localites
