@@ -236,4 +236,20 @@ class Entreprise extends \Core\Model
         $stmt->bindValue(':id', $id);
         $stmt->execute();
     }
+
+    /**
+     * Toggles hidden flag for an entreprise
+     * @param int $id
+     * @return void
+     */
+    public static function toggleHidden(int $id)
+    {
+        // fetch db connection
+        $db = static::getDB();
+
+        // toggle hidden flag
+        $stmt = $db->prepare("UPDATE entreprises SET hidden = NOT hidden WHERE id_entreprise = :id");
+        $stmt->bindValue(':id', $id);
+        $stmt->execute();
+    }
 }
