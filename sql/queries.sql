@@ -1,6 +1,6 @@
 -- SFx1 - Authentifier
 SELECT *
-    FROM `users`
+FROM `users`
 WHERE
     `users`.`username` = '$username'
 AND
@@ -9,7 +9,7 @@ AND
 -- Gestion des entreprises
 -- SFx2 - Rechercher une entreprise
 -- Rechercher une entreprise avec le critère "nom_entreprise"
-SELECT nom_entreprise FROM entreprises WHERE NOT hidden AND nom_entreprise like '%$nom_entreprise%';
+SELECT nom_entreprise FROM entreprises WHERE NOT hidden AND nom_entreprise LIKE '%$nom_entreprise%';
 
 -- Rechercher une entreprise avec le critère "secteurs_activite"
 SELECT
@@ -526,3 +526,94 @@ DELETE FROM `users` WHERE 'id_user' = '$id_user';
 
 -- Gestion des candidatures
 -- SFx 26 - Ajouter une offre à la wish-list
+
+
+-- SFx 27 - Retirer une offre à la wish-list
+
+
+-- SFx 28 - Postuler à une offre
+
+
+-- SFx 29 - Informer le système de l'avancement de la candidature step 1
+SELECT
+    `candidatures`.`statut_reponse`,
+    `users`.`prenom_user`,
+    `offres_stage`.`nom_poste_offre`
+FROM 
+    `candidatures` 
+	LEFT JOIN `users` USING (`id_user`)
+	LEFT JOIN `offres_stage` USING (`id_offre`)
+WHERE 
+    `candidatures`.`statut_reponse` = -1
+AND 
+	`users`.`prenom_user` LIKE '%$prenom_user%';
+
+-- SFx 30 – Informer le système de l'avancement de la candidature step 2
+SELECT
+    `candidatures`.`statut_reponse`,
+    `users`.`prenom_user`,
+    `offres_stage`.`nom_poste_offre`
+FROM 
+    `candidatures` 
+	LEFT JOIN `users` USING (`id_user`)
+	LEFT JOIN `offres_stage` USING (`id_offre`)
+WHERE 
+    `candidatures`.`statut_reponse` = 0
+AND 
+	`users`.`prenom_user` LIKE '%$prenom_user%';
+
+-- SFx 31 – Informer le système de l'avancement de la candidature step 3
+SELECT
+    `candidatures`.`statut_reponse`,
+    `users`.`prenom_user`,
+    `offres_stage`.`nom_poste_offre`
+FROM 
+    `candidatures` 
+	LEFT JOIN `users` USING (`id_user`)
+	LEFT JOIN `offres_stage` USING (`id_offre`)
+WHERE 
+    `candidatures`.`statut_reponse` = 1
+AND 
+	`users`.`prenom_user` LIKE '%$prenom_user%';
+
+-- SFx 32 – Informer le système de l'avancement de la candidature step 4
+SELECT
+    `candidatures`.`statut_reponse`,
+    `users`.`prenom_user`,
+    `offres_stage`.`nom_poste_offre`
+FROM 
+    `candidatures` 
+	LEFT JOIN `users` USING (`id_user`)
+	LEFT JOIN `offres_stage` USING (`id_offre`)
+WHERE 
+    `candidatures`.`statut_reponse` = 2
+AND 
+	`users`.`prenom_user` LIKE '%$prenom_user%';
+
+-- SFx 33 – Informer le système de l'avancement de la candidature step 5
+SELECT
+    `candidatures`.`statut_reponse`,
+    `users`.`prenom_user`,
+    `offres_stage`.`nom_poste_offre`
+FROM 
+    `candidatures` 
+	LEFT JOIN `users` USING (`id_user`)
+	LEFT JOIN `offres_stage` USING (`id_offre`)
+WHERE 
+    `candidatures`.`statut_reponse` = 3
+AND 
+	`users`.`prenom_user` LIKE '%$prenom_user%';
+
+-- SFx 34 – Informer le système de l'avancement de la candidature step 6
+SELECT
+    `candidatures`.`statut_reponse`,
+    `users`.`prenom_user`,
+    `offres_stage`.`nom_poste_offre`
+FROM 
+    `candidatures` 
+	LEFT JOIN `users` USING (`id_user`)
+	LEFT JOIN `offres_stage` USING (`id_offre`)
+WHERE 
+    `candidatures`.`statut_reponse` = 4
+AND 
+	`users`.`prenom_user` LIKE '%$prenom_user%';
