@@ -100,8 +100,8 @@ class Candidature extends \Core\Model
      * Update a candidature
      * @param int $id_offre id offre
      * @param int $id_user id user
-     * @param bool $is_in_wishlist
-     * @param int $statut_reponse
+     * @param bool|null $is_in_wishlist
+     * @param int|null $statut_reponse
      * @param int|null $evaluation
      * @param string|null $cv
      * @param string|null $lettre_motivation
@@ -109,48 +109,45 @@ class Candidature extends \Core\Model
      * @param string|null $convention_stage
      * @return void
      */
-    public static function update(int $id_offre, int $id_user, bool $is_in_wishlist, int $statut_reponse, int $evaluation = null, string $cv = null, string $lettre_motivation = null, string $fiche_validation = null, string $convention_stage = null): void
+    public static function update(int $id_offre, int $id_user, bool $is_in_wishlist = null, int $statut_reponse = null, int $evaluation = null, string $cv = null, string $lettre_motivation = null, string $fiche_validation = null, string $convention_stage = null): void
     {
-        $sql = "UPDATE candidatures
-                SET
-                    is_in_wishlist = :is_in_wishlist,
-                    statut_reponse = :statut_reponse";
+        $sql_args = [];
+        $params = [];
+        if ($is_in_wishlist !== null) {
+            $sql_args[] = "is_in_wishlist = :is_in_wishlist";
+            $params[':is_in_wishlist'] = array($is_in_wishlist, PDO::PARAM_BOOL);
+        }
+        if ($statut_reponse !== null) {
+            $sql_args[] = "statut_reponse = :statut_reponse";
+            $params[':statut_reponse'] = array($statut_reponse, PDO::PARAM_INT);
+        }
         if ($evaluation !== null) {
-            $sql .= ", evaluation = :evaluation";
+            $sql_args[] = "evaluation = :evaluation";
+            $params[':evaluation'] = array($evaluation, PDO::PARAM_INT);
         }
         if ($cv !== null) {
-            $sql .= ", cv = :cv";
+            $sql_args[] = "cv = :cv";
+            $params[':cv'] = array(fopen($cv, 'rb'), PDO::PARAM_LOB);
         }
         if ($lettre_motivation !== null) {
-            $sql .= ", lettre_motivation = :lettre_motivation";
+            $sql_args[] = "lettre_motivation = :lettre_motivation";
+            $params[':lettre_motivation'] = array(fopen($lettre_motivation, 'rb'), PDO::PARAM_LOB);
         }
         if ($fiche_validation !== null) {
-            $sql .= ", fiche_validation = :fiche_validation";
+            $sql_args[] = "fiche_validation = :fiche_validation";
+            $params[':fiche_validation'] = array(fopen($fiche_validation, 'rb'), PDO::PARAM_LOB);
         }
         if ($convention_stage !== null) {
-            $sql .= ", convention_stage = :convention_stage";
+            $sql_args[] = "convention_stage = :convention_stage";
+            $params[':convention_stage'] = array(fopen($convention_stage, 'rb'), PDO::PARAM_LOB);
         }
-        $cond = "WHERE id_offre = :id_offre AND id_user = :id_user";
+        $sql = "UPDATE candidatures SET " . implode(', ', $sql_args) . " WHERE id_offre = :id_offre AND id_user = :id_user";
         $db = static::getDB();
-        $stmt = $db->prepare($sql.$cond);
+        $stmt = $db->prepare($sql);
         $stmt->bindValue(':id_offre', $id_offre, PDO::PARAM_INT);
         $stmt->bindValue(':id_user', $id_user, PDO::PARAM_INT);
-        $stmt->bindValue(':is_in_wishlist', $is_in_wishlist, PDO::PARAM_BOOL);
-        $stmt->bindValue(':statut_reponse', $statut_reponse, PDO::PARAM_INT);
-        if ($evaluation !== null) {
-            $stmt->bindValue(':evaluation', $evaluation, PDO::PARAM_INT);
-        }
-        if ($cv !== null) {
-            $stmt->bindValue(':cv', fopen($cv, 'rb'), PDO::PARAM_LOB);
-        }
-        if ($lettre_motivation !== null) {
-            $stmt->bindValue(':lettre_motivation', fopen($lettre_motivation, 'rb'), PDO::PARAM_LOB);
-        }
-        if ($fiche_validation !== null) {
-            $stmt->bindValue(':fiche_validation', fopen($fiche_validation, 'rb'), PDO::PARAM_LOB);
-        }
-        if ($convention_stage !== null) {
-            $stmt->bindValue(':convention_stage', fopen($convention_stage, 'rb'), PDO::PARAM_LOB);
+        foreach ($params as $key => $value) {
+            $stmt->bindValue($key, ...$value);
         }
         $stmt->execute();
     }
