@@ -19,15 +19,8 @@ class Home extends Controller
      *
      * @return void
      */
-    public function indexActio()
+    public function index()
     {
-        View::render('Home/index.php');
+        View::render('Principal_page.html');
     }
-
-    public function entreprises()
-    {
-        $entreprises = Entreprise::readAll();
-        View::render('Home/entreprises.php', compact("entreprises"));
-    }
-
 }
