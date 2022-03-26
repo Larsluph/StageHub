@@ -114,6 +114,22 @@ p {
     text-decoration: underline rgb(255, 255, 255);
 }
 
+.profile_company {
+    border: 0;
+    font-family: "Roboto", sans-serif;
+    color: #2b31d9bb;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0);
+    transition: 0.5s;
+    letter-spacing: 2px;
+}
+
+.profile_company:hover {
+    color: #2b31d9bb;
+    background-color: rgba(255, 255, 255, 0);
+    text-decoration: underline #2b31d9bb;
+}
+
 .form {
     color: rgb(63, 72, 204);
 }
@@ -414,6 +430,18 @@ input {
     color: #2b31d9bb;
     border-color: #2b31d9bb;
     background-color: #641cff00;
+}
+
+.statut {
+    transition: all 0.35s;
+    color: rgb(255, 255, 255);
+    background-color: #2b31d9bb;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    border-radius: 5px;
+    border-color: #2b31d900;
+    border-style: solid;
+    letter-spacing: 2px;
 }
 
 .button-toLogin {
