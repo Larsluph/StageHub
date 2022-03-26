@@ -6,6 +6,8 @@
  * PHP version 7.0
  */
 
+session_start();
+
 /**
  * Composer
  */
@@ -32,6 +34,7 @@ $router->add('{controller}/{action}');
 
 // custom routes
 $router->add('login', ['controller' => 'Accounts', 'action' => "login"]);
+$router->add('logout', ['controller' => 'Accounts', 'action' => "logout"]);
 
 
 /**
