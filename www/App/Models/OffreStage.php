@@ -135,6 +135,110 @@ class OffreStage extends Model
     }
 
     /**
+     * Updates an offreStage
+     * @param int $id_offre id offreStage
+     * @param string|null $nom_poste nom du poste à pourvoir
+     * @param int|null $duree_stage duree du stage (en mois)
+     * @param float|null $base_remuneration base de remuneration
+     * @param DateTime|null $date_stage date de debut du stage
+     * @param int|null $nbr_places nombre de places disponibles
+     * @param int|null $id_entreprise id de l'entreprise
+     * @param array|null $localites liste des localites
+     * @param array|null $competences liste des compétences
+     * @return void
+     */
+    public static function update(
+        int $id_offre,
+        ?string $nom_poste = null,
+        ?int $duree_stage = null,
+        ?float $base_remuneration = null,
+        ?DateTime $date_stage = null,
+        ?int $nbr_places = null,
+        ?int $id_entreprise = null,
+        ?array $localites = null,
+        ?array $competences = null): void
+    {
+        $sql_args = [];
+        $sql_args_bind = ['id_offre' => $id_offre];
+        if ($nom_poste !== null) {
+            $sql_args[] = 'nom_poste_offre = :nom_poste';
+            $sql_args_bind['nom_poste'] = $nom_poste;
+        }
+        if ($duree_stage !== null) {
+            $sql_args[] = 'duree_stage = :duree_stage';
+            $sql_args_bind['duree_stage'] = $duree_stage;
+        }
+        if ($base_remuneration !== null) {
+            $sql_args[] = 'base_remuneration = :base_remuneration';
+            $sql_args_bind['base_remuneration'] = $base_remuneration;
+        }
+        if ($date_stage !== null) {
+            $sql_args[] = 'date_stage = :date_stage';
+            $sql_args_bind['date_stage'] = $date_stage->format('Y-m-d');
+        }
+        if ($nbr_places !== null) {
+            $sql_args[] = 'nbr_places_offre = :nbr_places';
+            $sql_args_bind['nbr_places'] = $nbr_places;
+        }
+        if ($id_entreprise !== null) {
+            $sql_args[] = 'id_entreprise = :id_entreprise';
+            $sql_args_bind['id_entreprise'] = $id_entreprise;
+        }
+        $sql = 'UPDATE offres_stage SET ' . implode(', ', $sql_args) . ' WHERE id_offre = :id_offre';
+        $db = static::getDB();
+        $stmt = $db->prepare($sql);
+        foreach ($sql_args_bind as $key => $value) {
+            $stmt->bindValue(':' . $key, $value);
+        }
+        $stmt->execute();
+
+        if ($localites !== null) {
+            // delete old localites
+            $stmt = $db->prepare('DELETE FROM offre_loc WHERE id_offre = :id_offre');
+            $stmt->bindValue(':id_offre', $id_offre);
+            $stmt->execute();
+
+            // bind localites
+            self::bindLocalites($db, $id_offre, $localites);
+        }
+        if ($competences !== null) {
+            // delete old competences
+            $stmt = $db->prepare('DELETE FROM offre_competence WHERE id_offre = :id_offre');
+            $stmt->bindValue(':id_offre', $id_offre);
+            $stmt->execute();
+
+            // bind competences
+            self::bindCompetences($db, $id_offre, $competences);
+        }
+    }
+
+    /**
+     * Delete an offreStage
+     * @param int $id_offre id offreStage
+     * @return void
+     */
+    public static function delete(int $id_offre): void
+    {
+        // fetch db connection
+        $db = static::getDB();
+
+        // delete offreStage
+        $stmt = $db->prepare('DELETE FROM offres_stage WHERE id_offre = :id_offre');
+        $stmt->bindValue(':id_offre', $id_offre);
+        $stmt->execute();
+
+        // delete localites
+        $stmt = $db->prepare('DELETE FROM offre_loc WHERE id_offre = :id_offre');
+        $stmt->bindValue(':id_offre', $id_offre);
+        $stmt->execute();
+
+        // delete competences
+        $stmt = $db->prepare('DELETE FROM offre_competence WHERE id_offre = :id_offre');
+        $stmt->bindValue(':id_offre', $id_offre);
+        $stmt->execute();
+    }
+
+    /**
      * Bind localites to offreStage
      * @param PDO $db db connection
      * @param int $id_offre id offreStage
