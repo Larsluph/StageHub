@@ -2,15 +2,16 @@
 
 namespace App\Models;
 
+use Core\Model;
 use PDO;
 
 /**
  * Candidature Model
  */
-class Candidature extends \Core\Model
+class Candidature extends Model
 {
     /**
-     * Get one candidature by id
+     * Get one candidature by ids
      * @param int $id_offre id offre
      * @param int $id_user id user
      * @return array
@@ -22,9 +23,8 @@ class Candidature extends \Core\Model
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':id_offre', $id_offre, PDO::PARAM_INT);
         $stmt->bindValue(':id_user', $id_user, PDO::PARAM_INT);
-        $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $stmt->execute();
-        return $stmt->fetch();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     /**
@@ -38,9 +38,8 @@ class Candidature extends \Core\Model
         $db = static::getDB();
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':id_user', $id_user, PDO::PARAM_INT);
-        $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $stmt->execute();
-        return $stmt->fetchAll();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     /**
@@ -54,9 +53,8 @@ class Candidature extends \Core\Model
         $db = static::getDB();
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':id_offre', $id_offre, PDO::PARAM_INT);
-        $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $stmt->execute();
-        return $stmt->fetchAll();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     /**
@@ -112,41 +110,41 @@ class Candidature extends \Core\Model
     public static function update(int $id_offre, int $id_user, bool $is_in_wishlist = null, int $statut_reponse = null, int $evaluation = null, string $cv = null, string $lettre_motivation = null, string $fiche_validation = null, string $convention_stage = null): void
     {
         $sql_args = [];
-        $params = [];
+        $sql_args_bind = [
+            'id_offre' => array($id_offre, PDO::PARAM_INT),
+            'id_user' => array($id_user, PDO::PARAM_INT)];
         if ($is_in_wishlist !== null) {
             $sql_args[] = "is_in_wishlist = :is_in_wishlist";
-            $params[':is_in_wishlist'] = array($is_in_wishlist, PDO::PARAM_BOOL);
+            $sql_args_bind[':is_in_wishlist'] = array($is_in_wishlist, PDO::PARAM_BOOL);
         }
         if ($statut_reponse !== null) {
             $sql_args[] = "statut_reponse = :statut_reponse";
-            $params[':statut_reponse'] = array($statut_reponse, PDO::PARAM_INT);
+            $sql_args_bind[':statut_reponse'] = array($statut_reponse, PDO::PARAM_INT);
         }
         if ($evaluation !== null) {
             $sql_args[] = "evaluation = :evaluation";
-            $params[':evaluation'] = array($evaluation, PDO::PARAM_INT);
+            $sql_args_bind[':evaluation'] = array($evaluation, PDO::PARAM_INT);
         }
         if ($cv !== null) {
             $sql_args[] = "cv = :cv";
-            $params[':cv'] = array(fopen($cv, 'rb'), PDO::PARAM_LOB);
+            $sql_args_bind[':cv'] = array(fopen($cv, 'rb'), PDO::PARAM_LOB);
         }
         if ($lettre_motivation !== null) {
             $sql_args[] = "lettre_motivation = :lettre_motivation";
-            $params[':lettre_motivation'] = array(fopen($lettre_motivation, 'rb'), PDO::PARAM_LOB);
+            $sql_args_bind[':lettre_motivation'] = array(fopen($lettre_motivation, 'rb'), PDO::PARAM_LOB);
         }
         if ($fiche_validation !== null) {
             $sql_args[] = "fiche_validation = :fiche_validation";
-            $params[':fiche_validation'] = array(fopen($fiche_validation, 'rb'), PDO::PARAM_LOB);
+            $sql_args_bind[':fiche_validation'] = array(fopen($fiche_validation, 'rb'), PDO::PARAM_LOB);
         }
         if ($convention_stage !== null) {
             $sql_args[] = "convention_stage = :convention_stage";
-            $params[':convention_stage'] = array(fopen($convention_stage, 'rb'), PDO::PARAM_LOB);
+            $sql_args_bind[':convention_stage'] = array(fopen($convention_stage, 'rb'), PDO::PARAM_LOB);
         }
         $sql = "UPDATE candidatures SET " . implode(', ', $sql_args) . " WHERE id_offre = :id_offre AND id_user = :id_user";
         $db = static::getDB();
         $stmt = $db->prepare($sql);
-        $stmt->bindValue(':id_offre', $id_offre, PDO::PARAM_INT);
-        $stmt->bindValue(':id_user', $id_user, PDO::PARAM_INT);
-        foreach ($params as $key => $value) {
+        foreach ($sql_args_bind as $key => $value) {
             $stmt->bindValue($key, ...$value);
         }
         $stmt->execute();

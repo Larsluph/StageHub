@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use Core\Model;
 use PDO;
 
 /**
  * Entreprise Model
  */
-class Entreprise extends \Core\Model
+class Entreprise extends Model
 {
     /**
      * Get one entreprise by id
@@ -31,9 +32,10 @@ class Entreprise extends \Core\Model
         $db = static::getDB();
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-        $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $stmt->execute();
-        return $stmt->fetch();
+        $entreprise = $stmt->fetch(PDO::FETCH_ASSOC);
+        static::replaceLocalitesAndSecteursActivite($entreprise);
+        return $entreprise;
     }
 
     /**
@@ -55,7 +57,11 @@ class Entreprise extends \Core\Model
                   GROUP BY id_entreprise";
         $db = static::getDB();
         $stmt = $db->query($query);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $entreprises = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($entreprises as &$entreprise) {
+            static::replaceLocalitesAndSecteursActivite($entreprise);
+        }
+        return $entreprises;
     }
 
     /**
@@ -86,7 +92,20 @@ class Entreprise extends \Core\Model
         foreach ($params as $k => $v) {
             $stmt->bindValue(":$k", $v);
         }
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $entreprises = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($entreprises as &$entreprise) {
+            static::replaceLocalitesAndSecteursActivite($entreprise);
+        }
+        return $entreprises;
+    }
+
+    /**
+     * replaces the localites and secteurs_activite of the given entreprise
+     */
+    protected static function replaceLocalitesAndSecteursActivite(array &$entreprise): void
+    {
+        $entreprise['localites'] = explode('|', $entreprise['localites']);
+        $entreprise['secteurs_activite'] = explode('|', $entreprise['secteurs_activite']);
     }
 
     /**
@@ -159,6 +178,49 @@ class Entreprise extends \Core\Model
     }
 
     /**
+     * Deletes an entreprise
+     *
+     * @param int $id
+     * @return void
+     */
+    public static function delete(int $id)
+    {
+        // fetch db connection
+        $db = static::getDB();
+
+        // delete entreprise
+        $stmt = $db->prepare("DELETE FROM entreprises WHERE id_entreprise = :id");
+        $stmt->bindValue(':id', $id);
+        $stmt->execute();
+
+        // delete localites
+        $stmt = $db->prepare("DELETE FROM entreprise_loc WHERE id_entreprise = :id");
+        $stmt->bindValue(':id', $id);
+        $stmt->execute();
+
+        // delete secteurs d'activite
+        $stmt = $db->prepare("DELETE FROM entreprise_secteur WHERE id_entreprise = :id");
+        $stmt->bindValue(':id', $id);
+        $stmt->execute();
+    }
+
+    /**
+     * Toggles hidden flag for an entreprise
+     * @param int $id
+     * @return void
+     */
+    public static function toggleHidden(int $id)
+    {
+        // fetch db connection
+        $db = static::getDB();
+
+        // toggle hidden flag
+        $stmt = $db->prepare("UPDATE entreprises SET hidden = NOT hidden WHERE id_entreprise = :id");
+        $stmt->bindValue(':id', $id);
+        $stmt->execute();
+    }
+
+    /**
      * Binds localites to an entreprise
      * @param PDO $db
      * @param array $localites
@@ -204,47 +266,5 @@ class Entreprise extends \Core\Model
             $stmt->bindValue(':id_secteur_activite', $id_secteur_activite);
             $stmt->execute();
         }
-    }
-
-    /**
-     * Deletes an entreprise
-     *
-     * @param int $id
-     * @return void
-     */
-    public static function delete(int $id) {
-        // fetch db connection
-        $db = static::getDB();
-
-        // delete entreprise
-        $stmt = $db->prepare("DELETE FROM entreprises WHERE id_entreprise = :id");
-        $stmt->bindValue(':id', $id);
-        $stmt->execute();
-
-        // delete localites
-        $stmt = $db->prepare("DELETE FROM entreprise_loc WHERE id_entreprise = :id");
-        $stmt->bindValue(':id', $id);
-        $stmt->execute();
-
-        // delete secteurs d'activite
-        $stmt = $db->prepare("DELETE FROM entreprise_secteur WHERE id_entreprise = :id");
-        $stmt->bindValue(':id', $id);
-        $stmt->execute();
-    }
-
-    /**
-     * Toggles hidden flag for an entreprise
-     * @param int $id
-     * @return void
-     */
-    public static function toggleHidden(int $id)
-    {
-        // fetch db connection
-        $db = static::getDB();
-
-        // toggle hidden flag
-        $stmt = $db->prepare("UPDATE entreprises SET hidden = NOT hidden WHERE id_entreprise = :id");
-        $stmt->bindValue(':id', $id);
-        $stmt->execute();
     }
 }

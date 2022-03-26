@@ -34,7 +34,8 @@ class OffreStage extends Model
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
-        return $stmt->fetch();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     /**
@@ -60,7 +61,7 @@ class OffreStage extends Model
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
-        return $stmt->fetchAll();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     /**
@@ -83,7 +84,7 @@ class OffreStage extends Model
         $db = static::getDB();
         $stmt = $db->prepare($sql);
         $stmt->execute();
-        return $stmt->fetchAll();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     /**

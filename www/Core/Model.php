@@ -16,9 +16,9 @@ abstract class Model
     /**
      * Get the PDO database connection
      *
-     * @return mixed
+     * @return PDO|null
      */
-    protected static function getDB()
+    protected static function getDB(): ?PDO
     {
         static $db = null;
 

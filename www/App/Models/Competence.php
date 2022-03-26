@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use Core\Model;
 use PDO;
 
 /**
- * Localite Model
+ * Competence Model
  */
-class Competence extends \Core\Model
+class Competence extends Model
 {
     /**
      * Get one competence by id
@@ -21,7 +22,7 @@ class Competence extends \Core\Model
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
-        return $stmt->fetch();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     /**
@@ -34,9 +35,9 @@ class Competence extends \Core\Model
         $sql = "SELECT * FROM competences WHERE nom_competence = :name";
         $db = static::getDB();
         $stmt = $db->prepare($sql);
-        $stmt->bindValue(':name', $name, PDO::PARAM_STR);
+        $stmt->bindValue(':name', $name);
         $stmt->execute();
-        return $stmt->fetch();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     /**
@@ -61,7 +62,7 @@ class Competence extends \Core\Model
         $sql = "INSERT INTO competences (nom_competence) VALUES (:name)";
         $db = static::getDB();
         $stmt = $db->prepare($sql);
-        $stmt->bindValue(':name', $name, PDO::PARAM_STR);
+        $stmt->bindValue(':name', $name);
         $stmt->execute();
         return $db->lastInsertId();
     }
@@ -78,7 +79,7 @@ class Competence extends \Core\Model
         $db = static::getDB();
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-        $stmt->bindValue(':name', $name, PDO::PARAM_STR);
+        $stmt->bindValue(':name', $name);
         $stmt->execute();
     }
 

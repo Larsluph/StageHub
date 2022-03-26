@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use Core\Model;
 use PDO;
 
 /**
  * Localite Model
  */
-class Localite extends \Core\Model
+class Localite extends Model
 {
     /**
      * Get one localite by id
@@ -21,7 +22,7 @@ class Localite extends \Core\Model
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
-        return $stmt->fetch();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     /**
@@ -34,9 +35,9 @@ class Localite extends \Core\Model
         $sql = "SELECT * FROM localites WHERE nom_localite = :name";
         $db = static::getDB();
         $stmt = $db->prepare($sql);
-        $stmt->bindValue(':name', $name, PDO::PARAM_STR);
+        $stmt->bindValue(':name', $name);
         $stmt->execute();
-        return $stmt->fetch();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     /**
@@ -61,7 +62,7 @@ class Localite extends \Core\Model
         $sql = "INSERT INTO localites (nom_localite) VALUES (:name)";
         $db = static::getDB();
         $stmt = $db->prepare($sql);
-        $stmt->bindValue(':name', $name, PDO::PARAM_STR);
+        $stmt->bindValue(':name', $name);
         $stmt->execute();
         return $db->lastInsertId();
     }
@@ -78,7 +79,7 @@ class Localite extends \Core\Model
         $db = static::getDB();
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-        $stmt->bindValue(':name', $name, PDO::PARAM_STR);
+        $stmt->bindValue(':name', $name);
         $stmt->execute();
     }
 

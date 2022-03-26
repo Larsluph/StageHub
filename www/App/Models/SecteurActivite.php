@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use Core\Model;
 use PDO;
 
 /**
  * Localite Model
  */
-class SecteurActivite extends \Core\Model
+class SecteurActivite extends Model
 {
     /**
      * Get one secteur activite by id
@@ -34,7 +35,7 @@ class SecteurActivite extends \Core\Model
         $sql = "SELECT * FROM secteurs_activite WHERE nom_secteur_activite = :name";
         $db = static::getDB();
         $stmt = $db->prepare($sql);
-        $stmt->bindValue(':name', $name, PDO::PARAM_STR);
+        $stmt->bindValue(':name', $name);
         $stmt->execute();
         return $stmt->fetch();
     }
@@ -61,7 +62,7 @@ class SecteurActivite extends \Core\Model
         $sql = "INSERT INTO secteurs_activite (nom_secteur_activite) VALUES (:name)";
         $db = static::getDB();
         $stmt = $db->prepare($sql);
-        $stmt->bindValue(':name', $name, PDO::PARAM_STR);
+        $stmt->bindValue(':name', $name);
         $stmt->execute();
         return $db->lastInsertId();
     }
@@ -78,7 +79,7 @@ class SecteurActivite extends \Core\Model
         $db = static::getDB();
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-        $stmt->bindValue(':name', $name, PDO::PARAM_STR);
+        $stmt->bindValue(':name', $name);
         $stmt->execute();
     }
 
