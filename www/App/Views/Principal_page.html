@@ -4,7 +4,7 @@
 <head>
   <title>StageHub</title>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="../assets/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
 </head>
 
 <body>
@@ -12,25 +12,23 @@
   <div class="background--custom">
     <canvas id="canvas"></canvas>
   </div>
-  <script src="../assets/js/background.js"></script>
+  <script src="/assets/js/background.js"></script>
   <script>
     var gradient = new Gradient();
     gradient.initGradient("#canvas");
   </script>
-  <img alt="StageHub logo" class="col-4 mx-auto mt-2 mb-3 d-block" id="logo-centre" src="../assets/img/StageHub%20logo%20fort%20bleu.png">
+  <img alt="StageHub logo" class="col-4 mx-auto mt-2 mb-3 d-block" id="logo-centre" src="/assets/img/StageHub%20logo%20fort%20bleu.png">
   <div class="text-center mt-5">
-    <button class="button-principal-tologin col-1 mx-1 h-50" onclick="document.location='Login_page.html'" type="button"
-      href="/www/Login_page.html">
+    <button class="button-principal-tologin col-1 mx-1 h-50" onclick="document.location='/login'" type="button">
       Login
     </button>
-    <button class="button-principal-toregister col-1 h-50" onclick="document.location='Register_page.html'"
-      type="button">
-      Register
-    </button>
   </div>
-  <footer>
-    <div class="Term-of-use-link">
-      <a onclick="document.location='Terms_of_use.html'" type="button">Term of use</a>
+  <footer class="col-12">
+    <div class="Term-of-use-link text-center">
+      <div class="copyright text-center p-3">
+        © 2022 - StageHub /
+      <a onclick="document.location='/Terms_of_use'" type="button">Terms of use</a>
+      </div>
     </div>
   </footer>
 </body>
