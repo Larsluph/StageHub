@@ -3,14 +3,15 @@
 namespace App\Controllers;
 
 use App\Models\Entreprise;
-use \Core\View;
+use Core\Controller;
+use Core\View;
 
 /**
  * Home controller
  *
  * PHP version 7.0
  */
-class Home extends \Core\Controller
+class Home extends Controller
 {
 
     /**
@@ -18,9 +19,15 @@ class Home extends \Core\Controller
      *
      * @return void
      */
-    public function indexAction()
+    public function indexActio()
+    {
+        View::render('Home/index.php');
+    }
+
+    public function entreprises()
     {
         $entreprises = Entreprise::readAll();
-        View::render('Home/index.php', compact("entreprises"));
+        View::render('Home/entreprises.php', compact("entreprises"));
     }
+
 }

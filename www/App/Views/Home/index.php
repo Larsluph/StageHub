@@ -7,12 +7,6 @@
     <title>HOME</title>
 </head>
 <body>
-    <ul>
-        <?php foreach ($entreprises as $entreprise) {
-            echo "<li>$entreprise[nom_entreprise]<ul>";
-            echo "<li>$entreprise[localites]</li>";
-            echo "<li>$entreprise[secteurs_activite]</li></ul></li>";
-        } ?>
-    </ul>
+<a href="entreprises">Liste entreprises</a>
 </body>
 </html>
