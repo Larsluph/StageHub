@@ -25,8 +25,16 @@ set_exception_handler('Core\Error::exceptionHandler');
  */
 $router = new Core\Router();
 
-// Add the routes
+// default route
 $router->add('', ['controller' => 'Home', 'action' => 'index']);
+// default route pattern
 $router->add('{controller}/{action}');
-    
+
+// custom routes
+$router->add('login', ['controller' => 'Accounts', 'action' => "login"]);
+
+
+/**
+ * Processing / Rendering (call to Controllers)
+ */
 $router->dispatch($_SERVER['QUERY_STRING']);
