@@ -18,7 +18,7 @@
   </script>
 
     <img alt="StageHub logo" class="col-1 mx-auto mt-3 mb-4 d-block" onclick="document.location='Principal_page.html'" id="logo-header"
-         src="../assets/img/logo_white_alpha.png" href="Principal_page.html">
+         src="../assets/img/logo_white_alpha.png">
     <div class="col-3 mx-auto d-block">
       <div class="testbox-register text-center mx-auto">
         <h1 class="mt-3">Registration</h1>
@@ -31,8 +31,8 @@
             <label for="radioTwo" class="radio">Company</label>
           </div>
           <div>
+            <input class="text_case mb-2 pt-1 pb-1 px-1" type="text" name="Name" id="name" placeholder="Name" required>
             <input class="text_case mb-2 pt-1 pb-1 px-1" type="email" name="Email" id="email" placeholder="Email" required>
-            <input class="text_case mb-2 pt-1 pb-1 px-1" type="name" name="Name" id="name" placeholder="Name" required>
             <input class="text_case mb-2 pt-1 pb-1 px-1" type="password" name="Password" id="password" placeholder="Password" required>
             <input class="text_case mb-4 pt-1 pb-1 px-1" type="password" name="PasswordConfirm" id="password_confirm" placeholder="Confirm password" required>
           </div>
@@ -43,7 +43,7 @@
             <label for="female" class="radio">Female</label>
           </div>
           <p class="fs-sm-6 mx-3">By clicking Register, you agree on our terms and condition.</p>
-          <input type="submit" href="Student_page.html" class="button-register px-4 mx-auto mb-3" value="Register">
+          <input type="submit" class="button-register px-4 mx-auto mb-3" value="Register">
         </form>
         <div class="mb-4">
           <a href='Login_page.html' class="button-toLogin">
@@ -53,12 +53,11 @@
       </div>
     </div>
     <footer class="col-12">
-
-
       <div class="Term-of-use-link text-center">
         <div class="copyright text-center p-3">
           © 2022 - StageHub /
-        <a onclick="document.location='Terms_of_use.html'" type="button">Terms of use</a>
+        <a href="Terms_of_use.html">Terms of use</a>
+        </div>
       </div>
     </footer>
   </body>
