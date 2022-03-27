@@ -46,4 +46,12 @@ class Accounts extends Controller
         }
         return false;
     }
+
+    public static function isLoggedIn(): bool
+    {
+        if ($_SESSION['loggedin'] == true) {
+            return true;
+        }
+        return false;
+    }
 }
