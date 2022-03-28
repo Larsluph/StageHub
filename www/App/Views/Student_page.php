@@ -97,19 +97,16 @@
       </table>
       <hr class="col-8 mx-auto">
     </div>
+    <?php foreach ($notifications as $notifications ) { ?>
     <div class="dashboard float-end col-2 pt-3 pb-2 me-4 mt-0">
       <h5 class="col-2 position-absolute text-center">Notification</h5>
       <hr class="col-8 mx-auto mt-4">
       <div class="notification mx-auto col-10">
         <img alt="Logo_notif" class="mx-2 col-1 pt-1 pb-1 float-start" src="../assets/img/notif_ico.ico">
-        <h4 class="fs-6 text-center pt-1 pe-2">Cesi - Engineer School</h4>
-        <h6 class="fs-6 text-center">Selected !</h6>
+        <h4 class="fs-6 text-center pt-1 pe-2"><?php echo $notification['title'] ?></h4>
+        <h6 class="fs-6 text-center"><?php echo $notification['content'] ?></h6>
       </div>
-      <div class="notification mt-1 mx-auto col-10">
-        <img alt="Logo_notif" class="mx-2 col-1 pt-1 pb-1 float-start" src="../assets/img/notif_ico.ico">
-        <h4 class="fs-6 text-center pt-1 pe-2">Cesi - Engineer School</h4>
-        <h6 class="fs-6 text-center">Not Selected :'(</h6>
-      </div>
+      <?php } ?>
       <hr class="col-8 mx-auto">
     </div>
     <div id="STAGE" class="col-7 mx-auto mt-2 mb-1">
@@ -117,13 +114,14 @@
         <tbody>
           <tr>
             <td>
+              <?php foreach ($offres as $offre) { ?>
               <div class="stage_offer d-flex mb-4">
                 <img alt="Logo_company" class="Logo_company text-center align-self-center mx-4" id="logo"
                   src="../assets/img/cesi_logo.jpg">
                 <div class="vr align-self-center"></div>
                 <div style="padding-right: 45px;">
                   <button onclick="document.location.href='Profile_company_view.html';" class="profile_company" type="button">
-                    <h4 class="mt-4 fs-4 mx-5" value="Name_company">Cesi - Engineer School</h4>
+                    <h4 class="mt-4 fs-4 mx-5" value="Name_company"><?php echo $offre['nom_poste_offre'] ?></h4>
                   </button>
                   <hr class="col-3 mx-5 mb-4">
                   <table class="col-12 mt-4 mx-5 mb-4">
@@ -138,72 +136,28 @@
                       </th>
                     </tr>
                     <td>
-                      <h4 class="mt-3 fs-6 mx-auto" value="Name_company">rigorous - autonomous - dynamic - team spirit -
-                        motivated - creative
+                      <h4 class="mt-3 fs-6 mx-auto" value="Name_company"><?php 
+                        echo implode(" - ", explode("|", $offre['competences']));
+                      ?>
                       </h4>
                     </td>
                     <td>
-                      <h4 class="col-10 mt-3 fs-6" value="Name_company">Lille</h4>
+                      <h4 class="col-10 mt-3 fs-6" value="Name_company"><?php 
+                        echo implode(" - ", explode("|", $offre['localites']));
+                      ?>
+                      </h4>
                     </td>
                   </table>
                   <input type="submit" href="#" class="button-register float-start ms-5 px-4 mx-auto mb-3" value="Apply">
                       <input type="submit" href="#" class="button-register float-start ms-1 px-4 mx-auto mb-3" value="Add to my WhishList">
                 </div>
               </div>
+              <?php } ?>
             </td>
           </tr>
         </tbody>
-
-      </table>
-
-
-    </div>
-    <div id="STAGE" class="col-7 mx-auto mt-2 mb-1">
-      <table id="pagination" class="table table-striped table-bordered w-100">
-        <tbody>
-          <tr>
-            <td>
-              <div class="stage_offer d-flex mb-4">
-                <img alt="Logo_company" class="Logo_company text-center align-self-center mx-4" id="logo"
-                  src="../assets/img/cesi_logo.jpg">
-                <div class="vr align-self-center"></div>
-                <div style="padding-right: 45px;">
-                  <button onclick="document.location.href='Profile_company_view.html';" class="profile_company" type="button">
-                    <h4 class="mt-4 fs-4 mx-5" value="Name_company">Cesi - Engineer School</h4>
-                  </button>
-                  <hr class="col-3 mx-5 mb-4">
-                  <table class="col-12 mt-4 mx-5 mb-4">
-                    <tr>
-                      <th>
-                        <h5 class="fs-6 fw-bold" value="Description_stage">Quality required :</h4>
-                          <hr class="col-4 mx-1 mb-1">
-                      </th>
-                      <th>
-                        <h5 class="fs-6 fw-bold" value="Description_stage">Location :</h4>
-                          <hr class="col-4 mx-1 mb-1">
-                      </th>
-                    </tr>
-                    <td>
-                      <h4 class="mt-3 fs-6 mx-auto" value="Name_company">rigorous - autonomous - dynamic - team spirit -
-                        motivated - creative
-                      </h4>
-                    </td>
-                    <td>
-                      <h4 class="col-10 mt-3 fs-6" value="Name_company">Lille</h4>
-                    </td>
-                  </table>
-                  <input type="submit" href="#" class="button-register float-start ms-5 px-4 mx-auto mb-3" value="Apply">
-                      <input type="submit" href="#" class="button-register float-start ms-1 px-4 mx-auto mb-3" value="Add to my WhishList">
-                </div>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-        
       </table>
     </div>
-
-
   </div>
   <hr class="separate mx-auto pt-1 mb-4 mt-3 col-8">
   <nav aria-label="Page navigation example">

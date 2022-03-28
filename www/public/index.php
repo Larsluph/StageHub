@@ -38,6 +38,7 @@ $router->add('logout', ['controller' => 'AccountController', 'action' => "logout
 
 $router->add('company', ['controller' => 'CompanyController', 'action' => "view"]);
 
+$router->add('student', ['controller' => 'StudentController', 'action' => "view"]);
 /**
  * Processing / Rendering (call to Controllers)
  */
