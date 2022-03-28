@@ -36,9 +36,13 @@ $router->add('{controller}/{action}');
 $router->add('login', ['controller' => 'AccountController', 'action' => "login"]);
 $router->add('logout', ['controller' => 'AccountController', 'action' => "logout"]);
 
+$router->add('terms', ['controller' => 'TermsController', 'action' => "view"]);
+
 $router->add('company', ['controller' => 'CompanyController', 'action' => "view"]);
 
 $router->add('student', ['controller' => 'StudentController', 'action' => "view"]);
+
+
 /**
  * Processing / Rendering (call to Controllers)
  */
