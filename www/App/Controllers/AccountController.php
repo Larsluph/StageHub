@@ -39,7 +39,7 @@ class AccountController extends Controller
 
     protected static function checkForLogin(string $username, string $password): bool {
         $hash = hash('sha256', $password);
-        $user = User::getUser($username, $hash);
+        $user = User::readOneByLogin($username, $hash);
         if ($user) {
             $_SESSION['loggedin'] = true;
             $_SESSION['id_user'] = $user['id_user'];
