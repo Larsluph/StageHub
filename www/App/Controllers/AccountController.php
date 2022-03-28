@@ -13,7 +13,7 @@ class AccountController extends Controller
 {
     public function login() {
         if (array_key_exists('loggedin', $_SESSION) && $_SESSION['loggedin'] == true) {
-            header('Location: /');
+            header('Location: /profile_student');
         }
 
         if (empty($_POST)) {
@@ -23,7 +23,7 @@ class AccountController extends Controller
             if (self::checkForLogin($_POST['Email'], $_POST['password'])) {
                 // Login successful
                 print_r($_SESSION);
-                header("Location: /");
+                header("Location: /profile_student");
             }
             else {
                 // Login failed

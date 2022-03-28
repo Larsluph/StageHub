@@ -15,7 +15,7 @@ class User extends Model {
      * @param string $hash User's hash
      * @return array|false User's data or false if user not found
      */
-    public static function readOneByLogin(string $username, string $hash): bool|array
+    public static function readOneByLogin(string $username, string $hash): array
     {
         $sql = 'SELECT * FROM users WHERE username = :username AND hash = :hash';
         $db = static::getDB();

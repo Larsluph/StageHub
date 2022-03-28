@@ -18,7 +18,7 @@ class Candidature extends Model
      */
     public static function readOne(int $id_offre, int $id_user): array
     {
-        $sql = "SELECT * FROM candidatures WHERE id_offre = :id_offre AND id_user = :id_user";
+        $sql = "SELECT * FROM candidatures LEFT JOIN offres_stage USING (id_offre) WHERE id_offre = :id_offre AND id_user = :id_user";
         $db = static::getDB();
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':id_offre', $id_offre, PDO::PARAM_INT);
@@ -34,7 +34,7 @@ class Candidature extends Model
      */
     public static function readAllByUser(int $id_user): array
     {
-        $sql = "SELECT * FROM candidatures WHERE id_user = :id_user";
+        $sql = "SELECT * FROM candidatures LEFT JOIN offres_stage USING (id_offre) WHERE id_user = :id_user";
         $db = static::getDB();
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':id_user', $id_user, PDO::PARAM_INT);

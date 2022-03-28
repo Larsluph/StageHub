@@ -31,10 +31,19 @@
                     <div class="card-body text-center">
                       <div class="row">
                         <div class="col-sm-5">
-                          <h6 class="mb-0 ps-3">Full Name :</h6>
+                          <h6 class="mb-0 ps-3">ID :</h6>
                         </div>
                         <div class="col-sm-7 text-secondary">
-                          Kévin Laurent
+                          <?php echo $user['id_user'] ?>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-5">
+                          <h6 class="mb-0 ps-3">Full Name :</h6>
+                        </div>               
+                        <div class="col-sm-7 text-secondary">
+                          <?php echo $user['nom_user']." ".$user['prenom_user'] ?>
                         </div>
                       </div>
                       <hr>
@@ -43,20 +52,11 @@
                           <h6 class="mb-0 ps-3">Username :</h6>
                         </div>
                         <div class="col-sm-7 text-secondary">
-                          Lolo
-                        </div>
-                      </div>
-                      <hr>
-                      <div class="row">
-                        <div class="col-sm-5">
-                          <h6 class="mb-0 ps-3">Id :</h6>
-                        </div>
-                        <div class="col-sm-7 text-secondary">
-                          4454847655
+                          <?php echo $user['username'] ?>
                         </div>
                       </div>
                 </div>
-                  </div>
+                </div>
     
     
     

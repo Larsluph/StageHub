@@ -33,14 +33,19 @@ $router->add('', ['controller' => 'HomeController', 'action' => 'index']);
 $router->add('{controller}/{action}');
 
 // custom routes
+// account routes
 $router->add('login', ['controller' => 'AccountController', 'action' => "login"]);
 $router->add('logout', ['controller' => 'AccountController', 'action' => "logout"]);
 
+// misc
 $router->add('terms', ['controller' => 'TermsController', 'action' => "view"]);
 
+// company routes
 $router->add('company', ['controller' => 'CompanyController', 'action' => "view"]);
 
+// student routes
 $router->add('student', ['controller' => 'StudentController', 'action' => "view"]);
+$router->add('profile_student', ['controller' => 'ProfStudentController', 'action' => "view"]);
 
 
 /**
