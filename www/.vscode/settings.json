@@ -6,6 +6,7 @@
             "savePath": "public/assets/css"
         }
     ],
+    "liveSassCompile.settings.generateMap": false,
     "liveSassCompile.settings.includeItems": [
         "public/assets/sass/*"
     ]
