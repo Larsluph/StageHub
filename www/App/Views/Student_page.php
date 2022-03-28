@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>StageHub</title>
-  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
 <body>
@@ -12,13 +12,13 @@
     <canvas id="canvas"></canvas>
   </div>
 
-  <script src="../assets/js/background.js"></script>
+  <script src="/assets/js/background.js"></script>
   <script>
     var gradient = new Gradient();
     gradient.initGradient("#canvas");
   </script>
   <div id="header">
-    <img alt="StageHub logo" class="col-2 mx-5 mt-2 mb-3" id="logo" src="../assets/img/logo_white_alpha.png"
+    <img alt="StageHub logo" class="col-2 mx-5 mt-2 mb-3" id="logo" src="/assets/img/logo_white_alpha.png"
       style="max-width: 300px;">
     <button onclick="document.location.href='Profile_student_view.html';" class="profile float-end mx-lg-5 mt-5 fs-4" type="button">
       - PROFILE -
@@ -180,7 +180,7 @@
     <div class="Term-of-use-link text-center">
       <div class="copyright text-center p-3">
         © 2022 - StageHub /
-      <a onclick="document.location='Terms_of_use.html'" type="button">Terms of use</a>
+      <a onclick="document.location='/terms'" type="button">Terms of use</a>
     </div>
   </footer>
 </body>

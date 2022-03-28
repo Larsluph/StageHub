@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>StageHub</title>
-  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
 <body>
@@ -12,13 +12,13 @@
     <canvas id="canvas"></canvas>
   </div>
 
-  <script src="../assets/js/background.js"></script>
+  <script src="/assets/js/background.js"></script>
   <script>
     var gradient = new Gradient();
     gradient.initGradient("#canvas");
   </script>
   <div id="header">
-    <img alt="StageHub logo" class="col-2 mx-5 mt-2 mb-3" id="logo" src="../assets/img/logo_white_alpha.png"
+    <img alt="StageHub logo" class="col-2 mx-5 mt-2 mb-3" id="logo" src="/assets/img/logo_white_alpha.png"
       style="max-width: 300px;">
     <button class="profile float-end mx-lg-5 mt-5 fs-4" type="button">
       - PROFILE -
@@ -60,7 +60,7 @@
               <?php foreach ($offres as $offre) { ?>
               <div class="stage_offer d-flex mb-4">
                 <img alt="Logo_company" class="Logo_company text-center align-self-center mx-4" id="logo"
-                  src="../assets/img/cesi_logo.jpg">
+                  src="/assets/img/cesi_logo.jpg">
                 <div class="vr align-self-center"></div>
                 <div style="padding-right: 45px;">
                   <h4 class="mt-4 fs-4 mx-5" value="Name_company"><?php echo $offre['nom_poste_offre'] ?></h4>
@@ -125,7 +125,7 @@
     <div class="Term-of-use-link text-center">
       <div class="copyright text-center p-3">
         © 2022 - StageHub /
-      <a onclick="document.location='Terms_of_use.html'" type="button">Terms of use</a>
+      <a onclick="document.location='/terms'" type="button">Terms of use</a>
     </div>
   </footer>
 </body>

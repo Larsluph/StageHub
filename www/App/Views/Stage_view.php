@@ -11,15 +11,15 @@
     <div class="background--custom">
         <canvas id="canvas"></canvas>
     </div>
-    <script src="../assets/js/background.js"></script>
+    <script src="/assets/js/background.js"></script>
     <script>
         var gradient = new Gradient();
         gradient.initGradient("#canvas");
     </script>
     <div class="mx-5">
-        <img onclick="history.back()" type="submit" class="mx-5 mt-5" id="back_arrow" src="../assets/img/fleche.png"
+        <img onclick="history.back()" type="submit" class="mx-5 mt-5" id="back_arrow" src="/assets/img/fleche.png"
             alt="Back to previous page">
-        <img class="col-1 mx-auto mt-4 mb-3 d-block" id="logo" src="../assets/img/logo_white_alpha.png">
+        <img class="col-1 mx-auto mt-4 mb-3 d-block" id="logo" src="/assets/img/logo_white_alpha.png">
     </div>
 
     <div class="col-auto mx-auto mt-5">
@@ -114,7 +114,7 @@
             <div class="Term-of-use-link text-center">
               <div class="copyright text-center p-3">
                 © 2022 - StageHub /
-              <a onclick="document.location='Terms_of_use.html'" type="button">Terms of use</a>
+              <a onclick="document.location='/terms'" type="button">Terms of use</a>
             </div>
           </footer>
 </body>
