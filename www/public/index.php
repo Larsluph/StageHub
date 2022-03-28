@@ -28,13 +28,13 @@ set_exception_handler('Core\Error::exceptionHandler');
 $router = new Core\Router();
 
 // default route
-$router->add('', ['controller' => 'Home', 'action' => 'index']);
+$router->add('', ['controller' => 'HomeController', 'action' => 'index']);
 // default route pattern
 $router->add('{controller}/{action}');
 
 // custom routes
-$router->add('login', ['controller' => 'Accounts', 'action' => "login"]);
-$router->add('logout', ['controller' => 'Accounts', 'action' => "logout"]);
+$router->add('login', ['controller' => 'AccountController', 'action' => "login"]);
+$router->add('logout', ['controller' => 'AccountController', 'action' => "logout"]);
 
 
 /**

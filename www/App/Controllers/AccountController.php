@@ -9,12 +9,13 @@ use Core\View;
 /**
  * Accounts controller
  */
-class Accounts extends Controller
+class AccountController extends Controller
 {
     public function login() {
-        if ($_SESSION['loggedin'] == true) {
+        if (array_key_exists('loggedin', $_SESSION) && $_SESSION['loggedin'] == true) {
             header('Location: /');
         }
+
         if (empty($_POST)) {
             View::render("Login_page.html");
         }
@@ -22,7 +23,7 @@ class Accounts extends Controller
             if (self::checkForLogin($_POST['Email'], $_POST['password'])) {
                 // Login successful
                 print_r($_SESSION);
-//                header("Location: /");
+                header("Location: /");
             }
             else {
                 // Login failed
