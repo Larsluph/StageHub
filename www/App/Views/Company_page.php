@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
   <meta charset="utf-8">
   <title>StageHub</title>
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
-
 <body>
   <div class="background--custom">
     <canvas id="canvas"></canvas>
   </div>
-
   <script src="/assets/js/background.js"></script>
   <script>
     var gradient = new Gradient();
@@ -20,7 +17,8 @@
   <div id="header">
     <img alt="StageHub logo" class="col-2 mx-5 mt-2 mb-3" id="logo" src="/assets/img/logo_white_alpha.png"
       style="max-width: 300px;">
-    <button class="profile float-end mx-lg-5 mt-5 fs-4" type="button">
+    <button onclick="document.location.href='Profile_company_view.html';" class="profile float-end mx-lg-5 mt-5 fs-4"
+      type="button">
       - PROFILE -
     </button>
     <button class="profile float-end mx-lg-5 mt-5 fs-4" type="button">
