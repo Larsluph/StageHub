@@ -13,7 +13,6 @@ use Core\View;
  */
 class HomeController extends Controller
 {
-
     /**
      * Show the index page and terms and conditions page
      *

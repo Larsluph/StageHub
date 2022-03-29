@@ -20,28 +20,28 @@ class StudentController extends Controller
      *
      * @return void
      */
-    public function student_page()
+    public function studentPage()
     {
-        $notifications = array();
-        $offres = Candidature::readAllByUser(1);
+        $notifications = array(); // TODO: get notifications from database
+        $offres = Candidature::readAllByUser(1); // FIXME: get correct user id
 
         View::render('Student_page.php', compact("notifications", "offres"));
     }
 
-    public function student_profile()
+    public function studentProfile()
     {
         $user = User::readOnebyId($_SESSION['id_user']);
 
         View::render('Profile_student_view.php', compact('user'));
     }
 
-    public function student_update()
+    public function studentUpdate()
     {
-        //TODO
+        //TODO: update student profile
     }
 
     public function wishlist()
     {
-        //TODO
+        //TODO: show student wishlist
     }
 }

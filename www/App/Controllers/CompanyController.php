@@ -20,29 +20,29 @@ class CompanyController extends Controller
      *
      * @return void
      */
-    public function company_page()
+    public function companyPage()
     {
-        $notifications = array();
-        $offres = OffreStage::readAllByEntreprise(1);
+        $notifications = array(); // FIXME: get notifications from database
+        $offres = OffreStage::readAllByEntreprise(1); // FIXME: fetch company id
 
         View::render('Company_page.php', compact("notifications", "offres"));
     }
    
-    public function company_profile()
+    public function companyProfile()
     {
-        $offres = OffreStage::readAllByEntreprise(1);
-        $entreprises = Entreprise::readOne('nom_entreprise'); // cest de la merde ça
+        $offres = OffreStage::readAllByEntreprise(1); // FIXME: fetch company id
+        $entreprises = Entreprise::readOne('nom_entreprise'); // FIXME: bullshit
 
         View::render('Profile_company_view.php', compact('entreprises', "offres"));
     }
 
-    public function company_post()
+    public function companyPost()
     {
-        //TODO
+        //TODO: add a new company post
     }
 
-    public function company_update()
+    public function companyUpdate()
     {
-        //TODO
+        //TODO: update a company post
     }
 }

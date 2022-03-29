@@ -21,7 +21,8 @@ class AdminController extends Controller
      */
     public function view()
     {
-        View::render('Admin_page.php'); // Page pas encore crée 
+        // TODO: create page for admin
+        View::render('Admin_page.php');
     }
 
 }
