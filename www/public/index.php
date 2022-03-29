@@ -27,12 +27,20 @@ set_exception_handler('Core\Error::exceptionHandler');
  */
 $router = new Core\Router();
 
+//////////////////
+// basic routes //
+//////////////////
+
 // default route
 $router->add('', ['controller' => 'HomeController', 'action' => 'index']);
-// default route pattern
-$router->add('{controller}/{action}');
 
-// custom routes
+// default route pattern
+//$router->add('{controller}/{action}');
+
+///////////////////
+// custom routes //
+///////////////////
+
 // account routes
 $router->add('login', ['controller' => 'AccountController', 'action' => "login"]);
 $router->add('logout', ['controller' => 'AccountController', 'action' => "logout"]);
@@ -61,4 +69,16 @@ $router->add('404', ['controller' => 'ErrorController', 'action' => "notFound"])
 /**
  * Processing / Rendering (call to Controllers)
  */
-$router->dispatch($_SERVER['QUERY_STRING']);
+try {
+    $router->dispatch($_SERVER['QUERY_STRING']);
+} catch (Exception $e) {
+    switch ($e->getCode()) {
+        case 404:
+            // No route matched
+            $router->redirect('404');
+            break;
+        default:
+            $router->redirect('500');
+            break;
+    }
+}
