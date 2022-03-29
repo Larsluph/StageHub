@@ -40,33 +40,32 @@
     </form>
     <hr class="separate mx-auto pt-1 col-9 mb-3 mt-4">
   </div>
+
   <div id="contenu">
     <div class="dashboard float-start col-2 pt-3 pb-2 ms-4 mt-0">
       <h5 class="col-2 position-absolute text-center">Notification</h5>
       <hr class="col-8 mx-auto mt-4">
-      <?php foreach ($notifications as $notification ) { ?>
+      <?php foreach ($notifications as $notification) { ?>
       <div class="notification mt-1 mx-auto col-10">
-        <img alt="Logo_notif" class="mx-2 col-1 pt-1 pb-1 float-start" src="/assets/img/notif_ico.ico">
-        <h4 class="fs-6 text-center pt-1 pe-2">Cesi - Engineer School</h4>
-        <h6 class="fs-6 text-center">New student !</h6>
+        <img alt="Logo_notif" class="mx-2 col-1 pt-1 pb-1 float-start" src="../assets/img/notif_ico.ico">
+        <h4 class="fs-6 text-center pt-1 pe-2"><?php echo $offre['nom_poste_offre'] ?></h4>
+        <h6 class="fs-6 text-center"><?php echo $offre['content'] ?></h6>
       </div>
       <?php } ?>
-      <hr class="col-8 mx-auto">
     </div>
+
     <div class="col-7 mx-auto mt-5 mb-1 stage">
       <table class="pagination table table-striped table-bordered w-100">
         <tbody>
           <tr>
             <td>
-              <?php foreach ($offres as $offre) { ?>
-              <div class="stage_offer d-flex mb-4">
+            <?php foreach ($offres as $offre) { ?> 
+            <div class="stage_offer d-flex mb-4">
                 <img alt="Logo_company" class="Logo_company text-center align-self-center mx-4"
                   src="/assets/img/cesi_logo.jpg">
                 <div class="vr align-self-center"></div>
                 <div style="padding-right: 45px;">
-                  <h4 class="mt-4 fs-4 mx-5">
-                    <?php echo $offre['nom_poste_offre'] ?>
-                  </h4>
+                  <h4 class="mt-4 fs-4 mx-5"><?php echo $offre['nom_poste_offre'] ?></h4>
                   <hr class="col-3 mx-5 mb-4">
                   <table class="col-12 mt-4 mx-5 mb-4">
                     <tr>
@@ -82,33 +81,27 @@
                     <tr>
                       <td class="mt-3 fs-6 mx-auto">
                         <?php echo implode(" - ", explode("|", $offre['competences'])); ?>
-                      
-                    </td>
-                    <td>
-                      <h4 class="col-10 mt-3 fs-6" value="Name_company">
-                        <?php 
-                        echo implode(" - ", explode("|", $offre['localites']));
-                      ?>
+                      </td>
+                      <td>
+                      <h4 class="col-10 mt-3 fs-6">
+                        <?php echo implode(" - ", explode("|", $offre['localites'])); ?>
                       </h4>
-                    </td>
+                      </td>
+                    </tr>
                   </table>
-                  <input type="submit" href="#" class="button-register float-start ms-5 px-4 mx-auto mb-3"
-                    value="Modify">
-
+                  <input type="submit" class="button-register float-start ms-5 px-4 mx-auto mb-3" value="Modify">
                 </div>
               </div>
               <?php } ?>
             </td>
           </tr>
         </tbody>
-
       </table>
-
-
     </div>
   </div>
 
   <hr class="separate mx-auto pt-1 mb-4 mt-3 col-8">
+
   <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center">
       <li class="page-item disabled">
@@ -124,13 +117,12 @@
   </nav>
   <hr class="separate mx-auto pt-1 mb-4 mt-4 col-10">
   <footer class="col-12">
-
-
     <div class="Term-of-use-link text-center">
       <div class="copyright text-center p-3">
         © 2022 - StageHub /
         <a href="/terms">Terms of use</a>
       </div>
+    </div>
   </footer>
 </body>
 
