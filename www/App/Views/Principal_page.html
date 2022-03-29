@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>StageHub</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+</head>
+
+<body>
+  <h2 class="text-center mt-xl-5">Welcome on</h2>
+  <div class="background--custom">
+    <canvas id="canvas"></canvas>
+  </div>
+  <script src="/assets/js/background.js"></script>
+  <script>
+    var gradient = new Gradient();
+    gradient.initGradient("#canvas");
+  </script>
+  <img alt="StageHub logo" class="col-4 mx-auto mt-2 mb-3 d-block" id="logo-centre"
+    src="/assets/img/StageHub%20logo%20fort%20bleu.png">
+  <div class="text-center mt-5">
+    <button class="button-principal-tologin col-1 mx-1 h-50" onclick="document.location='Login_page.html'"
+      type="button">
+      Login
+    </button>
+  </div>
+  <footer class="col-12">
+    <div class="Term-of-use-link text-center">
+      <div class="copyright text-center p-3">
+        © 2022 - StageHub /
+        <a href="/terms">Terms of use</a>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
