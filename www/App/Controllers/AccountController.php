@@ -23,7 +23,7 @@ class AccountController extends Controller
             if (self::checkForLogin($_POST['Email'], $_POST['password'])) {
                 // Login successful
                 print_r($_SESSION);
-                header("Location: /profile_student");
+                header("Location: /student");
             }
             else {
                 // Login failed
