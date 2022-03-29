@@ -64,6 +64,7 @@ $router->add('student/wishlist', ['controller' => 'StudentController', 'action' 
 $router->add('admin', ['controller' => 'AdminController', 'action' => "view"]); // TODO - vu admin avec fonctionnalitées?
 
 // error routes
+$router->add('403', ['controller' => 'ErrorController', 'action' => "forbidden"]);
 $router->add('404', ['controller' => 'ErrorController', 'action' => "notFound"]);
 
 /**

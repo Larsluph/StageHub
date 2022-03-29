@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\User;
 use Core\Controller;
 use Core\View;
 
@@ -12,6 +13,11 @@ use Core\View;
  */
 class ErrorController extends Controller
 {
+    public function forbidden()
+    {
+        View::render('403.html');
+    }
+
     public function notFound()
     {
         View::render('404.html');
