@@ -13,9 +13,9 @@ class Role extends Model
     /**
      * Get one role by id
      * @param  int $id
-     * @return array
+     * @return array|false
      */
-    public static function readOneById(int $id): array
+    public static function readOneById(int $id)
     {
         $sql = "SELECT * FROM roles WHERE id_role = :id";
         $pdo = static::getDB();
@@ -28,9 +28,9 @@ class Role extends Model
     /**
      * Get one role by name
      * @param  string $name
-     * @return array
+     * @return array|false
      */
-    public static function readOneByName(string $name): array
+    public static function readOneByName(string $name)
     {
         $sql = 'SELECT * FROM roles WHERE nom_role = :name';
         $db = static::getDB();
@@ -42,9 +42,9 @@ class Role extends Model
 
     /**
      * Get all roles
-     * @return array
+     * @return array|false
      */
-    public static function readAll(): array
+    public static function readAll()
     {
         $pdo = static::getDB();
         $stmt = $pdo->query("SELECT * FROM roles");

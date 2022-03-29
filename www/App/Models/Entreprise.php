@@ -14,9 +14,9 @@ class Entreprise extends Model
      * Get one entreprise by id
      *
      * @param int $id
-     * @return array
+     * @return array|false
      */
-    public static function readOne(int $id): array
+    public static function readOne(int $id)
     {
         $sql = "SELECT
                     nom_entreprise,
@@ -41,9 +41,9 @@ class Entreprise extends Model
     /**
      * Get all the entreprises as an associative array
      *
-     * @return array
+     * @return array|false
      */
-    public static function readAll(): array
+    public static function readAll()
     {
         $query = "SELECT
                       nom_entreprise,

@@ -14,9 +14,9 @@ class OffreStage extends Model
     /**
      * Get one offreStage by id
      * @param int $id id offreStage
-     * @return array offreStage
+     * @return array|false offreStage
      */
-    public static function readOneById(int $id): array
+    public static function readOneById(int $id)
     {
         $sql = "SELECT
                     offres_stage.*,
@@ -42,9 +42,9 @@ class OffreStage extends Model
     /**
      * Get one offreStage by id_entreprise
      * @param int $id id entreprise
-     * @return array offreStage
+     * @return array|false offreStage
      */
-    public static function readAllByEntreprise(int $id): array
+    public static function readAllByEntreprise(int $id)
     {
         $sql = "SELECT
                     offres_stage.*,
@@ -67,9 +67,9 @@ class OffreStage extends Model
 
     /**
      * Get all offreStage
-     * @return array offreStage
+     * @return array|false offreStage
      */
-    public static function readAll(): array
+    public static function readAll()
     {
         $sql = "SELECT
                     offres_stage.*,

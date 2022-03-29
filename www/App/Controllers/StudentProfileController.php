@@ -11,7 +11,7 @@ use Core\View;
  *
  * PHP version 7.0
  */
-class ProfStudentController extends Controller
+class StudentProfileController extends Controller
 {
 
     /**

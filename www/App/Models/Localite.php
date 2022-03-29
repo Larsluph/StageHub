@@ -13,9 +13,9 @@ class Localite extends Model
     /**
      * Get one localite by id
      * @param int $id id localite
-     * @return array
+     * @return array|false
      */
-    public static function readOneById(int $id): array
+    public static function readOneById(int $id)
     {
         $sql = "SELECT * FROM localites WHERE id_localite = :id";
         $db = static::getDB();
@@ -28,9 +28,9 @@ class Localite extends Model
     /**
      * Get one localite by name
      * @param string $name name localite
-     * @return array
+     * @return array|false
      */
-    public static function readOneByName(string $name): array
+    public static function readOneByName(string $name)
     {
         $sql = "SELECT * FROM localites WHERE nom_localite = :name";
         $db = static::getDB();
@@ -43,9 +43,9 @@ class Localite extends Model
     /**
      * Get all localites
      *
-     * @return array
+     * @return array|false
      */
-    public static function readAll(): array
+    public static function readAll()
     {
         $db = static::getDB();
         $stmt = $db->query("SELECT * FROM localites");

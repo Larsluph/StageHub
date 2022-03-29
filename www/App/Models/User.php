@@ -15,7 +15,7 @@ class User extends Model {
      * @param string $hash User's hash
      * @return array|false User's data or false if user not found
      */
-    public static function readOneByLogin(string $username, string $hash): array
+    public static function readOneByLogin(string $username, string $hash)
     {
         $sql = 'SELECT * FROM users WHERE username = :username AND hash = :hash';
         $db = static::getDB();
@@ -29,9 +29,9 @@ class User extends Model {
     /**
      * Get user by id
      * @param int $id User's id
-     * @return array User's data or false if user not found
+     * @return array|false User's data or false if user not found
      */
-    public static function readOneById(int $id): array {
+    public static function readOneById(int $id) {
         $sql = 'SELECT * FROM users WHERE id_user = :id';
         $db = static::getDB();
         $stmt = $db->prepare($sql);

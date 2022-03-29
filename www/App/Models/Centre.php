@@ -13,9 +13,9 @@ class Centre extends Model
     /**
      * Get one centre by id
      * @param  int $id
-     * @return array
+     * @return array|false
      */
-    public static function readOneById(int $id): array
+    public static function readOneById(int $id)
     {
         $sql = "SELECT * FROM centres WHERE id_centre = :id";
         $pdo = static::getDB();
@@ -28,9 +28,9 @@ class Centre extends Model
     /**
      * Get one centre by name
      * @param  string $name
-     * @return array
+     * @return array|false
      */
-    public static function readOneByName(string $name): array
+    public static function readOneByName(string $name)
     {
         $sql = 'SELECT * FROM centres WHERE nom_centre = :name';
         $db = static::getDB();
@@ -42,9 +42,9 @@ class Centre extends Model
 
     /**
      * Get all centres
-     * @return array
+     * @return array|false
      */
-    public static function readAll(): array
+    public static function readAll()
     {
         $pdo = static::getDB();
         $stmt = $pdo->query("SELECT * FROM centres");

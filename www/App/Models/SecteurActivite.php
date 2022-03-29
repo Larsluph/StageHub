@@ -13,9 +13,9 @@ class SecteurActivite extends Model
     /**
      * Get one secteur activite by id
      * @param int $id id secteur activite
-     * @return array
+     * @return array|false
      */
-    public static function readOneById(int $id): array
+    public static function readOneById(int $id)
     {
         $sql = "SELECT * FROM secteurs_activite WHERE id_secteur_activite = :id";
         $db = static::getDB();
@@ -28,9 +28,9 @@ class SecteurActivite extends Model
     /**
      * Get one secteur activite by name
      * @param string $name name secteur activite
-     * @return array
+     * @return array|false
      */
-    public static function readOneByName(string $name): array
+    public static function readOneByName(string $name)
     {
         $sql = "SELECT * FROM secteurs_activite WHERE nom_secteur_activite = :name";
         $db = static::getDB();
@@ -43,9 +43,9 @@ class SecteurActivite extends Model
     /**
      * Get all secteurs activite
      *
-     * @return array
+     * @return array|false
      */
-    public static function readAll(): array
+    public static function readAll()
     {
         $db = static::getDB();
         $stmt = $db->query("SELECT * FROM secteurs_activite");

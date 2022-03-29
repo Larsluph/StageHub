@@ -14,9 +14,9 @@ class Candidature extends Model
      * Get one candidature by ids
      * @param int $id_offre id offre
      * @param int $id_user id user
-     * @return array
+     * @return array|false
      */
-    public static function readOne(int $id_offre, int $id_user): array
+    public static function readOne(int $id_offre, int $id_user)
     {
         $sql = "SELECT
                     offres_stage.*,
@@ -45,9 +45,9 @@ class Candidature extends Model
     /**
      * Get all candidatures from a user as an associative array
      * @param int $id_user id user
-     * @return array
+     * @return array|false
      */
-    public static function readAllByUser(int $id_user): array
+    public static function readAllByUser(int $id_user)
     {
         $sql = "SELECT
                     offres_stage.*,
@@ -74,9 +74,9 @@ class Candidature extends Model
     /**
      * Get all candidatures from an offre as an associative array
      * @param int $id_offre id offre
-     * @return array
+     * @return array|false
      */
-    public static function readAllByOffre(int $id_offre): array
+    public static function readAllByOffre(int $id_offre)
     {
         $sql = "SELECT
                     offres_stage.*,

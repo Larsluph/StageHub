@@ -13,9 +13,9 @@ class Competence extends Model
     /**
      * Get one competence by id
      * @param int $id id competence
-     * @return array
+     * @return array|false
      */
-    public static function readOneById(int $id): array
+    public static function readOneById(int $id)
     {
         $sql = "SELECT * FROM competences WHERE id_competence = :id";
         $db = static::getDB();
@@ -28,9 +28,9 @@ class Competence extends Model
     /**
      * Get one competence by name
      * @param string $name name competence
-     * @return array
+     * @return array|false
      */
-    public static function readOneByName(string $name): array
+    public static function readOneByName(string $name)
     {
         $sql = "SELECT * FROM competences WHERE nom_competence = :name";
         $db = static::getDB();
@@ -43,9 +43,9 @@ class Competence extends Model
     /**
      * Get all competences
      *
-     * @return array
+     * @return array|false
      */
-    public static function readAll(): array
+    public static function readAll()
     {
         $db = static::getDB();
         $stmt = $db->query("SELECT * FROM competences");

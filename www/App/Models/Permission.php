@@ -13,9 +13,9 @@ class Permission extends Model
     /**
      * Get one permission by id
      * @param int $id id permission
-     * @return array
+     * @return array|false
      */
-    public static function readOneById(int $id): array
+    public static function readOneById(int $id)
     {
         $sql = "SELECT * FROM permissions WHERE id_permission = :id";
         $db = static::getDB();
@@ -28,9 +28,9 @@ class Permission extends Model
     /**
      * Get one permission by name
      * @param string $name name permission
-     * @return array
+     * @return array|false
      */
-    public static function readOneByName(string $name): array
+    public static function readOneByName(string $name)
     {
         $sql = "SELECT * FROM permissions WHERE nom_permission = :name";
         $db = static::getDB();
@@ -43,9 +43,9 @@ class Permission extends Model
     /**
      * Get all permissions
      *
-     * @return array
+     * @return array|false
      */
-    public static function readAll(): array
+    public static function readAll()
     {
         $db = static::getDB();
         $stmt = $db->query("SELECT * FROM permissions");
