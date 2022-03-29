@@ -50,10 +50,10 @@ $router->add('company/update', ['controller' => 'CompanyController', 'action' =>
 $router->add('student', ['controller' => 'StudentController', 'action' => "student_page"]);
 $router->add('student/profile', ['controller' => 'StudentController', 'action' => "student_profile"]);
 $router->add('student/update', ['controller' => 'StudentController', 'action' => "student_update"]); //TODO - Emmene vers la page pour modif les infos de letudiant ? 
-$router->add('student/whishlist', ['controller' => 'StudentController', 'action' => "wishlist"]); // TODO - Emmene vers la wishlist 
+$router->add('student/wishlist', ['controller' => 'StudentController', 'action' => "wishlist"]); // TODO - Emmene vers la wishlist 
 
 // admin routes
-$router->add('admin', ['controller' => 'UpdateStudController', 'action' => "view"]); // TODO - vu admin avec fonctionnalitéés?
+$router->add('admin', ['controller' => 'AdminController', 'action' => "view"]); // TODO - vu admin avec fonctionnalitéés?
 
 /**
  * Processing / Rendering (call to Controllers)
