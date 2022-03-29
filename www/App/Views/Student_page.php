@@ -20,13 +20,16 @@
   <div id="header">
     <img alt="StageHub logo" class="col-2 mx-5 mt-2 mb-3" id="logo" src="/assets/img/logo_white_alpha.png"
       style="max-width: 300px;">
-    <button onclick="document.location.href='Profile_student_view.html';" class="profile float-end mx-lg-5 mt-5 fs-4" type="button">
+    <button onclick="document.location.href='Profile_student_view.html';" class="profile float-end mx-lg-5 mt-5 fs-4"
+      type="button">
       - PROFILE -
     </button>
-    <button onclick="document.location.href='WhishList.html';" class="profile float-end mx-lg-5 mt-5 fs-4" type="button">
+    <button onclick="document.location.href='WhishList.html';" class="profile float-end mx-lg-5 mt-5 fs-4"
+      type="button">
       - MY WHISHLIST -
     </button>
-    <button onclick="document.location.href='Stage_view.html';" class="profile float-end mx-lg-5 mt-5 fs-4" type="button">
+    <button onclick="document.location.href='Stage_view.html';" class="profile float-end mx-lg-5 mt-5 fs-4"
+      type="button">
       - YOUR APPLICATIONS -
     </button>
   </div>
@@ -46,19 +49,19 @@
     <div class="dashboard float-start col-2 pt-3 pb-2 ms-4 mt-0">
       <h5 class="col-2 position-absolute text-center">Filter</h5>
       <hr class="col-8 mx-auto mt-4">
-      <table id="pagination" class="table_filter col-10 mx-auto table-striped table-bordered">
+      <table class="table_filter col-10 mx-auto table-striped table-bordered">
         <tr>
           <td>
             <div class="box d-flex">
-              <select class="mx-auto col-12 fs-6 pt-1 pb-1" name="Level" id="Level_of_study_selected">
+              <select class="mx-auto col-12 fs-6 pt-1 pb-1" name="Level">
                 <option value="none">Level of study</option>
-                <option valeur="Bac">Bac</option>
-                <option valeur="Bac+1">Bac+1</option>
-                <option valeur="Bac+2">Bac+2</option>
-                <option valeur="Bac+3">Bac+3</option>
-                <option valeur="Bac+4">Bac+4</option>
-                <option valeur="Bac+5">Bac+5</option>
-                <option valeur="More">More</option>
+                <option value="Bac">Bac</option>
+                <option value="Bac+1">Bac+1</option>
+                <option value="Bac+2">Bac+2</option>
+                <option value="Bac+3">Bac+3</option>
+                <option value="Bac+4">Bac+4</option>
+                <option value="Bac+5">Bac+5</option>
+                <option value="More">More</option>
               </select>
             </div>
           </td>
@@ -66,15 +69,15 @@
         <tr>
           <td>
             <div class="box d-flex">
-              <select class="mx-auto col-12 fs-6 pt-1 pb-1" name="Duration" id="Duration_selected">
+              <select class="mx-auto col-12 fs-6 pt-1 pb-1" name="Duration">
                 <option value="none">Duration</option>
-                <option valeur="Less">Less</option>
-                <option valeur="1_month">1 month</option>
-                <option valeur="2_month">2 month</option>
-                <option valeur="3_month">3 month</option>
-                <option valeur="4_month">4 month</option>
-                <option valeur="5_month">5 month</option>
-                <option valeur="More">More</option>
+                <option value="Less">Less</option>
+                <option value="1_month">1 month</option>
+                <option value="2_month">2 month</option>
+                <option value="3_month">3 month</option>
+                <option value="4_month">4 month</option>
+                <option value="5_month">5 month</option>
+                <option value="More">More</option>
               </select>
             </div>
           </td>
@@ -82,14 +85,14 @@
         <tr>
           <td>
             <div class="box d-flex">
-              <select class="mx-auto col-12 fs-6 pt-1 pb-1" name="Duration" id="Duration_selected">
+              <select class="mx-auto col-12 fs-6 pt-1 pb-1" name="Duration">
                 <option value="none">Minimum wage</option>
-                <option valeur="3€/h">3€/h</option>
-                <option valeur="4€/h">4€/h</option>
-                <option valeur="5€/h">5€/h</option>
-                <option valeur="6€/h">6€/h</option>
-                <option valeur="7€/h">7€/h</option>
-                <option valeur="More">More</option>
+                <option value="3€/h">3€/h</option>
+                <option value="4€/h">4€/h</option>
+                <option value="5€/h">5€/h</option>
+                <option value="6€/h">6€/h</option>
+                <option value="7€/h">7€/h</option>
+                <option value="More">More</option>
               </select>
             </div>
           </td>
@@ -97,62 +100,65 @@
       </table>
       <hr class="col-8 mx-auto">
     </div>
-    <?php foreach ($notifications as $notifications ) { ?>
+    <?php foreach ($notifications as $notification) { ?>
     <div class="dashboard float-end col-2 pt-3 pb-2 me-4 mt-0">
       <h5 class="col-2 position-absolute text-center">Notification</h5>
       <hr class="col-8 mx-auto mt-4">
       <div class="notification mx-auto col-10">
         <img alt="Logo_notif" class="mx-2 col-1 pt-1 pb-1 float-start" src="../assets/img/notif_ico.ico">
         <h4 class="fs-6 text-center pt-1 pe-2"><?php echo $notification['title'] ?></h4>
-        <h6 class="fs-6 text-center"><?php echo $notification['content'] ?></h6>
+        <h6 class="fs-6 text-center"> <?php echo $notification['content'] ?></h6>
+      </div>
+      <div class="notification mt-1 mx-auto col-10">
+        <img alt="Logo_notif" class="mx-2 col-1 pt-1 pb-1 float-start" src="../assets/img/notif_ico.ico">
+        <h4 class="fs-6 text-center pt-1 pe-2"><?php echo $notification['title'] ?></h4>
+        <h6 class="fs-6 text-center"> <?php echo $notification['content'] ?></h6>
       </div>
       <?php } ?>
       <hr class="col-8 mx-auto">
     </div>
-    <div id="STAGE" class="col-7 mx-auto mt-2 mb-1">
-      <table id="pagination" class="table table-striped table-bordered w-100">
+    <div class="col-7 mx-auto mt-2 mb-1 stage">
+      <table class="table table-striped table-bordered w-100">
         <tbody>
           <tr>
             <td>
               <?php foreach ($offres as $offre) { ?>
               <div class="stage_offer d-flex mb-4">
-                <img alt="Logo_company" class="Logo_company text-center align-self-center mx-4" id="logo"
-                  src="../assets/img/cesi_logo.jpg">
+                <img alt="Logo_company" class="Logo_company text-center align-self-center mx-4"
+                  src="/assets/img/cesi_logo.jpg">
                 <div class="vr align-self-center"></div>
                 <div style="padding-right: 45px;">
-                  <button onclick="document.location.href='Profile_company_view.html';" class="profile_company" type="button">
-                    <h4 class="mt-4 fs-4 mx-5" value="Name_company"><?php echo $offre['nom_poste_offre'] ?></h4>
+                  <button onclick="document.location.href='Profile_company_view.html';"
+                    class="profile_company mt-4 fs-4 mx-5" type="button">
+                    <?php echo $offre['nom_poste_offre'] ?>
                   </button>
                   <hr class="col-3 mx-5 mb-4">
                   <table class="col-12 mt-4 mx-5 mb-4">
                     <tr>
-                      <th>
-                        <h5 class="fs-6 fw-bold" value="Description_stage">Quality required :</h4>
-                          <hr class="col-4 mx-1 mb-1">
+                      <th class="fs-6 fw-bold">
+                        Quality required :
+                        <hr class="col-4 mx-1 mb-1">
                       </th>
-                      <th>
-                        <h5 class="fs-6 fw-bold" value="Description_stage">Location :</h4>
-                          <hr class="col-4 mx-1 mb-1">
+                      <th class="fs-6 fw-bold">
+                        Location :
+                        <hr class="col-4 mx-1 mb-1">
                       </th>
                     </tr>
-                    <td>
-                      <h4 class="mt-3 fs-6 mx-auto" value="Name_company"><?php 
-                        echo implode(" - ", explode("|", $offre['competences']));
-                      ?>
-                      </h4>
-                    </td>
-                    <td>
-                      <h4 class="col-10 mt-3 fs-6" value="Name_company"><?php 
-                        echo implode(" - ", explode("|", $offre['localites']));
-                      ?>
-                      </h4>
-                    </td>
+                    <tr>
+                      <td class="mt-3 fs-6 mx-auto">
+                      <?php echo implode(" - ", explode("|", $offre['competences'])); ?>
+                      </td>
+                      <td class="col-10 mt-3 fs-6">
+                      <?php echo implode(" - ", explode("|", $offre['localites'])); ?>
+                      </td>
+                    </tr>
                   </table>
-                  <input type="submit" href="#" class="button-register float-start ms-5 px-4 mx-auto mb-3" value="Apply">
-                      <input type="submit" href="#" class="button-register float-start ms-1 px-4 mx-auto mb-3" value="Add to my WhishList">
+                  <input type="submit" class="button-register float-start ms-5 px-4 mx-auto mb-3" value="Apply">
+                  <input type="submit" class="button-register float-start ms-1 px-4 mx-auto mb-3"
+                    value="Add to my WhishList">
                 </div>
+                <?php } ?>
               </div>
-              <?php } ?>
             </td>
           </tr>
         </tbody>
@@ -175,12 +181,11 @@
   </nav>
   <hr class="separate mx-auto pt-1 mb-4 mt-4 col-10">
   <footer class="col-12">
-
-
     <div class="Term-of-use-link text-center">
       <div class="copyright text-center p-3">
         © 2022 - StageHub /
         <a href="/terms">Terms of use</a>
+      </div>
     </div>
   </footer>
 </body>
