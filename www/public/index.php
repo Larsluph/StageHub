@@ -41,13 +41,19 @@ $router->add('logout', ['controller' => 'AccountController', 'action' => "logout
 $router->add('terms', ['controller' => 'TermsController', 'action' => "view"]);
 
 // company routes
-$router->add('company', ['controller' => 'CompanyController', 'action' => "view"]);
-$router->add('profile_company', ['controller' => 'CompanyProfileController', 'action' => "view"]);
+$router->add('company', ['controller' => 'CompanyController', 'action' => "company_page"]);
+$router->add('company/profile', ['controller' => 'CompanyController', 'action' => "company_profile"]);
+$router->add('company/post', ['controller' => 'CompanyController', 'action' => "company_post"]); // TODO
+$router->add('company/update', ['controller' => 'CompanyController', 'action' => "company_update"]); // TODO - Emmmene vers la page pour modif l'entreprise info et offre et supp
 
 // student routes
-$router->add('student', ['controller' => 'StudentController', 'action' => "view"]);
-$router->add('profile_student', ['controller' => 'StudentProfileController', 'action' => "view"]);
+$router->add('student', ['controller' => 'StudentController', 'action' => "student_page"]);
+$router->add('student/profile', ['controller' => 'StudentController', 'action' => "student_profile"]);
+$router->add('student/update', ['controller' => 'StudentController', 'action' => "student_update"]); //TODO - Emmene vers la page pour modif les infos de letudiant ? 
+$router->add('student/whishlist', ['controller' => 'StudentController', 'action' => "wishlist"]); // TODO - Emmene vers la wishlist 
 
+// admin routes
+$router->add('admin', ['controller' => 'UpdateStudController', 'action' => "view"]); // TODO - vu admin avec fonctionnalitéés?
 
 /**
  * Processing / Rendering (call to Controllers)
