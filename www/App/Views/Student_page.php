@@ -100,10 +100,10 @@
       </table>
       <hr class="col-8 mx-auto">
     </div>
-    <?php foreach ($notifications as $notification) { ?>
     <div class="dashboard float-end col-2 pt-3 pb-2 me-4 mt-0">
       <h5 class="col-2 position-absolute text-center">Notification</h5>
       <hr class="col-8 mx-auto mt-4">
+      <?php foreach ($notifications as $notification) { ?>
       <div class="notification mx-auto col-10">
         <img alt="Logo_notif" class="mx-2 col-1 pt-1 pb-1 float-start" src="/assets/img/notif_ico.ico">
         <h4 class="fs-6 text-center pt-1 pe-2"><?php echo $notification['title'] ?></h4>

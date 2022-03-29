@@ -13,7 +13,7 @@ class AccountController extends Controller
 {
     public function login() {
         if (array_key_exists('loggedin', $_SESSION) && $_SESSION['loggedin'] == true) {
-            header('Location: /profile_student');
+            header('Location: /student');
         }
 
         if (empty($_POST)) {
