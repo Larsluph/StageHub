@@ -181,10 +181,10 @@
   </nav>
   <hr class="separate mx-auto pt-1 mb-4 mt-4 col-10">
   <footer class="col-12">
-    <div class="Term-of-use-link text-center">
+  <div class="text-center">
       <div class="copyright text-center p-3">
         © 2022 - StageHub /
-        <a href="/terms">Terms of use</a>
+        <a class="Term-of-use-link" href="/terms">Terms of use</a>
       </div>
     </div>
   </footer>

@@ -66,12 +66,12 @@
             </div>
         </div>
         <footer class="col-12">
-          <div class="Term-of-use-link text-center">
-            <div class="copyright text-center p-3">
-              © 2022 - StageHub /
-            <a href="/terms">Terms of use</a>
-            </div>
-          </div>
+        <div class="text-center">
+      <div class="copyright text-center p-3">
+        © 2022 - StageHub /
+        <a class="Term-of-use-link" href="/terms">Terms of use</a>
+      </div>
+    </div>
         </footer>
 </body>
 
