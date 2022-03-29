@@ -3,11 +3,16 @@
         {
             "format": "compressed",
             "extensionName": ".css",
-            "savePath": "public/assets/css"
+            "savePath": "/public/assets/css"
         }
     ],
     "liveSassCompile.settings.generateMap": false,
     "liveSassCompile.settings.includeItems": [
         "public/assets/sass/*"
-    ]
+    ],
+    "liveServer.settings.mount": [
+        ["/", "public"],
+        ["/login", "App/Views/Login_page.html"],
+        ["/terms", "App/Views/Terms_of_use.html"],
+    ],
 }
