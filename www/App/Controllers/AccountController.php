@@ -2,8 +2,10 @@
 
 namespace App\Controllers;
 
+use App\Models\Permission;
 use App\Models\User;
 use Core\Controller;
+use Core\Router;
 use Core\View;
 
 /**
@@ -54,5 +56,11 @@ class AccountController extends Controller
             return true;
         }
         return false;
+    }
+
+    public static function getUserPermission($permission): int
+    {
+        $user_id = $_SESSION['id_user'];
+        // TODO: fetch permission from database
     }
 }
