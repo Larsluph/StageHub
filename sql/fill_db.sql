@@ -167,15 +167,10 @@ INSERT INTO `permissions` (`id_permission`, `nom_permission`) VALUES
 ('23', 'etudiant_add'),
 ('24', 'etudiant_edit'),
 ('25', 'etudiant_delete'),
-('26', 'etudiant_stats'),
+('26', 'etudiant_assign'),
 ('27', 'wishlist_add'),
 ('28', 'wishlist_delete'),
-('29', 'offre_apply'),
-('30', 'notify_step1'),
-('31', 'notify_step2'),
-('32', 'notify_step3'),
-('33', 'notify_step4'),
-('34', 'notify_step5');
+('29', 'offre_apply');
 
 INSERT INTO `promotions` (`id_promo`, `nom_promo`) VALUES
 ('1', 'A1 Lille'),
@@ -258,12 +253,7 @@ INSERT INTO `user_permission` (`id_user`, `id_permission`, `is_enabled`) VALUES
 ('1', '26', '1'),
 ('1', '27', '1'),
 ('1', '28', '1'),
-('1', '29', '1'),
-('1', '30', '1'),
-('1', '31', '1'),
-('1', '32', '1'),
-('1', '33', '1'),
-('1', '34', '1');
+('1', '29', '1');
 
 INSERT INTO `candidatures`(`id_offre`, `id_user`, `is_in_wishlist`, `statut_reponse`, `evaluation`, `cv`, `lettre_motivation`, `fiche_validation`, `convention_stage`) VALUES 
 ('2','1','1','-1','5',NULL,NULL,NULL,NULL),

@@ -11,6 +11,30 @@ use PDO;
 class Role extends Model
 {
     /**
+     * Admin role id
+     * @var int
+     */
+    const ADMIN_ROLE_ID = 0;
+
+    /**
+     * Tuteur role id
+     * @var int
+     */
+    const TUTOR_ROLE_ID = 1;
+
+    /**
+     * Délégué role id
+     * @var int
+     */
+    const DELEGATE_ROLE_ID = 2;
+
+    /**
+     * Etudiant role id
+     * @var int
+     */
+    const STUDENT_ROLE_ID = 3;
+
+    /**
      * Get one role by id
      * @param  int $id
      * @return array|false
