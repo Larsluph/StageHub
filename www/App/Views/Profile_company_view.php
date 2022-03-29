@@ -50,7 +50,7 @@
                   <h6 class="mb-0 ps-3">Name :</h6>
                 </div>
                 <div class="col-sm-7 text-secondary">
-                  <?php echo $
+                  <?php echo $user['nom_user']." ".$user['prenom_user'] ?>
                 </div>
               </div>
               <hr>
