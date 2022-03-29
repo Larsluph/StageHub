@@ -42,6 +42,7 @@ $router->add('terms', ['controller' => 'TermsController', 'action' => "view"]);
 
 // company routes
 $router->add('company', ['controller' => 'CompanyController', 'action' => "view"]);
+$router->add('profile_company', ['controller' => 'ProfCompController', 'action' => "view"]);
 
 // student routes
 $router->add('student', ['controller' => 'StudentController', 'action' => "view"]);

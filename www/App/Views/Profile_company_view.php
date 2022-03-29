@@ -43,13 +43,14 @@
                   <img class="col-2" src="/assets/img/cesi_logo.jpg" alt="Logo entreprise">
                 </div>
               </div>
+              <?php foreach($offres as $offre) { ?>
               <hr>
               <div class="row">
                 <div class="col-sm-5">
                   <h6 class="mb-0 ps-3">Name :</h6>
                 </div>
                 <div class="col-sm-7 text-secondary">
-                  Cesi - Engineer School
+                  <?php echo $
                 </div>
               </div>
               <hr>
@@ -58,25 +59,17 @@
                   <h6 class="mb-0 ps-3">Location :</h6>
                 </div>
                 <div class="col-sm-7 text-secondary">
-                  Lille
+                  <?php echo implode(" - ", explode("|", $offre['localites'])); ?>
                 </div>
               </div>
-              <hr>
-              <div class="row">
-                <div class="col-sm-5">
-                  <h6 class="mb-0 ps-3">Activity sector :</h6>
-                </div>
-                <div class="col-sm-7 text-secondary">
-                  Engineer School
-                </div>
-              </div>
+              <?php } ?>
               <hr>
               <div class="row">
                 <div class="col-sm-5">
                   <h6 class="mb-0 ps-3">ID :</h6>
                 </div>
                 <div class="col-sm-7 text-secondary">
-                  <?php echo $user['username'] ?>
+                  <?php echo $user['id_user'] ?>
                 </div>
               </div>
               <input type="submit" onclick="document.location='Profile_company_update.html'"
