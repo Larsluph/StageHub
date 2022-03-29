@@ -13,11 +13,35 @@ use Core\View;
  */
 class AccountController extends Controller
 {
-    public function login() {
-        if (array_key_exists('loggedin', $_SESSION) && $_SESSION['loggedin'] == true) {
-            Router::redirect('/student');
+    /**
+     * Returns 403 to the user if he doesn't have permission to access the page
+     * @param int|null $required_role
+     * @param string|null $required_permission
+     * @return void
+     */
+    public static function blockIfNotLoggedIn(int $required_role = null, string $required_permission = null): void
+    {
+        // if user isn't logged in or doesn't have required permission
+        if (!self::isLoggedIn() || !User::hasPermission($_SESSION['id_user'], $required_permission)) {
+            Router::redirect('/403');
         }
+    }
 
+    /**
+     * Redirects the user if he doesn't have permission to access the page
+     * @param int|null $required_role
+     * @param string|null $required_permission
+     * @return void
+     */
+    public static function redirectIfNotLoggedIn(int $required_role = null, string $required_permission = null): void
+    {
+        // if user isn't logged in or doesn't have required permission
+        if (!self::isLoggedIn() || !User::hasPermission($_SESSION['id_user'], $required_permission)) {
+            Router::redirect('/login');
+        }
+    }
+
+    public function login() {
         if (empty($_POST)) {
             View::render("Login_page.html");
         }
@@ -52,10 +76,7 @@ class AccountController extends Controller
 
     public static function isLoggedIn(): bool
     {
-        if ($_SESSION['loggedin'] == true) {
-            return true;
-        }
-        return false;
+        return (array_key_exists('loggedin', $_SESSION) && $_SESSION['loggedin'] == true);
     }
 
     public static function getUserPermission($permission): int
