@@ -211,4 +211,14 @@ class Router
 
         return $namespace;
     }
+
+    /**
+     * Redirects the user to the specified URL.
+     *
+     */
+    public static function redirect($url)
+    {
+        header('Location: ' . $url);
+        die();
+    }
 }

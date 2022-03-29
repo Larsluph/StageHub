@@ -13,7 +13,7 @@ class AccountController extends Controller
 {
     public function login() {
         if (array_key_exists('loggedin', $_SESSION) && $_SESSION['loggedin'] == true) {
-            header('Location: /student');
+            Router::redirect('/student');
         }
 
         if (empty($_POST)) {
@@ -23,7 +23,7 @@ class AccountController extends Controller
             if (self::checkForLogin($_POST['Email'], $_POST['password'])) {
                 // Login successful
                 print_r($_SESSION);
-                header("Location: /student");
+                Router::redirect('/student');
             }
             else {
                 // Login failed
@@ -34,7 +34,7 @@ class AccountController extends Controller
 
     public function logout() {
         session_destroy();
-        header("Location: /login");
+        Router::redirect('/login');
     }
 
     protected static function checkForLogin(string $username, string $password): bool {
