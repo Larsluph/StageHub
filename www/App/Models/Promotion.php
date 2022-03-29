@@ -13,9 +13,9 @@ class Promotion extends Model
     /**
      * Get one promotion by id
      * @param  int $id
-     * @return array
+     * @return array|false
      */
-    public static function readOneById(int $id): array
+    public static function readOneById(int $id)
     {
         $sql = "SELECT * FROM promotions WHERE id_promo = :id";
         $pdo = static::getDB();
@@ -28,9 +28,9 @@ class Promotion extends Model
     /**
      * Get one promotion by name
      * @param  string $name
-     * @return array
+     * @return array|false
      */
-    public static function readOneByName(string $name): array
+    public static function readOneByName(string $name)
     {
         $sql = 'SELECT * FROM promotions WHERE nom_promo = :name';
         $db = static::getDB();
@@ -42,9 +42,9 @@ class Promotion extends Model
 
     /**
      * Get all promotions
-     * @return array
+     * @return array|false
      */
-    public static function readAll(): array
+    public static function readAll()
     {
         $pdo = static::getDB();
         $stmt = $pdo->query("SELECT * FROM promotions");

@@ -1,7 +1,6 @@
 <?php
 
-use JetBrains\PhpStorm\Pure;
-
+namespace App;
 /**
  * Pagination class
  */
@@ -42,7 +41,7 @@ class Pagination
      * Get total number of pages
      * @return int
      */
-    #[Pure] public function get_page_count(): int
+    public function get_page_count(): int
     {
         return ceil($this->total_items / self::ITEMS_PER_PAGE);
     }
@@ -51,7 +50,7 @@ class Pagination
      * Get start index for current page
      * @return int
      */
-    #[Pure] public function get_page_start(): int
+    public function get_page_start(): int
     {
         return ($this->page_nbr - 1) * self::ITEMS_PER_PAGE;
     }
@@ -60,7 +59,7 @@ class Pagination
      * Get end index for current page
      * @return int
      */
-    #[Pure] public function get_page_end(): int
+    public function get_page_end(): int
     {
         return $this->page_nbr * self::ITEMS_PER_PAGE;
     }
@@ -69,7 +68,7 @@ class Pagination
      * Get previous page number
      * @return int|null
      */
-    #[Pure] public function get_previous_page(): ?int
+    public function get_previous_page(): ?int
     {
         if ($this->is_first_page()) return NULL;
         return $this->page_nbr - 1;
@@ -79,7 +78,7 @@ class Pagination
      * Get next page number
      * @return int|null
      */
-    #[Pure] public function get_next_page(): ?int
+    public function get_next_page(): ?int
     {
         if ($this->is_last_page()) return NULL;
         return $this->page_nbr + 1;
@@ -89,7 +88,7 @@ class Pagination
      * Check if current page is first page
      * @return bool
      */
-    #[Pure] public function is_first_page(): bool
+    public function is_first_page(): bool
     {
         return $this->page_nbr == 1;
     }
@@ -98,7 +97,7 @@ class Pagination
      * Check if current page is last page
      * @return bool
      */
-    #[Pure] public function is_last_page(): bool
+    public function is_last_page(): bool
     {
         return $this->page_nbr == $this->get_page_count();
     }

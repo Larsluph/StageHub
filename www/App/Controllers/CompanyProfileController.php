@@ -12,7 +12,7 @@ use Core\View;
  *
  * PHP version 7.0
  */
-class ProfCompController extends Controller
+class CompanyProfileController extends Controller
 {
 
     /**
