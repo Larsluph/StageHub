@@ -17,9 +17,9 @@
         gradient.initGradient("#canvas");
     </script>
     <div class="mx-5">
-        <img onclick="history.back()" type="submit" class="mx-5 mt-5" id="back_arrow" src="/assets/img/fleche.png"
+        <img onclick="history.back()" class="mx-5 mt-5" id="back_arrow" src="/assets/img/fleche.png"
             alt="Back to previous page">
-        <img class="col-1 mx-auto mt-4 mb-3 d-block" id="logo" src="/assets/img/logo_white_alpha.png">
+        <img class="col-1 mx-auto mt-4 mb-3 d-block" id="logo" src="/assets/img/logo_white_alpha.png" alt="Logo">
     </div>
 
     <div class="col-auto mx-auto mt-5">
@@ -31,20 +31,11 @@
                     <div class="card-body text-center">
                       <div class="row">
                         <div class="col-sm-5">
-                          <h6 class="mb-0 ps-3">ID :</h6>
+                          <h6 class="mb-0 ps-3">Full Name :</h6>
                         </div>
                         <div class="col-sm-7 text-secondary">
                           <?php echo $user['id_user'] ?>
-                        </div>
-                      </div>
-                      <hr>
-                      <div class="row">
-                        <div class="col-sm-5">
-                          <h6 class="mb-0 ps-3">Full Name :</h6>
-                        </div>               
-                        <div class="col-sm-7 text-secondary">
-                          <?php echo $user['nom_user']." ".$user['prenom_user'] ?>
-                        </div>
+                          </div>
                       </div>
                       <hr>
                       <div class="row">
@@ -52,11 +43,20 @@
                           <h6 class="mb-0 ps-3">Username :</h6>
                         </div>
                         <div class="col-sm-7 text-secondary">
-                          <?php echo $user['username'] ?>
+                          <?php echo $user['nom_user']." ".$user['prenom_user'] ?>
+                          </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-5">
+                          <h6 class="mb-0 ps-3">Id :</h6>
                         </div>
+                        <div class="col-sm-7 text-secondary">
+                          <?php echo $user['username'] ?>
+                          </div>
                       </div>
                 </div>
-                </div>
+                  </div>
     
     
     
@@ -66,12 +66,11 @@
             </div>
         </div>
         <footer class="col-12">
-
-
           <div class="Term-of-use-link text-center">
             <div class="copyright text-center p-3">
               © 2022 - StageHub /
-              <a href="/terms">Terms of use</a>
+            <a href="/terms">Terms of use</a>
+            </div>
           </div>
         </footer>
 </body>
