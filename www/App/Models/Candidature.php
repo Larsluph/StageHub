@@ -18,7 +18,22 @@ class Candidature extends Model
      */
     public static function readOne(int $id_offre, int $id_user): array
     {
-        $sql = "SELECT * FROM candidatures LEFT JOIN offres_stage USING (id_offre) WHERE id_offre = :id_offre AND id_user = :id_user";
+        $sql = "SELECT
+                    offres_stage.*,
+                    candidatures.is_in_wishlist,
+                    candidatures.statut_reponse,
+                    GROUP_CONCAT(DISTINCT localites.nom_localite SEPARATOR '|') AS localites,
+                    GROUP_CONCAT(DISTINCT competences.nom_competence SEPARATOR '|') AS competences
+                FROM
+                    candidatures
+                    LEFT JOIN offres_stage USING (id_offre)
+                    LEFT JOIN offre_loc USING (id_offre)
+                    LEFT JOIN localites USING (id_localite)
+                    LEFT JOIN offre_competence USING (id_offre)
+                    LEFT JOIN competences USING (id_competence)
+                WHERE id_offre = :id_offre AND id_user = :id_user
+                GROUP BY id_offre, id_user
+                LIMIT 1";
         $db = static::getDB();
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':id_offre', $id_offre, PDO::PARAM_INT);
@@ -34,7 +49,21 @@ class Candidature extends Model
      */
     public static function readAllByUser(int $id_user): array
     {
-        $sql = "SELECT * FROM candidatures LEFT JOIN offres_stage USING (id_offre) WHERE id_user = :id_user";
+        $sql = "SELECT
+                    offres_stage.*,
+                    candidatures.is_in_wishlist,
+                    candidatures.statut_reponse,
+                    GROUP_CONCAT(DISTINCT localites.nom_localite SEPARATOR '|') AS localites,
+                    GROUP_CONCAT(DISTINCT competences.nom_competence SEPARATOR '|') AS competences
+                FROM
+                    candidatures
+                    LEFT JOIN offres_stage USING (id_offre)
+                    LEFT JOIN offre_loc USING (id_offre)
+                    LEFT JOIN localites USING (id_localite)
+                    LEFT JOIN offre_competence USING (id_offre)
+                    LEFT JOIN competences USING (id_competence)
+                WHERE id_user = :id_user
+                GROUP BY id_offre, id_user";
         $db = static::getDB();
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':id_user', $id_user, PDO::PARAM_INT);
@@ -49,7 +78,21 @@ class Candidature extends Model
      */
     public static function readAllByOffre(int $id_offre): array
     {
-        $sql = "SELECT * FROM candidatures WHERE id_offre = :id_offre";
+        $sql = "SELECT
+                    offres_stage.*,
+                    candidatures.is_in_wishlist,
+                    candidatures.statut_reponse,
+                    GROUP_CONCAT(DISTINCT localites.nom_localite SEPARATOR '|') AS localites,
+                    GROUP_CONCAT(DISTINCT competences.nom_competence SEPARATOR '|') AS competences
+                FROM
+                    candidatures
+                    LEFT JOIN offres_stage USING (id_offre)
+                    LEFT JOIN offre_loc USING (id_offre)
+                    LEFT JOIN localites USING (id_localite)
+                    LEFT JOIN offre_competence USING (id_offre)
+                    LEFT JOIN competences USING (id_competence)
+                WHERE id_offre = :id_offre
+                GROUP BY id_offre, id_user";
         $db = static::getDB();
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':id_offre', $id_offre, PDO::PARAM_INT);

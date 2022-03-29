@@ -29,7 +29,8 @@ class OffreStage extends Model
                     LEFT JOIN offre_competence USING (id_offre)
                     LEFT JOIN competences USING (id_competence)
                 WHERE id_offre = :id
-                GROUP BY id_offre";
+                GROUP BY id_offre
+                LIMIT 1";
         $db = static::getDB();
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
