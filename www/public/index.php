@@ -38,7 +38,7 @@ $router->add('login', ['controller' => 'AccountController', 'action' => "login"]
 $router->add('logout', ['controller' => 'AccountController', 'action' => "logout"]);
 
 // misc
-$router->add('terms', ['controller' => 'TermsController', 'action' => "view"]);
+$router->add('termsofuse', ['controller' => 'HomeController', 'action' => "terms"]);
 
 // company routes
 $router->add('company', ['controller' => 'CompanyController', 'action' => "company_page"]);
