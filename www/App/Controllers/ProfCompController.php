@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\User;
+use App\Models\Entreprise;
 use App\Models\OffreStage;
 use Core\Controller;
 use Core\View;
@@ -22,10 +22,10 @@ class ProfCompController extends Controller
      */
     public function view()
     {
-        $entreprises = Entreprise::readOnebyName($_SESSION['id_user']);
+        $entreprises = Entreprise::readOne('nom_entreprise');
         $offres = OffreStage::readAllByEntreprise(1);
 
 
-        View::render('Profile_company_view.php', compact('user', "offres"));
+        View::render('Profile_company_view.php', compact('entreprises', "offres"));
     }
 }

@@ -28,7 +28,7 @@
         <hr class="separate mx-auto pt-1 mb-4 mt-3 col-10">
         <form class="form text-center col-8 mx-auto mt-0">
           <div class="Your_active_post text-center fs-4">
-            - Your company -
+            - The company -
           </div>
         </form>
         <hr class="separate mx-auto pt-1 col-9 mb-3 mt-4">
@@ -43,14 +43,13 @@
                   <img class="col-2" src="/assets/img/cesi_logo.jpg" alt="Logo entreprise">
                 </div>
               </div>
-              <?php foreach($offres as $offre) { ?>
               <hr>
               <div class="row">
                 <div class="col-sm-5">
                   <h6 class="mb-0 ps-3">Name :</h6>
                 </div>
                 <div class="col-sm-7 text-secondary">
-                  <?php echo $user['nom_user']." ".$user['prenom_user'] ?>
+                  <?php echo $entreprise['nom_entreprise'] ?>
                 </div>
               </div>
               <hr>
@@ -58,11 +57,12 @@
                 <div class="col-sm-5">
                   <h6 class="mb-0 ps-3">Location :</h6>
                 </div>
+                <?php foreach($offres as $offre) { ?>
                 <div class="col-sm-7 text-secondary">
                   <?php echo implode(" - ", explode("|", $offre['localites'])); ?>
                 </div>
+                <?php } ?>
               </div>
-              <?php } ?>
               <hr>
               <div class="row">
                 <div class="col-sm-5">
