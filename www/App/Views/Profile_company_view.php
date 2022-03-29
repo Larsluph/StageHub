@@ -73,10 +73,10 @@
               <hr>
               <div class="row">
                 <div class="col-sm-5">
-                  <h6 class="mb-0 ps-3">Id :</h6>
+                  <h6 class="mb-0 ps-3">ID :</h6>
                 </div>
                 <div class="col-sm-7 text-secondary">
-                  4454847655
+                  <?php echo $user['username'] ?>
                 </div>
               </div>
               <input type="submit" onclick="document.location='Profile_company_update.html'"
