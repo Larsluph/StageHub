@@ -247,7 +247,6 @@ class OffreStage extends Model
      */
     protected static function bindLocalites(PDO $db, int $id_offre, array $localites): void
     {
-        var_dump($localites);
         foreach ($localites as $localite) {
             // check if localite exists
             $id_localite = Localite::getIdByName($localite);
@@ -272,7 +271,6 @@ class OffreStage extends Model
      */
     protected static function bindCompetences(PDO $db, int $id_offre, array $competences): void
     {
-      var_dump($competences);
         foreach ($competences as $competence) {
             // check if competence exists
             $id_competence = Competence::getIdByName($competence);

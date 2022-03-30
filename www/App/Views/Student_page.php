@@ -168,7 +168,7 @@ $pagination = new Pagination($page_nbr, $offres);
                     </table>
 
                     <input type="submit" class="button-register float-start ms-5 px-4 mx-auto mb-3" value="Apply">
-                    <input type="submit" class="button-register float-start ms-1 px-4 mx-auto mb-3" value="Add to my WhishList">
+                    <input type="submit" class="button-register float-start ms-1 px-4 mx-auto mb-3" value="Add to my wishlist">
                   </div>
                 </div>
               <?php } ?>

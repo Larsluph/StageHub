@@ -39,10 +39,10 @@
     <button onclick="document.location.href='/logout'" class="button-principal-tologin float-end pb-1 mx-lg-5 mt-4 fs-6" type="button">
       Logout
     </button>
-    <button onclick="document.location.href='/company/applications'" class="profile float-end mx-lg-5 mt-4 pt-1 fs-6" type="button">
+    <button onclick="document.location.href='/companies/applications'" class="profile float-end mx-lg-5 mt-4 pt-1 fs-6" type="button">
       - APPLICATIONS -
     </button>
-    <button onclick="document.location.href='/offers/create?id_entreprise=<?php echo $id_entreprise ?>'" class="profile float-end mx-lg-5 pt-1 mt-4 fs-6" type="button">
+    <button onclick="document.location.href='/offers/create?id_entreprise=<?= $entreprise['id_entreprise'] ?>'" class="profile float-end mx-lg-5 pt-1 mt-4 fs-6" type="button">
       - NEW POST -
     </button>
   </div>
@@ -50,20 +50,20 @@
     <hr class="separate mx-auto pt-1 mb-3 mt-1 col-10">
     <form class="form text-center col-8 mx-auto mt-0">
       <div class="Your_active_post text-center fs-4">
-        - Your active post -
+        - Your active posts -
       </div>
     </form>
     <hr class="separate mx-auto pt-1 col-9 mb-3 mt-3">
   </div>
   <div class="col-12" id="contenu">
     <div class="dashboard float-start col-2 pt-3 pb-2 ms-4 mt-0">
-      <h5 class="col-2 position-absolute text-center">Notification</h5>
+      <h5 class="col-2 position-absolute text-center">Notifications</h5>
       <hr class="col-8 mx-auto mt-4">
       <?php foreach ($notifications as $notification) { ?>
         <div class="notification mt-1 mx-auto col-10">
           <img alt="Logo_notif" class="mx-2 col-1 pt-1 pb-1 float-start" src="/assets/img/notif_ico.ico">
-          <h4 class="fs-6 text-center pt-1 pe-2"><?php echo $notification['nom_poste_offre'] ?></h4>
-          <h6 class="fs-6 text-center"><?php echo $notification['content'] ?></h6>
+          <h4 class="fs-6 text-center pt-1 pe-2"><?= $notification['nom_poste_offre'] ?></h4>
+          <h6 class="fs-6 text-center"><?= $notification['content'] ?></h6>
         </div>
       <?php } ?>
       <hr class="col-8 mx-auto mt-4">
@@ -76,8 +76,8 @@
               <?php foreach ($pagination->get_page_items() as $offre) { ?>
                 <div class="stage_offer d-flex mb-4">
                   <div class="col-10 ms-5 table-center">
-                    <h4 class="float-end mt-4 fs-4">Company name</h4>
-                    <h4 class="mt-4 fs-4"><?php echo $offre['nom_poste_offre'] ?></h4>
+                    <h4 class="float-end mt-4 fs-4"><?= $entreprise['nom_entreprise'] ?></h4>
+                    <h4 class="mt-4 fs-4"><?= $offre['nom_poste_offre'] ?></h4>
                     <hr class="float-start col-5 mb-4">
                     <table class="col-10 mt-4 mx-5 mb-4">
                       <tr>
@@ -92,15 +92,15 @@
                       </tr>
                       <tr>
                         <td class="col-10 mt-3 fs-6">
-                          <?php echo implode(" - ", explode("|", $offre['competences'])); ?>
+                          <?= implode(" - ", explode("|", $offre['competences'])); ?>
                         </td>
                         <td class="col-10 mt-3 fs-6">
-                          <?php echo implode(" - ", explode("|", $offre['localites'])); ?>
+                          <?= implode(" - ", explode("|", $offre['localites'])); ?>
                         </td>
                       </tr>
                     </table>
                       <form method="get">
-                          <input type="hidden" name="id_offre" value="<?php echo $offre['id_offre'] ?>">
+                          <input type="hidden" name="id_offre" value="<?= $offre['id_offre'] ?>">
                           <input formaction="/offers/update" type="submit" class="button-register float-start ms-5 px-4 mx-auto mb-3" value="Modify">
                           <input formaction="/offers/delete" type="submit" class="button-delete float-start ms-1 px-4 mx-auto mb-3" value="Delete">
                       </form>

@@ -51,23 +51,25 @@ $router->add('logout', ['controller' => 'AccountController', 'action' => "logout
 $router->add('termsofuse', ['controller' => 'HomeController', 'action' => "terms"]);
 
 // company routes
-$router->add('company', ['controller' => 'CompanyController', 'action' => "index"]);
-$router->add('company/create', ['controller' => 'CompanyController', 'action' => "create"]);
-$router->add('company/update', ['controller' => 'CompanyController', 'action' => "update"]);
-$router->add('company/delete', ['controller' => 'CompanyController', 'action' => "delete"]);
-$router->add('company/applications', ['controller' => 'CompanyController', 'action' => "applications"]);
+$router->add('companies', ['controller' => 'CompanyController', 'action' => "index"]);
+$router->add('companies/create', ['controller' => 'CompanyController', 'action' => "create"]);
+$router->add('companies/update', ['controller' => 'CompanyController', 'action' => "update"]);
+$router->add('companies/delete', ['controller' => 'CompanyController', 'action' => "delete"]);
+$router->add('companies/applications', ['controller' => 'CompanyController', 'action' => "applications"]);
 
 // offers routes
+$router->add('offers', ['controller' => 'OffersController', 'action' => "index"]);
 $router->add('offers/create', ['controller' => 'OffersController', 'action' => "create"]);
 $router->add('offers/update', ['controller' => 'OffersController', 'action' => "update"]);
 $router->add('offers/delete', ['controller' => 'OffersController', 'action' => "delete"]);
 
 // student routes
-$router->add('student', ['controller' => 'StudentController', 'action' => "studentPage"]);
-$router->add('student/profile', ['controller' => 'StudentController', 'action' => "studentProfile"]);
-$router->add('student/update', ['controller' => 'StudentController', 'action' => "studentUpdate"]);
+$router->add('student', ['controller' => 'StudentController', 'action' => "index"]);
+$router->add('student/profile', ['controller' => 'StudentController', 'action' => "profile"]);
+$router->add('student/update', ['controller' => 'StudentController', 'action' => "update"]);
+$router->add('student/delete', ['controller' => 'StudentController', 'action' => "delete"]);
 $router->add('student/wishlist', ['controller' => 'StudentController', 'action' => "wishlist"]);
-$router->add('student/applications', ['controller' => 'StudentController', 'action' => "studentApplications"]); 
+$router->add('student/applications', ['controller' => 'StudentController', 'action' => "applications"]);
 
 
 // admin routes

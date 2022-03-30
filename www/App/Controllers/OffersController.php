@@ -27,13 +27,13 @@ class OffersController extends Controller
         $notifications = array(); // FIXME: get notifications from database
         $offres = OffreStage::readAllByEntreprise(1); // FIXME: fetch company id
         $id_entreprise = 1;
-        View::render('Company_Page.php', compact("notifications", "offres", "id_entreprise"));
+        View::render('Offers.php', compact("notifications", "offres", "id_entreprise"));
     }
 
     public function create()
     {
         if (!empty($_POST)) {
-            $new_offre = OffreStage::create(
+            OffreStage::create(
                 $_POST['offer_name'],
                 $_POST['duration'],
                 $_POST['salary'],
@@ -43,12 +43,9 @@ class OffersController extends Controller
                 explode('|', $_POST['location']),
                 explode('|', $_POST['skills']),
             );
-            Router::redirect('/company');
+            Router::redirect('/companies?id_entreprise=' . $_POST['id_entreprise']);
         }
-        else
-        {
-            View::render('Offer_Create.php');
-        }
+        View::render('Offer_Create.php');
     }
 
     public function update()
@@ -65,7 +62,7 @@ class OffersController extends Controller
                 explode('|', $_POST['location']),
                 explode('|', $_POST['skills'])
             );
-            Router::redirect('/company');
+            Router::redirect('/companies');
         }
         else
         {
@@ -75,7 +72,8 @@ class OffersController extends Controller
     }
 
     public function delete() {
+        $id_entreprise = OffreStage::readOneById($_GET['id_offre'])['id_entreprise'];
         OffreStage::delete($_GET['id_offre']);
-        Router::redirect('/company');
+        Router::redirect('/companies?id_entreprise=' . $id_entreprise);
     }
 }

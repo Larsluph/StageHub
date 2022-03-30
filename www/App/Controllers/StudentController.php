@@ -20,7 +20,7 @@ class StudentController extends Controller
      *
      * @return void
      */
-    public function studentPage()
+    public function index()
     {
         $notifications = array(); // TODO: get notifications from database
         $offres = Candidature::readAllByUser(1); // FIXME: get correct user id
@@ -28,17 +28,27 @@ class StudentController extends Controller
         View::render('Student_Page.php', compact("notifications", "offres"));
     }
 
-    public function studentProfile()
+    public function profile()
     {
         $user = User::readOnebyId($_SESSION['id_user']);
 
         View::render('Student_Profile.php', compact('user'));
     }
 
-    public function studentUpdate()
+    public function create()
     {
-        //TODO : update student 
+        //TODO: create a new user
+    }
+
+    public function update()
+    {
+        //TODO: update student
         view::render('Student_Update.php');
+    }
+
+    public function delete()
+    {
+        //TODO: delete student
     }
 
     public function wishlist()
@@ -47,7 +57,7 @@ class StudentController extends Controller
         view::render('Wishlist.html');
     }
 
-    public function studentApplications()
+    public function applications()
     {
         //TODO : student application
         View::render('Student_Applications.php');

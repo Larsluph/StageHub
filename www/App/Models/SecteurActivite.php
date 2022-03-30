@@ -30,14 +30,14 @@ class SecteurActivite extends Model
      * @param string $name name secteur activite
      * @return array|false
      */
-    public static function readOneByName(string $name)
+    public static function getIdByName(string $name)
     {
-        $sql = "SELECT * FROM secteurs_activite WHERE nom_secteur_activite = :name";
+        $sql = "SELECT id_secteur_activite FROM secteurs_activite WHERE nom_secteur_activite = :name";
         $db = static::getDB();
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':name', $name);
         $stmt->execute();
-        return $stmt->fetch();
+        return $stmt->fetchColumn();
     }
 
     /**

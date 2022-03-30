@@ -16,9 +16,10 @@ class Entreprise extends Model
      * @param int $id
      * @return array|false
      */
-    public static function readOne(int $id)
+    public static function readOneById(int $id)
     {
         $sql = "SELECT
+                    id_entreprise,
                     nom_entreprise,
                     GROUP_CONCAT(DISTINCT localites.nom_localite SEPARATOR '|') AS localites,
                     GROUP_CONCAT(DISTINCT secteurs_activite.nom_secteur_activite SEPARATOR '|') AS secteurs_activite
@@ -269,7 +270,7 @@ class Entreprise extends Model
     {
         foreach ($secteurs_activite as $secteur_activite) {
             // check if secteur d'activite exists
-            $id_secteur_activite = SecteurActivite::readOneByName($secteur_activite);
+            $id_secteur_activite = SecteurActivite::getIdByName($secteur_activite);
             // if not, create it
             if (!$id_secteur_activite) {
                 $id_secteur_activite = SecteurActivite::create($secteur_activite);
