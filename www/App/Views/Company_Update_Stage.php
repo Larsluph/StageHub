@@ -10,26 +10,10 @@
   <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
   <link rel="manifest" href="/manifest.webmanifest">
   <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker
-                .register('/assets/js/sw.js')
-                .then(registration => {
-                  console.log(
-                          `Service Worker enregistré ! Ressource: ${registration.scope}`
-                  );
-                })
-                .catch(err => {
-                  console.log(
-                          `Echec de l'enregistrement du Service Worker: ${err}`
-                  );
-                });
-      });
-    }
-
-    self.addEventListener('install', (e) => {
-      console.log('[Service Worker] Install');
-    });
+      //if browser support service worker
+      if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('sw.js');
+      }
   </script>
 </head>
 

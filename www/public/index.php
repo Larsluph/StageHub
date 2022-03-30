@@ -54,6 +54,7 @@ $router->add('termsofuse', ['controller' => 'HomeController', 'action' => "terms
 $router->add('company', ['controller' => 'CompanyController', 'action' => "companyPage"]);
 $router->add('company/post', ['controller' => 'CompanyController', 'action' => "companyPost"]);
 $router->add('company/update', ['controller' => 'CompanyController', 'action' => "companyUpdate"]);
+$router->add('company/delete', ['controller' => 'CompanyController', 'action' => "companyDelete"]);
 $router->add('company/applications', ['controller' => 'CompanyController', 'action' => "companyApplications"]); 
 
 // student routes
