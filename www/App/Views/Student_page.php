@@ -128,10 +128,7 @@
                   src="/assets/img/cesi_logo.jpg">
                 <div class="vr align-self-center"></div>
                 <div style="padding-right: 45px;">
-                  <button onclick="document.location.href='Profile_company_view.html';"
-                    class="profile_company mt-4 fs-4 mx-5" type="button">
-                    <?php echo $offre['nom_poste_offre'] ?>
-                  </button>
+                <h4 class="mt-4 fs-4 mx-5"><?php echo $offre['nom_poste_offre'] ?></h4>
                   <hr class="col-3 mx-5 mb-4">
                   <table class="col-12 mt-4 mx-5 mb-4">
                     <tr>
