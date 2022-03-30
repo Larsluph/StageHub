@@ -79,6 +79,8 @@ class Candidature extends Model
     public static function readAllByOffre(int $id_offre)
     {
         $sql = "SELECT
+                    users.id_user,
+                    CONCAT(users.prenom_user, ' ', users.nom_user) AS full_name,
                     offres_stage.*,
                     candidatures.is_in_wishlist,
                     candidatures.statut_reponse,
@@ -91,6 +93,7 @@ class Candidature extends Model
                     LEFT JOIN localites USING (id_localite)
                     LEFT JOIN offre_competence USING (id_offre)
                     LEFT JOIN competences USING (id_competence)
+                    LEFT JOIN users USING (id_user)
                 WHERE id_offre = :id_offre
                 GROUP BY id_offre, id_user";
         $db = static::getDB();

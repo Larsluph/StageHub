@@ -22,12 +22,14 @@ class Entreprise extends Model
                     id_entreprise,
                     nom_entreprise,
                     GROUP_CONCAT(DISTINCT localites.nom_localite SEPARATOR '|') AS localites,
-                    GROUP_CONCAT(DISTINCT secteurs_activite.nom_secteur_activite SEPARATOR '|') AS secteurs_activite
+                    GROUP_CONCAT(DISTINCT secteurs_activite.nom_secteur_activite SEPARATOR '|') AS secteurs_activite,
+                    (SELECT COUNT(*) FROM offres_stage WHERE offres_stage.id_entreprise = entreprises.id_entreprise) AS nb_offres_stage
                 FROM entreprises
                     LEFT JOIN entreprise_loc USING (id_entreprise)
                     LEFT JOIN localites USING (id_localite)
                     LEFT JOIN entreprise_secteur USING (id_entreprise)
                     LEFT JOIN secteurs_activite USING (id_secteur_activite)
+                    LEFT JOIN offres_stage USING (id_entreprise)
                 WHERE id_entreprise = :id
                 GROUP BY id_entreprise";
         $db = static::getDB();
@@ -39,19 +41,19 @@ class Entreprise extends Model
         return $entreprise;
     }
 
-  /**
-   * Get entreprise id by name
-   * @param string $nom_entreprise
-   * @return int|false
-   */
-  public static function getIdByName(string $nom_entreprise)
-  {
-    $db = static::getDB();
-    $stmt = $db->prepare("SELECT id_entreprise FROM entreprises WHERE nom_entreprise = :nom_entreprise");
-    $stmt->bindValue(':nom_entreprise', $nom_entreprise, PDO::PARAM_STR);
-    $stmt->execute();
-    return $stmt->fetchColumn();
-  }
+    /**
+     * Get entreprise id by name
+     * @param string $nom_entreprise
+     * @return int|false
+     */
+    public static function getIdByName(string $nom_entreprise)
+    {
+        $db = static::getDB();
+        $stmt = $db->prepare("SELECT id_entreprise FROM entreprises WHERE nom_entreprise = :nom_entreprise");
+        $stmt->bindValue(':nom_entreprise', $nom_entreprise, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+    }
 
     /**
      * Get all the entreprises as an associative array
@@ -61,14 +63,17 @@ class Entreprise extends Model
     public static function readAll()
     {
         $query = "SELECT
+                      id_entreprise,
                       nom_entreprise,
                       GROUP_CONCAT(DISTINCT localites.nom_localite SEPARATOR '|') AS localites,
-                      GROUP_CONCAT(DISTINCT secteurs_activite.nom_secteur_activite SEPARATOR '|') AS secteurs_activite
+                      GROUP_CONCAT(DISTINCT secteurs_activite.nom_secteur_activite SEPARATOR '|') AS secteurs_activite,
+                      (SELECT COUNT(*) FROM offres_stage WHERE offres_stage.id_entreprise = entreprises.id_entreprise) AS nb_offres_stage
                   FROM entreprises
                       LEFT JOIN entreprise_loc USING (id_entreprise)
                       LEFT JOIN localites USING (id_localite)
                       LEFT JOIN entreprise_secteur USING (id_entreprise)
                       LEFT JOIN secteurs_activite USING (id_secteur_activite)
+                      LEFT JOIN offres_stage USING (id_entreprise)
                   GROUP BY id_entreprise";
         $db = static::getDB();
         $stmt = $db->query($query);
@@ -203,11 +208,6 @@ class Entreprise extends Model
         // fetch db connection
         $db = static::getDB();
 
-        // delete entreprise
-        $stmt = $db->prepare("DELETE FROM entreprises WHERE id_entreprise = :id");
-        $stmt->bindValue(':id', $id);
-        $stmt->execute();
-
         // delete localites
         $stmt = $db->prepare("DELETE FROM entreprise_loc WHERE id_entreprise = :id");
         $stmt->bindValue(':id', $id);
@@ -215,6 +215,11 @@ class Entreprise extends Model
 
         // delete secteurs d'activite
         $stmt = $db->prepare("DELETE FROM entreprise_secteur WHERE id_entreprise = :id");
+        $stmt->bindValue(':id', $id);
+        $stmt->execute();
+
+        // delete entreprise
+        $stmt = $db->prepare("DELETE FROM entreprises WHERE id_entreprise = :id");
         $stmt->bindValue(':id', $id);
         $stmt->execute();
     }
