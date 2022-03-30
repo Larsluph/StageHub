@@ -50,7 +50,7 @@
                 <hr class="separate mx-auto pt-1 col-9 mb-3 mt-4">
             </div>
             <div class="col-6 mx-auto mt-4">
-            <?php foreach ($pagination->get_page_items() as $candidatures) { ?>
+            <?php foreach ($pagination->get_page_items() as $candidature) { ?>
                 <div class="card mb-3">
                     <div class="card-body text-center">
                         <div class="row">
@@ -58,33 +58,17 @@
                                 <h6 class="mb-0 ps-3">Full Name :</h6>
                             </div>
                             <div class="col-sm-7 text-secondary">
-                                dfghtf
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-sm-5">
-                                <h6 class="mb-0 ps-3">Username :</h6>
-                            </div>
-                            <div class="col-sm-7 text-secondary">
-                                gfjg
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-sm-5">
-                                <h6 class="mb-0 ps-3">Id :</h6>
-                            </div>
-                            <div class="col-sm-7 text-secondary">
-                                gyjgyjername'] ?>
+                                <?= $candidature['full_name'] ?>
                             </div>
                         </div>
                         <hr>
                         <form>
                             <div class="answer">
-                                <input type="radio" value="Validate" id="validate" name="answer" checked>
-                                <label for="validate" class="radio">Validate</label>
-                                <input type="radio" value="Refuse" id="refuse" name="answer">
+                                <input type="hidden" name="id_user" value="<?= $candidature['id_user'] ?>">
+                                <input type="hidden" name="id_offre" value="<?= $candidature['id_offre'] ?>">
+                                <input type="radio" value="1" id="validate" name="answer">
+                                <label for="validate" class="radio">Accept</label>
+                                <input type="radio" value="0" id="refuse" name="answer" checked>
                                 <label for="refuse" class="radio">Refuse</label>
                             </div>
                             <input type="submit" class="button-register px-4 mx-auto mb-1" value="Submit">

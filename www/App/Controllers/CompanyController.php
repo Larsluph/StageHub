@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Candidature;
 use App\Models\Entreprise;
 use App\Models\OffreStage;
 use Core\Controller;
@@ -15,12 +16,12 @@ class CompanyController extends Controller
 {
     /**
      * Show the index page
-     *
      * @return void
      */
     public function index()
     {
         if (array_key_exists("id_entreprise", $_GET)) {
+            // Show company profile
             $id_entreprise = $_GET["id_entreprise"];
             $notifications = array(); // FIXME: get notifications from database
             $entreprise = Entreprise::readOneById($id_entreprise);
@@ -28,6 +29,7 @@ class CompanyController extends Controller
             View::render('Company.php', compact(["notifications", "entreprise", "offres"]));
         }
         else {
+            // Show all companies
             $notifications = array(); // FIXME: get notifications from database
             $entreprises = Entreprise::readAll();
             View::render('Companies.php', compact("notifications", "entreprises"));
@@ -44,7 +46,7 @@ class CompanyController extends Controller
             );
             Router::redirect('/companies');
         }
-        View::render('Company_Create.php');
+        View::render('Company_Create.html');
     }
 
     public function update()
@@ -72,7 +74,12 @@ class CompanyController extends Controller
 
     public function applications()
     {
-        // TODO : company applications
-        View::render('Company_Applications.php');
+        $id_entreprise = $_GET['id_entreprise'];
+        $candidatures = array();
+        foreach (OffreStage::readAllByEntreprise($id_entreprise) as $offre) {
+            $candidatures = array_merge($candidatures, Candidature::readAllByOffre($offre['id_offre']));
+        }
+
+        View::render('Company_Applications.php', compact("candidatures"));
     }
 }
