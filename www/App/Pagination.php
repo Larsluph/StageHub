@@ -101,4 +101,20 @@ class Pagination
     {
         return $this->page_nbr == $this->get_page_count();
     }
+
+    public function render(): void {
+        echo '<nav aria-label="Navigation"><ul class="pagination justify-content-center">';
+        echo '<li class="page-item disabled"><a class="page-link">Page '.$this->page_nbr.' of '.$this->get_page_count().'</a></li>';
+        if (!$this->is_first_page()) {
+            echo '<li class="page-item"><a class="page-link" href="?page='.$this->get_previous_page().'">Previous</a></li>';
+        }
+
+        echo '<li class="page-item active"><a class="page-link">'.$this->page_nbr.'</a></li>';
+
+
+        if (!$this->is_last_page()) {
+            echo '<li class="page-item"><a class="page-link" href="?page='.$this->get_next_page().'">Next</a></li>';
+        }
+        echo '</ul></nav>';
+    }
 }
