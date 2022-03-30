@@ -30,6 +30,7 @@ class View
 //            throw new \Exception("$file not found");
             die("$file not found");
         }
+        exit();
     }
 
     /**

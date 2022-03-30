@@ -23,7 +23,7 @@ class AccountController extends Controller
     {
         // if user isn't logged in or doesn't have required permission
         if (!self::isLoggedIn() || !User::hasPermission($_SESSION['id_user'], $required_permission)) {
-            Router::redirect('/403');
+            ErrorController::forbidden();
         }
     }
 
