@@ -38,7 +38,7 @@ class CompanyController extends Controller
 
     public function companyPost()
     {
-        view::render('Company_Post_Stage.php');
+        view::render('Company_Post_Stage.html');
     }
 
     public function companyUpdate()
