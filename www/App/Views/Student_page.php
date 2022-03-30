@@ -52,18 +52,21 @@ $pagination = new Pagination($page_nbr, $offres);
   </script>
   <div id="header">
     <img alt="StageHub logo" class="col-2 mx-5 mt-2 mb-3" id="logo" src="/assets/img/logo_white_alpha.png" style="max-width: 300px;">
-    <button onclick="document.location.href='/student/profile';" class="profile float-end mx-lg-5 mt-5 fs-4" type="button">
+    <button onclick="document.location.href='/logout'" class="button-principal-tologin float-end pb-1 mx-lg-5 mt-4 fs-6" type="button">
+      Logout
+    </button>
+    <button onclick="document.location.href='/student/profile';" class="profile float-end pt-1 mx-lg-5 mt-4 fs-6" type="button">
       - PROFILE -
     </button>
-    <button onclick="document.location.href='/student/wishlist';" class="profile float-end mx-lg-5 mt-5 fs-4" type="button">
+    <button onclick="document.location.href='/student/wishlist';" class="profile float-end pt-1 mx-lg-5 mt-4 fs-6" type="button">
       - MY WISHLIST -
     </button>
-    <button onclick="document.location.href='/student/applications';" class="profile float-end mx-lg-5 mt-5 fs-4" type="button">
+    <button onclick="document.location.href='/student/applications';" class="profile float-end pt-1 mx-lg-5 mt-4 fs-6" type="button">
       - YOUR APPLICATIONS -
     </button>
   </div>
   <div class="search">
-    <hr class="separate mx-auto pt-1 mb-4 mt-3 col-10">
+    <hr class="separate mx-auto pt-1 mb-3 mt-1 col-10">
     <form class="form text-center col-8 mx-auto mt-0">
       <input class="text_case col-5 px-4 pt-2 pb-2 fs-6 form-search" type="text" placeholder="Type of internship...">
       <input class="text_case col-4 px-4 pt-2 pb-2 fs-6 form-location" type="text" placeholder="Location...">
@@ -71,7 +74,7 @@ $pagination = new Pagination($page_nbr, $offres);
         Search
       </button>
     </form>
-    <hr class="separate mx-auto pt-1 col-9 mb-3 mt-4">
+    <hr class="separate mx-auto pt-1 col-9 mb-3 mt-3">
   </div>
   <div id="contenu">
     <div class="dashboard float-start col-2 pt-3 pb-2 ms-4 mt-0">
