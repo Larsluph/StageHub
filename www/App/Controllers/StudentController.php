@@ -42,11 +42,11 @@ class StudentController extends Controller
 
     public function wishlist()
     {
-        //TODO: show student wishlist
+        view::render('Wishlist.html');
     }
 
     public function studentStage()
     {
-        View::render('Stage_view.php');
+        View::render('Student_Applications.php');
     }
 }

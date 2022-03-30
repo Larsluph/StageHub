@@ -55,6 +55,7 @@ $router->add('company', ['controller' => 'CompanyController', 'action' => "compa
 $router->add('company/profile', ['controller' => 'CompanyController', 'action' => "companyProfile"]);
 $router->add('company/post', ['controller' => 'CompanyController', 'action' => "companyPost"]);
 $router->add('company/update', ['controller' => 'CompanyController', 'action' => "companyUpdate"]);
+$router->add('company/applications', ['controller' => 'CompanyController', 'action' => "companyStage"]); 
 
 // student routes
 $router->add('student', ['controller' => 'StudentController', 'action' => "studentPage"]);

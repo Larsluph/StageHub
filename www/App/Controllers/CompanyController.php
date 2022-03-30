@@ -45,4 +45,9 @@ class CompanyController extends Controller
     {
         //TODO: update a company post
     }
+
+    public function companyStage()
+    {
+        view::render('Company_Applications.php');
+    }
 }
