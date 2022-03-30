@@ -24,8 +24,8 @@ class CompanyController extends Controller
     {
         $notifications = array(); // FIXME: get notifications from database
         $offres = OffreStage::readAllByEntreprise(1); // FIXME: fetch company id
-
-        View::render('Company_Page.php', compact("notifications", "offres"));
+        $id_entreprise = 1;
+        View::render('Company_Page.php', compact("notifications", "offres", "id_entreprise"));
     }
 
     public function companyPost()

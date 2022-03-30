@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>StageHub - Update</title>
+  <title>StageHub - Post</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
 </head>
@@ -17,20 +17,23 @@
     gradient.initGradient("#canvas");
   </script>
   <div class="mx-5">
-    <img onclick="history.back()" class="mx-5 mt-5" id="back_arrow" src="/assets/img/fleche.png" alt="Back to previous page">
+    <img onclick="history.back()" class="mx-5 mt-5" id="back_arrow" src="/assets/img/fleche.png"
+      alt="Back to previous page">
     <img class="col-1 mx-auto mt-4 mb-3 d-block" id="logo" src="/assets/img/logo_white_alpha.png" alt="Logo">
   </div>
+
   <div class="col-auto mx-auto mt-5">
     <div class="main-body col-12">
       <div class="search">
         <hr class="separate mx-auto pt-1 mb-4 mt-3 col-10">
         <form class="form text-center col-8 mx-auto mt-0">
           <div class="Your_active_post text-center fs-4">
-            - Your company update -
+            - New offer -
           </div>
         </form>
         <hr class="separate mx-auto pt-1 col-9 mb-3 mt-4">
       </div>
+
       <div class="container col-3 rounded bg-white mt-5 mb-5">
         <div class="row">
           <div class="border-right">
@@ -40,38 +43,41 @@
               <div class="d-flex justify-content-between align-items-center mb-3">
                 <h4 class="text-right">Offer Settings</h4>
               </div>
-              <form method="POST">
-              <input name="id_entreprise" type="hidden" value="<?php echo $_GET['id_entreprise'] ?>">
+              <form method = "POST" action = "/company/post">
                 <div class="row mt-2">
                   <div class="col-md-12 mb-3">
                     <label class="labels">Offer name :</label>
-                    <input name="offer_name" type="text" class="form-control" value="<?php echo $offre['nom_poste_offre'] ?>" placeholder="Modify the name of the offer">
+                    <input name="offer_name" type="text" class="form-control" placeholder="Enter the name of the offer">
+                  </div>
+                  <div class="col-md-12 mb-3">
+                    <label class="labels">ID entreprise :</label>
+                    <input name="id_entreprise" type="hidden" class="form-control" value="<?php echo $_GET['id_entreprise'] ?>" placeholder="Enter the id of the entreprise">
                   </div>
                   <div class="col-md-12 mb-3">
                     <label class="labels">Duration :</label>
-                    <input name="duration" type="number" class="form-control" value="<?php echo $offre['duree_stage'] ?>" placeholder="Modify the duration of the offer">
+                    <input name="duration" type="number" class="form-control" placeholder="Enter the duration of the offer">
                   </div>
                   <div class="col-md-12 mb-3">
                     <label class="labels">Location :</label>
-                    <input name="location" type="text" class="form-control" value="<?php echo implode(" - ", explode("|", $offre['localites'])); ?>" placeholder="Modify the location of the offer">
+                    <input name="location" type="text" class="form-control" placeholder="Enter the location of the offer">
                   </div>
                   <div class="col-md-12 mb-3">
                     <label class="labels">Salary (/h) :</label>
-                    <input name="salary" type="text" class="form-control" value="<?php echo $offre['base_remuneration'] ?>" placeholder="Modify the salary">
+                    <input name="salary" type="text" class="form-control" placeholder="Enter the salary">
                   </div>
                   <div class="col-md-12 mb-3">
                     <label class="labels">Skills :</label>
-                    <input name="skills" type="text" class="form-control" value="<?php echo implode(" - ", explode("|", $offre['competences'])); ?> placeholder="Enter the competences of the offer">
+                    <input name="skills" type="text" class="form-control" placeholder="Enter the competences of the offer">
                   </div>
                   <div class="col-md-12 mb-3">
                     <label class="labels">Start date :</label>
-                    <input name="start_date" type="number" class="form-control" value="<?php echo $offre['date_stage'] ?>" placeholder="Modify the start date">
+                    <input name="start_date" type="number" class="form-control" placeholder="Enter the start date">
                   </div>
                   <div class="col-md-12 mb-3">
                     <label class="labels">Number of offers :</label>
-                    <input name="number_of_offers" type="number" class="form-control" value="<?php echo $offre['nbr_places_offre'] ?>" placeholder="Modify the number of offers">
+                    <input name="number_of_offers" type="number" class="form-control" placeholder="Enter the number of offers">
                   </div>
-                  <input type="submit" class="button-register px-4 mx-auto mt-5 mb-3" value="Save">
+                  <input type="submit" class="button-register px-4 mx-auto mt-5 mb-3" value="Post">
                 </div>
               </form>
             </div>
@@ -81,15 +87,15 @@
         </div>
       </div>
     </div>
-  </div>
-  <footer class="col-12">
-    <div class="text-center">
-      <div class="copyright text-center p-3">
-        © 2022 - StageHub /
-        <a class="Term-of-use-link" href="/termsofuse">Terms of use</a>
+
+    <footer class="col-12">
+      <div class="text-center">
+        <div class="copyright text-center p-3">
+          © 2022 - StageHub /
+          <a class="Term-of-use-link" href="/termsofuse">Terms of use</a>
+        </div>
       </div>
-    </div>
-  </footer>
+    </footer>
 </body>
 
 </html>
