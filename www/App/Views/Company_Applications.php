@@ -1,3 +1,12 @@
+<?php 
+  use App\Pagination;
+  if (isset($_GET['page']))
+    $page_nbr = $_GET['page'];
+  else
+    $page_nbr = 1;
+  $pagination = new Pagination($page_nbr, $candidatures);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,6 +64,7 @@
                 <hr class="separate mx-auto pt-1 col-9 mb-3 mt-4">
             </div>
             <div class="col-6 mx-auto mt-4">
+            <?php foreach ($pagination->get_page_items() as $candidatures) { ?>
                 <div class="card mb-3">
                     <div class="card-body text-center">
                         <div class="row">
@@ -95,23 +105,12 @@
                         </form>
                     </div>
                 </div>
+                <?php } ?>
             </div>
         </div>
     </div>
     <hr class="separate mx-auto pt-1 mb-4 mt-3 col-8">
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
-            <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">Previous</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-            </li>
-        </ul>
-    </nav>
+    <?php $pagination->render() ?>
     <hr class="separate mx-auto pt-1 mb-4 mt-4 col-10">
     <footer class="col-12">
         <div class="text-center">
