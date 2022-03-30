@@ -86,7 +86,7 @@
                       </td>
                     </tr>
                   </table>
-                  <input onclick="document.location.href='/company/update'" type="submit" class="button-register float-start ms-5 px-4 mx-auto mb-3" value="Modify">
+                  <input onclick="document.location.href='/company/update?id_offre=<?php echo $offre['id_offre'] ?>'" type="submit" class="button-register float-start ms-5 px-4 mx-auto mb-3" value="Modify">
                 </div>
               </div>
               <?php } ?>

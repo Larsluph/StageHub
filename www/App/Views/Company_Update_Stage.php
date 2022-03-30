@@ -47,30 +47,29 @@
                 <div class="row mt-2">
                   <div class="col-md-12 mb-3">
                     <label class="labels">Offer name :</label>
-                    <input name="offer_name" type="text" class="form-control" placeholder="Modify the name of the offer">
+                    <input name="offer_name" type="text" class="form-control" value="<?php echo $offre['nom_poste_offre'] ?>" placeholder="Modify the name of the offer">
                   </div>
                   <div class="col-md-12 mb-3">
                     <label class="labels">Duration :</label>
-                    <input name="duration" type="number" class="form-control" placeholder="Modify the duration of the offer">
+                    <input name="duration" type="number" class="form-control" value="<?php echo $offre['duree_stage'] ?>"placeholder="Modify the duration of the offer">
                   </div>
                   <div class="col-md-12 mb-3">
                     <label class="labels">Location :</label>
-                    <input name="location" type="text" class="form-control" placeholder="Modify the location of the offer">
+                    <input name="location" type="text" class="form-control" value="<?php echo implode(" - ", explode("|", $offre['localites'])); ?>" placeholder="Modify the location of the offer">
                   </div>
                   <div class="col-md-12 mb-3">
                     <label class="labels">Salary (/h) :</label>
-                    <input name="salary" type="text" class="form-control" placeholder="Modify the salary">
+                    <input name="salary" type="text" class="form-control" value="<?php echo $offre['base_remuneration'] ?>" placeholder="Modify the salary">
                   </div>
                   <div class="col-md-12 mb-3">
                     <label class="labels">Start date :</label>
-                    <input name="start_date" type="number" class="form-control" placeholder="Modify the start date">
+                    <input name="start_date" type="number" class="form-control" value="<?php echo $offre['date_stage'] ?>" placeholder="Modify the start date">
                   </div>
                   <div class="col-md-12 mb-3">
                     <label class="labels">Number of offers :</label>
-                    <input name="number_of_offers" type="number" class="form-control" placeholder="Modify the number of offers">
+                    <input name="number_of_offers" type="number" class="form-control" value="<?php echo $offre['nbr_places_offre'] ?>" placeholder="Modify the number of offers">
                   </div>
-                  <input type="submit" onclick="document.location='/company/applications'"
-                    class="button-register px-4 mx-auto mt-5 mb-3" value="Save">
+                  <input type="submit" class="button-register px-4 mx-auto mt-5 mb-3" value="Save">
                 </div>
               </form>
             </div>

@@ -32,12 +32,13 @@ class CompanyController extends Controller
     {
         //TODO : company post
         /*
-        offer_name
-        duration
-        location
-        salary
-        start_date
-        number_of_offers
+        POST fields : 
+            offer_name
+            duration
+            location
+            salary
+            start_date
+            number_of_offers
         */
         view::render('Company_Post_Stage.php');
     }
@@ -46,8 +47,18 @@ class CompanyController extends Controller
     {
         //TODO : company update
         /*
+        POST fields : 
+            offer_name
+            duration
+            location
+            salary
+            start_date
+            number_of_offers
+        GET fields : 
+            id_offre
+             
         */
-        view::render('Company_Update_Stage.php');
+        view::render('Company_Update_Stage.php', compact("offre"));
     }
 
     public function companyApplications()
