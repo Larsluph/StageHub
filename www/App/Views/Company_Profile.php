@@ -72,7 +72,7 @@
                   <?php echo $user['id_user'] ?>
                 </div>
               </div>
-              <input type="submit" onclick="document.location='Profile_company_update.html'"
+              <input type="submit" onclick="document.location='/company/profile'"
                 class="button-register px-4 mx-auto mt-5 mb-3" value="Modify">
             </div>
           </div>

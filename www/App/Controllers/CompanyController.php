@@ -53,6 +53,8 @@ class CompanyController extends Controller
     public function companyUpdate()
     {
         //TODO : company update
+        /*
+        */
         view::render('Company_Update_Stage.php');
     }
 
