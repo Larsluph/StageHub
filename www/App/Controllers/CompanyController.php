@@ -30,35 +30,43 @@ class CompanyController extends Controller
 
     public function companyPost()
     {
-        //TODO : company post
-        /*
-        POST fields : 
-            offer_name
-            duration
-            location
-            salary
-            start_date
-            number_of_offers
-        */
-        view::render('Company_Post_Stage.php');
+        if (!empty($_POST)) {
+            OffreStage::create(
+                $_POST['offer_name'],
+                $_POST['duration'],
+                $_POST['salary'],
+                $_POST['start_date'],
+                $_POST['number_of_offers'],
+                $_POST['id_entreprise'],
+                explode('|', $_POST['location']),
+                explode('|', $_POST['skills']),
+            );
+        }
+        else
+        {
+            View::render('Company_Post_Stage.php');
+        }
     }
 
     public function companyUpdate()
     {
-        //TODO : company update
-        /*
-        POST fields : 
-            offer_name
-            duration
-            location
-            salary
-            start_date
-            number_of_offers
-        GET fields : 
-            id_offre
-             
-        */
-        view::render('Company_Update_Stage.php', compact("offre"));
+        if (!empty($_POST)) {
+            OffreStage::update(
+                $_POST['id_offre'],
+                $_POST['offer_name'],
+                $_POST['duration'],
+                $_POST['salary'],
+                $_POST['start_date'],
+                $_POST['number_of_offers'],
+                explode('|', $_POST['location']),
+                explode('|', $_POST['skills'])
+            );
+        }
+        else
+        {
+            $offre = OffreStage::readOneById($_GET['id_offre']);
+            view::render('Company_Update_Stage.php', compact("offre"));
+        }
     }
 
     public function companyApplications()
