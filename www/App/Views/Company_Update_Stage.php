@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>StageHub - Post</title>
+  <title>StageHub - Update</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
 </head>
@@ -28,7 +28,7 @@
         <hr class="separate mx-auto pt-1 mb-4 mt-3 col-10">
         <form class="form text-center col-8 mx-auto mt-0">
           <div class="Your_active_post text-center fs-4">
-            - New offer -
+            - Your company update -
           </div>
         </form>
         <hr class="separate mx-auto pt-1 col-9 mb-3 mt-4">
@@ -43,34 +43,34 @@
               <div class="d-flex justify-content-between align-items-center mb-3">
                 <h4 class="text-right">Offer Settings</h4>
               </div>
-              <form method = "POST" action = "/company/post">
+              <form method = "POST" action = "/company/update">
                 <div class="row mt-2">
                   <div class="col-md-12 mb-3">
                     <label class="labels">Offer name :</label>
-                    <input name="offer_name" type="text" class="form-control" placeholder="Enter the name of the offer">
+                    <input name="offer_name" type="text" class="form-control" placeholder="Modify the name of the offer">
                   </div>
                   <div class="col-md-12 mb-3">
                     <label class="labels">Duration :</label>
-                    <input name="duration" type="number" class="form-control" placeholder="Enter the duration of the offer">
+                    <input name="duration" type="number" class="form-control" placeholder="Modify the duration of the offer">
                   </div>
                   <div class="col-md-12 mb-3">
                     <label class="labels">Location :</label>
-                    <input name="location" type="text" class="form-control" placeholder="Enter the location of the offer">
+                    <input name="location" type="text" class="form-control" placeholder="Modify the location of the offer">
                   </div>
                   <div class="col-md-12 mb-3">
                     <label class="labels">Salary (/h) :</label>
-                    <input name="salary" type="text" class="form-control" placeholder="Enter the salary">
+                    <input name="salary" type="text" class="form-control" placeholder="Modify the salary">
                   </div>
                   <div class="col-md-12 mb-3">
                     <label class="labels">Start date :</label>
-                    <input name="start_date" type="number" class="form-control" placeholder="Enter the start date">
+                    <input name="start_date" type="number" class="form-control" placeholder="Modify the start date">
                   </div>
                   <div class="col-md-12 mb-3">
                     <label class="labels">Number of offers :</label>
-                    <input name="number_of_offers" type="number" class="form-control" placeholder="Enter the number of offers">
+                    <input name="number_of_offers" type="number" class="form-control" placeholder="Modify the number of offers">
                   </div>
                   <input type="submit" onclick="document.location='/company/applications'"
-                    class="button-register px-4 mx-auto mt-5 mb-3" value="Post">
+                    class="button-register px-4 mx-auto mt-5 mb-3" value="Save">
                 </div>
               </form>
             </div>
@@ -80,15 +80,16 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <footer class="col-12">
-      <div class="text-center">
-        <div class="copyright text-center p-3">
-          © 2022 - StageHub /
-          <a class="Term-of-use-link" href="/termsofuse">Terms of use</a>
-        </div>
+  <footer class="col-12">
+    <div class="text-center">
+      <div class="copyright text-center p-3">
+        © 2022 - StageHub /
+        <a class="Term-of-use-link" href="/termsofuse">Terms of use</a>
       </div>
-    </footer>
+    </div>
+  </footer>
 </body>
 
 </html>

@@ -20,10 +20,6 @@
   <div id="header">
     <img alt="StageHub logo" class="col-2 mx-5 mt-2 mb-3" id="logo" src="/assets/img/logo_white_alpha.png"
       style="max-width: 300px;">
-    <button onclick="document.location.href='/company/profile';" class="profile float-end mx-lg-5 mt-5 fs-4"
-      type="button">
-      - PROFILE -
-    </button>
     <button onclick="document.location.href='/company/applications';" class="profile float-end mx-lg-5 mt-5 fs-4" type="button">
       - APPLICATIONS -
     </button>
@@ -89,7 +85,7 @@
                       </td>
                     </tr>
                   </table>
-                  <input type="submit" class="button-register float-start ms-5 px-4 mx-auto mb-3" value="Modify">
+                  <input onclick="document.location.href='/company/update'" type="submit" class="button-register float-start ms-5 px-4 mx-auto mb-3" value="Modify">
                 </div>
               </div>
               <?php } ?>

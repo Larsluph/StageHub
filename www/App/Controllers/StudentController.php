@@ -47,7 +47,7 @@ class StudentController extends Controller
         view::render('Wishlist.html');
     }
 
-    public function studentStage()
+    public function studentApplications()
     {
         //TODO : student application
         View::render('Student_Applications.php');
