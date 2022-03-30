@@ -14,7 +14,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StageHub - Company</title>
+  <title>StageHub - Company <?= $entreprise['id_entreprise'] ?></title>
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="manifest" href="/manifest.webmanifest">
   <script>
@@ -35,15 +35,15 @@
     gradient.initGradient("#canvas");
   </script>
   <div id="header">
-    <img alt="StageHub logo" class="col-2 mx-5 mt-2 mb-3" id="logo" src="/assets/img/logo_white_alpha.png" style="max-width: 300px;">
+    <img onclick="document.location.href='/companies'" alt="StageHub logo" class="col-2 mx-5 mt-2 mb-3" id="logo" src="/assets/img/logo_white_alpha.png" style="max-width: 300px;">
     <button onclick="document.location.href='/logout'" class="button-principal-tologin float-end pb-1 mx-lg-5 mt-4 fs-6" type="button">
       Logout
     </button>
-    <button onclick="document.location.href='/companies/applications'" class="profile float-end mx-lg-5 mt-4 pt-1 fs-6" type="button">
+    <button onclick="document.location.href='/companies/applications?id_entreprise=<?= $entreprise['id_entreprise'] ?>'" class="profile float-end mx-lg-5 mt-4 pt-1 fs-6" type="button">
       - APPLICATIONS -
     </button>
     <button onclick="document.location.href='/offers/create?id_entreprise=<?= $entreprise['id_entreprise'] ?>'" class="profile float-end mx-lg-5 pt-1 mt-4 fs-6" type="button">
-      - NEW POST -
+      - NEW OFFER -
     </button>
   </div>
   <div class="search">
