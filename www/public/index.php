@@ -29,16 +29,6 @@ set_exception_handler('Core\Error::exceptionHandler');
  */
 $router = new Core\Router();
 
-//////////////////
-// basic routes //
-//////////////////
-
-// default route
-$router->add('', ['controller' => 'HomeController', 'action' => 'index']);
-
-// default route pattern
-//$router->add('{controller}/{action}');
-
 ///////////////////
 // custom routes //
 ///////////////////
@@ -47,8 +37,8 @@ $router->add('', ['controller' => 'HomeController', 'action' => 'index']);
 $router->add('login', ['controller' => 'AccountController', 'action' => "login"]);
 $router->add('logout', ['controller' => 'AccountController', 'action' => "logout"]);
 
-// misc
-$router->add('termsofuse', ['controller' => 'HomeController', 'action' => "terms"]);
+// admin routes
+$router->add('admin', ['controller' => 'AdminController', 'action' => "dashboard"]);
 
 // company routes
 $router->add('companies', ['controller' => 'CompanyController', 'action' => "index"]);
@@ -56,6 +46,14 @@ $router->add('companies/create', ['controller' => 'CompanyController', 'action' 
 $router->add('companies/update', ['controller' => 'CompanyController', 'action' => "update"]);
 $router->add('companies/delete', ['controller' => 'CompanyController', 'action' => "delete"]);
 $router->add('companies/applications', ['controller' => 'CompanyController', 'action' => "applications"]);
+
+// error routes
+$router->add('403', ['controller' => 'ErrorController', 'action' => "forbidden"]);
+$router->add('404', ['controller' => 'ErrorController', 'action' => "notFound"]);
+
+// misc
+$router->add('', ['controller' => 'HomeController', 'action' => 'index']);
+$router->add('termsofuse', ['controller' => 'HomeController', 'action' => "terms"]);
 
 // offers routes
 $router->add('offers', ['controller' => 'OffersController', 'action' => "index"]);
@@ -71,13 +69,6 @@ $router->add('student/delete', ['controller' => 'StudentController', 'action' =>
 $router->add('student/wishlist', ['controller' => 'StudentController', 'action' => "wishlist"]);
 $router->add('student/applications', ['controller' => 'StudentController', 'action' => "applications"]);
 
-
-// admin routes
-$router->add('admin', ['controller' => 'AdminController', 'action' => "dashboard"]);
-
-// error routes
-$router->add('403', ['controller' => 'ErrorController', 'action' => "forbidden"]);
-$router->add('404', ['controller' => 'ErrorController', 'action' => "notFound"]);
 
 /**
  * Processing / Rendering (call to Controllers)
