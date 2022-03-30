@@ -103,6 +103,11 @@ class Pagination
         return $this->page_nbr == $this->get_page_count();
     }
 
+    public function get_page_items(): array
+    {
+        return array_slice($this->items, $this->get_page_start(), self::ITEMS_PER_PAGE);
+    }
+
     public function render(): void
     {
         echo '<nav aria-label="Navigation"><ul class="pagination justify-content-center">';

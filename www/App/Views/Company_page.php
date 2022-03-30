@@ -1,3 +1,12 @@
+<?php 
+  use App\Pagination;
+  if (isset($_GET['page']))
+    $page_nbr = $_GET['page'];
+  else
+    $page_nbr = 1;
+  $pagination = new Pagination($page_nbr, $offres);
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -52,11 +61,12 @@
         <tbody>
           <tr>
             <td>
-              <?php foreach ($offres as $offre) { ?>
+              <?php foreach ($pagination->get_page_items() as $offre) { ?>
                 <div class="stage_offer d-flex mb-4">
                   <div class="col-10 ms-5 table-center">
+                    <h4 class="float-end mt-4 fs-4">Company name</h4>
                     <h4 class="mt-4 fs-4"><?php echo $offre['nom_poste_offre'] ?></h4>
-                    <hr class="col-5 mx-5 mb-4">
+                    <hr class="float-start col-5 mb-4">
                     <table class="col-10 mt-4 mx-5 mb-4">
                       <tr>
                         <th class="h4 ms-5 fs-6 fw-bold">
@@ -78,6 +88,7 @@
                       </tr>
                     </table>
                     <input onclick="document.location.href='/company/update?id_offre=<?php echo $offre['id_offre'] ?> " type="submit" class="button-register float-start ms-5 px-4 mx-auto mb-3" value="Modify">
+                    <input type="submit" class="button-delete float-start ms-1 px-4 mx-auto mb-3" value="Delete">
                   </div>
                 </div>
               <?php } ?>
@@ -88,19 +99,7 @@
     </div>
   </div>
   <hr class="separate mx-auto pt-1 mb-4 mt-3 col-8">
-  <nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-center">
-      <li class="page-item disabled">
-        <a class="page-link" href="#" tabindex="-1">Previous</a>
-      </li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item">
-        <a class="page-link" href="#">Next</a>
-      </li>
-    </ul>
-  </nav>
+  <?php $pagination->render() ?>
   <hr class="separate mx-auto pt-1 mb-4 mt-4 col-10">
   <footer class="col-12">
     <div class="text-center">
