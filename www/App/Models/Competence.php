@@ -26,9 +26,9 @@ class Competence extends Model
     }
 
     /**
-     * Get one competence by name
+     * Get competence id by name
      * @param string $name name competence
-     * @return array|false
+     * @return int|false
      */
     public static function getIdByName(string $name)
     {

@@ -141,18 +141,18 @@ class Permission extends Model
     }
 
     /**
-     * Get one permission by name
+     * Get permission id by name
      * @param string $name name permission
-     * @return array|false
+     * @return int|false
      */
-    public static function readOneByName(string $name)
+    public static function getIdByName(string $name)
     {
-        $sql = "SELECT * FROM permissions WHERE nom_permission = :name";
+        $sql = "SELECT id_permission FROM permissions WHERE nom_permission = :name";
         $db = static::getDB();
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':name', $name);
         $stmt->execute();
-        return $stmt->fetch();
+        return $stmt->fetchColumn();
     }
 
     /**

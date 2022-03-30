@@ -54,14 +54,14 @@ class Role extends Model
      * @param  string $name
      * @return array|false
      */
-    public static function readOneByName(string $name)
+    public static function getIdByName(string $name)
     {
-        $sql = 'SELECT * FROM roles WHERE nom_role = :name';
+        $sql = 'SELECT id_role FROM roles WHERE nom_role = :name';
         $db = static::getDB();
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':name', $name);
         $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        return $stmt->fetchColumn();
     }
 
     /**

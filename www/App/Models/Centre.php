@@ -26,18 +26,18 @@ class Centre extends Model
     }
 
     /**
-     * Get one centre by name
+     * Get centre id by name
      * @param  string $name
-     * @return array|false
+     * @return int|false
      */
-    public static function readOneByName(string $name)
+    public static function getIdByName(string $name)
     {
-        $sql = 'SELECT * FROM centres WHERE nom_centre = :name';
+        $sql = 'SELECT id_centre FROM centres WHERE nom_centre = :name';
         $db = static::getDB();
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':name', $name);
         $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        return $stmt->fetchColumn();
     }
 
     /**

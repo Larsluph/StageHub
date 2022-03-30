@@ -38,6 +38,20 @@ class Entreprise extends Model
         return $entreprise;
     }
 
+  /**
+   * Get entreprise id by name
+   * @param string $nom_entreprise
+   * @return int|false
+   */
+  public static function getIdByName(string $nom_entreprise)
+  {
+    $db = static::getDB();
+    $stmt = $db->prepare("SELECT id_entreprise FROM entreprises WHERE nom_entreprise = :nom_entreprise");
+    $stmt->bindValue(':nom_entreprise', $nom_entreprise, PDO::PARAM_STR);
+    $stmt->execute();
+    return $stmt->fetchColumn();
+  }
+
     /**
      * Get all the entreprises as an associative array
      *

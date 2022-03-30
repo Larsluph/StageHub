@@ -68,11 +68,13 @@ class User extends Model {
 
         $db = static::getDB();
 
+        $permission_id = Permission::getIdByName($permission);
+
         // get permission from database
-        $stmt = $db->prepare("SELECT is_enabled FROM user_permission LEFT JOIN permissions USING (id_permission)
-                                    WHERE user_permission.id_user = :id_user AND permissions.nom_permission = :permission");
+        $sql = "SELECT is_enabled FROM user_permission WHERE user_permission.id_user = :id_user AND user_permission.id_permission = :id_permission";
+        $stmt = $db->prepare($sql);
         $stmt->bindValue(':id_user', $id_user);
-        $stmt->bindValue(':permission', $permission);
+        $stmt->bindValue(':id_permission', $permission_id);
         $stmt->execute();
         $is_enabled = $stmt->fetchColumn();
 
