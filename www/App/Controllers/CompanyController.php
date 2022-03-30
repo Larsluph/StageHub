@@ -38,16 +38,19 @@ class CompanyController extends Controller
 
     public function companyPost()
     {
+        //TODO : company post
         view::render('Company_Post_Stage.html');
     }
 
     public function companyUpdate()
     {
+        //TODO : company update
         view::render('Company_Update_Stage.php');
     }
 
     public function companyStage()
     {
+        // TODO : company applications 
         view::render('Company_Applications.php');
     }
 }

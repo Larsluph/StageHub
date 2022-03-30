@@ -37,16 +37,19 @@ class StudentController extends Controller
 
     public function studentUpdate()
     {
+        //TODO : update student 
         view::render('Student_Update.php');
     }
 
     public function wishlist()
     {
+        //TODO : wishlist gestion etc 
         view::render('Wishlist.html');
     }
 
     public function studentStage()
     {
+        //TODO : student application
         View::render('Student_Applications.php');
     }
 }

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>StageHub - Terms of Use</title>
+    <title>StageHub - Profile</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
 </head>
