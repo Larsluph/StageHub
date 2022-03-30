@@ -37,7 +37,7 @@
     <hr class="separate mx-auto pt-1 col-9 mb-3 mt-4">
   </div>
 
-  <div id="contenu">
+  <div class="col-12" id="contenu">
     <div class="dashboard float-start col-2 pt-3 pb-2 ms-4 mt-0">
       <h5 class="col-2 position-absolute text-center">Notification</h5>
       <hr class="col-8 mx-auto mt-4">
@@ -51,22 +51,19 @@
       <hr class="col-8 mx-auto mt-4">
     </div>
 
-    <div class="col-7 mx-auto mt-5 mb-1 stage">
-      <table class="pagination table table-striped table-bordered w-100">
+    <div class="col-12 mx-auto mt-5 mb-1 stage">
+      <table class="col-7 float-start ms-5">
         <tbody>
           <tr>
             <td>
             <?php foreach ($offres as $offre) { ?> 
             <div class="stage_offer d-flex mb-4">
-                <img alt="Logo_company" class="Logo_company text-center align-self-center mx-4"
-                  src="/assets/img/cesi_logo.jpg">
-                <div class="vr align-self-center"></div>
-                <div style="padding-right: 45px;">
-                  <h4 class="mt-4 fs-4 mx-5"><?php echo $offre['nom_poste_offre'] ?></h4>
-                  <hr class="col-3 mx-5 mb-4">
+                <div class="col-10 ms-5 table-center">
+                  <h4 class="mt-4 fs-4"><?php echo $offre['nom_poste_offre'] ?></h4>
+                  <hr class="col-5 mx-5 mb-4">
                   <table class="col-12 mt-4 mx-5 mb-4">
                     <tr>
-                      <th class="fs-6 fw-bold">
+                      <th class="ms-5 fs-6 fw-bold">
                         Quality required :
                         <hr class="col-4 mx-1 mb-1">
                       </th>
@@ -76,7 +73,7 @@
                       </th>
                     </tr>
                     <tr>
-                      <td class="mt-3 fs-6 mx-auto">
+                      <td class="ms-5 mt-3 fs-6 mx-auto">
                         <?php echo implode(" - ", explode("|", $offre['competences'])); ?>
                       </td>
                       <td>
@@ -86,7 +83,7 @@
                       </td>
                     </tr>
                   </table>
-                  <input onclick="document.location.href='/company/update?id_offre=<?php echo $offre['id_offre'] ?>'" type="submit" class="button-register float-start ms-5 px-4 mx-auto mb-3" value="Modify">
+                  <input onclick="document.location.href='/company/update?id_offre=<?php echo $offre['id_offre'] ?> " type="submit" class="button-register float-start ms-5 px-4 mx-auto mb-3" value="Modify">
                 </div>
               </div>
               <?php } ?>
