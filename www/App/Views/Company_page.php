@@ -61,25 +61,23 @@
                 <div class="col-10 ms-5 table-center">
                   <h4 class="mt-4 fs-4"><?php echo $offre['nom_poste_offre'] ?></h4>
                   <hr class="col-5 mx-5 mb-4">
-                  <table class="col-12 mt-4 mx-5 mb-4">
+                  <table class="col-10 mt-4 mx-5 mb-4">
                     <tr>
-                      <th class="ms-5 fs-6 fw-bold">
+                      <th class="h4 ms-5 fs-6 fw-bold">
                         Quality required :
                         <hr class="col-4 mx-1 mb-1">
                       </th>
-                      <th class="fs-6 fw-bold">
+                      <th class="h4 fs-6 fw-bold">
                         Location :
                         <hr class="col-4 mx-1 mb-1">
                       </th>
                     </tr>
                     <tr>
-                      <td class="ms-5 mt-3 fs-6 mx-auto">
+                      <td class="col-10 mt-3 fs-6">
                         <?php echo implode(" - ", explode("|", $offre['competences'])); ?>
                       </td>
-                      <td>
-                      <h4 class="col-10 mt-3 fs-6">
+                      <td class="col-10 mt-3 fs-6">
                         <?php echo implode(" - ", explode("|", $offre['localites'])); ?>
-                      </h4>
                       </td>
                     </tr>
                   </table>
