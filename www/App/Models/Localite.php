@@ -28,16 +28,16 @@ class Localite extends Model
     /**
      * Get one localite by name
      * @param string $name name localite
-     * @return array|false
+     * @return int|false
      */
-    public static function readOneByName(string $name)
+    public static function getIdByName(string $name)
     {
-        $sql = "SELECT * FROM localites WHERE nom_localite = :name";
+        $sql = "SELECT id_localite FROM localites WHERE nom_localite = :name";
         $db = static::getDB();
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':name', $name);
         $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        return $stmt->fetchColumn();
     }
 
     /**

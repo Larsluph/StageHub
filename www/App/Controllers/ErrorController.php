@@ -29,6 +29,8 @@ class ErrorController extends Controller
     public static function unknownError(Exception $exception) {
         http_response_code(500);
 //        View::render('500.html');
-        echo "<pre>$exception->getMessage()\n$exception->getTraceAsString()</pre>";
+        $msg = $exception->getMessage();
+        $trace = $exception->getTraceAsString();
+        echo "<pre>$msg\n$trace</pre>";
     }
 }

@@ -8,7 +8,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -27,10 +27,10 @@
   </script>
   <div id="header">
     <img alt="StageHub logo" class="col-2 mx-5 mt-2 mb-3" id="logo" src="/assets/img/logo_white_alpha.png" style="max-width: 300px;">
-    <button onclick="document.location.href='/company/applications';" class="profile float-end mx-lg-5 mt-5 fs-4" type="button">
+    <button onclick="document.location.href='/company/applications'" class="profile float-end mx-lg-5 mt-5 fs-4" type="button">
       - APPLICATIONS -
     </button>
-    <button onclick="document.location.href='/company/post';" class="profile float-end mx-lg-5 mt-5 fs-4" type="button">
+    <button onclick="document.location.href='/company/post?id_entreprise=<?php echo $id_entreprise ?>'" class="profile float-end mx-lg-5 mt-5 fs-4" type="button">
       - NEW POST -
     </button>
   </div>
@@ -87,7 +87,7 @@
                         </td>
                       </tr>
                     </table>
-                    <input onclick="document.location.href='/company/update?id_offre=<?php echo $offre['id_offre'] ?> " type="submit" class="button-register float-start ms-5 px-4 mx-auto mb-3" value="Modify">
+                    <input onclick="document.location.href='/company/update?id_offre=<?php echo $offre['id_offre'] ?>'" type="submit" class="button-register float-start ms-5 px-4 mx-auto mb-3" value="Modify">
                     <input type="submit" class="button-delete float-start ms-1 px-4 mx-auto mb-3" value="Delete">
                   </div>
                 </div>

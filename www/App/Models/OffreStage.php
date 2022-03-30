@@ -247,9 +247,10 @@ class OffreStage extends Model
      */
     protected static function bindLocalites(PDO $db, int $id_offre, array $localites): void
     {
+        var_dump($localites);
         foreach ($localites as $localite) {
             // check if localite exists
-            $id_localite = Localite::readOneByName($localite);
+            $id_localite = Localite::getIdByName($localite);
             // if not, create it
             if (!$id_localite) {
                 // create localite
