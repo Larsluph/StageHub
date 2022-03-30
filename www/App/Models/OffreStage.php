@@ -272,9 +272,10 @@ class OffreStage extends Model
      */
     protected static function bindCompetences(PDO $db, int $id_offre, array $competences): void
     {
+      var_dump($competences);
         foreach ($competences as $competence) {
             // check if competence exists
-            $id_competence = Competence::readOneByName($competence);
+            $id_competence = Competence::getIdByName($competence);
             // if not, create it
             if (!$id_competence) {
                 // create competence

@@ -30,14 +30,14 @@ class Competence extends Model
      * @param string $name name competence
      * @return array|false
      */
-    public static function readOneByName(string $name)
+    public static function getIdByName(string $name)
     {
-        $sql = "SELECT * FROM competences WHERE nom_competence = :name";
+        $sql = "SELECT id_competence FROM competences WHERE nom_competence = :name";
         $db = static::getDB();
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':name', $name);
         $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        return $stmt->fetchColumn();
     }
 
     /**
