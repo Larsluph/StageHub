@@ -1,0 +1,46 @@
+{
+    "name": "StageHub",
+    "short_name": "SH",
+    "description": "Find your stage",
+    "start_url": "/",
+    "display": "standalone",
+    "orientation": "portrait",
+    "theme-color": "#7132fa",
+    "background_color": "#ffffff",
+    "icons": [
+        {
+            "src": "/assets/img/icon_144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/img/icon_192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/img/icon_16.png",
+            "sizes": "16x16",
+            "type": "image/png",
+            "purpose": "monochrome"
+        },
+        {
+            "src": "/assets/img/icon_32.png",
+            "sizes": "32x32",
+            "type": "image/png",
+            "purpose": "monochrome"
+        },
+        {
+            "src": "/assets/img/icon_48.png",
+            "sizes": "48x48",
+            "type": "image/png",
+            "purpose": "monochrome"
+        },
+        {
+            "src": "/assets/img/icon_512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "monochrome"
+        }
+    ]
+}
