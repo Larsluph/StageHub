@@ -3,7 +3,8 @@ self.addEventListener('install', function(event) {
     event.waitUntil(
         caches.open('sw-cache').then(function(cache) {
             // cache any static files that make up the application shell
-            return cache.addAll(['/', '/login', '/student', '/company']);
+            // return cache.addAll(['/', '/login', '/student', '/company']);
+            return cache.add('/');
         })
     );
 });
