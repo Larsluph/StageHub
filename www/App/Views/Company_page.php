@@ -48,6 +48,7 @@
         <h6 class="fs-6 text-center"><?php echo $notification['content'] ?></h6>
       </div>
       <?php } ?>
+      <hr class="col-8 mx-auto mt-4">
     </div>
 
     <div class="col-7 mx-auto mt-5 mb-1 stage">
