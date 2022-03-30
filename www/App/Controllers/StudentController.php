@@ -25,19 +25,19 @@ class StudentController extends Controller
         $notifications = array(); // TODO: get notifications from database
         $offres = Candidature::readAllByUser(1); // FIXME: get correct user id
 
-        View::render('Student_page.php', compact("notifications", "offres"));
+        View::render('Student_Page.php', compact("notifications", "offres"));
     }
 
     public function studentProfile()
     {
         $user = User::readOnebyId($_SESSION['id_user']);
 
-        View::render('Profile_student_view.php', compact('user'));
+        View::render('Student_Profile', compact('user'));
     }
 
     public function studentUpdate()
     {
-        //TODO: update student profile
+        view::render('Student_Update.php');
     }
 
     public function wishlist()

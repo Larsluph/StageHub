@@ -25,7 +25,7 @@ class CompanyController extends Controller
         $notifications = array(); // FIXME: get notifications from database
         $offres = OffreStage::readAllByEntreprise(1); // FIXME: fetch company id
 
-        View::render('Company_page.php', compact("notifications", "offres"));
+        View::render('Company_Page.php', compact("notifications", "offres"));
     }
    
     public function companyProfile()
@@ -33,17 +33,17 @@ class CompanyController extends Controller
         $offres = OffreStage::readAllByEntreprise(1); // FIXME: fetch company id
         $entreprises = Entreprise::readOne('nom_entreprise'); // FIXME: bullshit
 
-        View::render('Profile_company_view.php', compact('entreprises', "offres"));
+        View::render('Company_Profile.php', compact('entreprises', "offres"));
     }
 
     public function companyPost()
     {
-        //TODO: add a new company post
+        view::render('Company_Post_Stage.php');
     }
 
     public function companyUpdate()
     {
-        //TODO: update a company post
+        view::render('Company_Update_Stage.php');
     }
 
     public function companyStage()
