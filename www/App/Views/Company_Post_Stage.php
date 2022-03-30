@@ -47,27 +47,27 @@
                 <div class="row mt-2">
                   <div class="col-md-12 mb-3">
                     <label class="labels">Offer name :</label>
-                    <input name="offer_name" type="text" class="form-control" placeholder="enter the name of the offer">
+                    <input name="offer_name" type="text" class="form-control" placeholder="Enter the name of the offer">
                   </div>
                   <div class="col-md-12 mb-3">
                     <label class="labels">Duration :</label>
-                    <input name="duration" type="number" class="form-control" placeholder="enter the duration of the offer">
+                    <input name="duration" type="number" class="form-control" placeholder="Enter the duration of the offer">
                   </div>
                   <div class="col-md-12 mb-3">
                     <label class="labels">Location :</label>
-                    <input name="location" type="text" class="form-control" placeholder="enter location of the offer">
+                    <input name="location" type="text" class="form-control" placeholder="Enter the location of the offer">
                   </div>
                   <div class="col-md-12 mb-3">
                     <label class="labels">Salary (/h) :</label>
-                    <input name="salary" type="text" class="form-control" placeholder="enter the salary">
+                    <input name="salary" type="text" class="form-control" placeholder="Enter the salary">
                   </div>
                   <div class="col-md-12 mb-3">
                     <label class="labels">Start date :</label>
-                    <input name="start_date" type="number" class="form-control" placeholder="enter the start date">
+                    <input name="start_date" type="number" class="form-control" placeholder="Enter the start date">
                   </div>
                   <div class="col-md-12 mb-3">
                     <label class="labels">Number of offers :</label>
-                    <input name="number_of_offers" type="number" class="form-control" placeholder="enter number of offers">
+                    <input name="number_of_offers" type="number" class="form-control" placeholder="Enter number of offers">
                   </div>
                   <input type="submit" onclick="document.location='/company/update'"
                     class="button-register px-4 mx-auto mt-5 mb-3" value="Post">
