@@ -6,6 +6,8 @@
  * PHP version 7.0
  */
 
+use App\Controllers\ErrorController;
+
 session_start();
 
 /**
@@ -51,17 +53,17 @@ $router->add('termsofuse', ['controller' => 'HomeController', 'action' => "terms
 // company routes
 $router->add('company', ['controller' => 'CompanyController', 'action' => "companyPage"]);
 $router->add('company/profile', ['controller' => 'CompanyController', 'action' => "companyProfile"]);
-$router->add('company/post', ['controller' => 'CompanyController', 'action' => "companyPost"]); // TODO
-$router->add('company/update', ['controller' => 'CompanyController', 'action' => "companyUpdate"]); // TODO - Emmmene vers la page pour modif l'entreprise info et offre et supp
+$router->add('company/post', ['controller' => 'CompanyController', 'action' => "companyPost"]);
+$router->add('company/update', ['controller' => 'CompanyController', 'action' => "companyUpdate"]);
 
 // student routes
 $router->add('student', ['controller' => 'StudentController', 'action' => "studentPage"]);
 $router->add('student/profile', ['controller' => 'StudentController', 'action' => "studentProfile"]);
-$router->add('student/update', ['controller' => 'StudentController', 'action' => "studentUpdate"]); //TODO - Emmene vers la page pour modif les infos de letudiant ?
-$router->add('student/wishlist', ['controller' => 'StudentController', 'action' => "wishlist"]); // TODO - Emmene vers la wishlist 
+$router->add('student/update', ['controller' => 'StudentController', 'action' => "studentUpdate"]);
+$router->add('student/wishlist', ['controller' => 'StudentController', 'action' => "wishlist"]);
 
 // admin routes
-$router->add('admin', ['controller' => 'AdminController', 'action' => "view"]); // TODO - vu admin avec fonctionnalitées?
+$router->add('admin', ['controller' => 'AdminController', 'action' => "dashboard"]);
 
 // error routes
 $router->add('403', ['controller' => 'ErrorController', 'action' => "forbidden"]);
@@ -76,10 +78,10 @@ try {
     switch ($e->getCode()) {
         case 404:
             // No route matched
-            $router->redirect('404');
+            ErrorController::notFound();
             break;
         default:
-            $router->redirect('500');
+            ErrorController::unknownError();
             break;
     }
 }

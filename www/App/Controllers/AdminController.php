@@ -19,10 +19,9 @@ class AdminController extends Controller
      *
      * @return void
      */
-    public function view()
+    public function dashboard()
     {
         // TODO: create page for admin
         View::render('Admin_page.php');
     }
-
 }

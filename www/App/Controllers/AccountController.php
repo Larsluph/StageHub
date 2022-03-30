@@ -79,9 +79,16 @@ class AccountController extends Controller
         return (array_key_exists('loggedin', $_SESSION) && $_SESSION['loggedin'] == true);
     }
 
-    public static function getUserPermission($permission): int
+    /**
+     * Alias for User::hasPermission
+     * @param string $permission
+     * @return bool
+     */
+    public static function checkForPermission(string $permission): bool
     {
-        $user_id = $_SESSION['id_user'];
-        // TODO: fetch permission from database
+        if (self::isLoggedIn()) {
+            return User::hasPermission($_SESSION['id_user'], $permission);
+        }
+        else return false;
     }
 }
