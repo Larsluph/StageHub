@@ -17,11 +17,9 @@
     gradient.initGradient("#canvas");
   </script>
   <div class="mx-5">
-    <img onclick="history.back()" class="mx-5 mt-5" id="back_arrow" src="/assets/img/fleche.png"
-      alt="Back to previous page">
+    <img onclick="history.back()" class="mx-5 mt-5" id="back_arrow" src="/assets/img/fleche.png" alt="Back to previous page">
     <img class="col-1 mx-auto mt-4 mb-3 d-block" id="logo" src="/assets/img/logo_white_alpha.png" alt="Logo">
   </div>
-
   <div class="col-auto mx-auto mt-5">
     <div class="main-body col-12">
       <div class="search">
@@ -33,7 +31,6 @@
         </form>
         <hr class="separate mx-auto pt-1 col-9 mb-3 mt-4">
       </div>
-
       <div class="container col-3 rounded bg-white mt-5 mb-5">
         <div class="row">
           <div class="border-right">
@@ -43,7 +40,7 @@
               <div class="d-flex justify-content-between align-items-center mb-3">
                 <h4 class="text-right">Offer Settings</h4>
               </div>
-              <form method = "POST" action = "/company/update">
+              <form method="POST" action="/company/update">
                 <div class="row mt-2">
                   <div class="col-md-12 mb-3">
                     <label class="labels">Offer name :</label>
@@ -51,7 +48,7 @@
                   </div>
                   <div class="col-md-12 mb-3">
                     <label class="labels">Duration :</label>
-                    <input name="duration" type="number" class="form-control" value="<?php echo $offre['duree_stage'] ?>"placeholder="Modify the duration of the offer">
+                    <input name="duration" type="number" class="form-control" value="<?php echo $offre['duree_stage'] ?>" placeholder="Modify the duration of the offer">
                   </div>
                   <div class="col-md-12 mb-3">
                     <label class="labels">Location :</label>
@@ -80,7 +77,6 @@
       </div>
     </div>
   </div>
-
   <footer class="col-12">
     <div class="text-center">
       <div class="copyright text-center p-3">
