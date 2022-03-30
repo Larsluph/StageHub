@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>StageHub</title>
+  <title>StageHub - Student</title>
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
