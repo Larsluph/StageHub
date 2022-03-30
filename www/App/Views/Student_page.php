@@ -20,15 +20,15 @@
   <div id="header">
     <img alt="StageHub logo" class="col-2 mx-5 mt-2 mb-3" id="logo" src="/assets/img/logo_white_alpha.png"
       style="max-width: 300px;">
-    <button onclick="document.location.href='Profile_student_view.html';" class="profile float-end mx-lg-5 mt-5 fs-4"
+    <button onclick="document.location.href='/student/profile';" class="profile float-end mx-lg-5 mt-5 fs-4"
       type="button">
       - PROFILE -
     </button>
-    <button onclick="document.location.href='WhishList.html';" class="profile float-end mx-lg-5 mt-5 fs-4"
+    <button onclick="document.location.href='/student/wishlist';" class="profile float-end mx-lg-5 mt-5 fs-4"
       type="button">
-      - MY WHISHLIST -
+      - MY WISHLIST -
     </button>
-    <button onclick="document.location.href='Stage_view.html';" class="profile float-end mx-lg-5 mt-5 fs-4"
+    <button onclick="document.location.href='/student/applications';" class="profile float-end mx-lg-5 mt-5 fs-4"
       type="button">
       - YOUR APPLICATIONS -
     </button>

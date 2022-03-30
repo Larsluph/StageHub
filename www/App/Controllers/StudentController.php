@@ -44,4 +44,9 @@ class StudentController extends Controller
     {
         //TODO: show student wishlist
     }
+
+    public function studentStage()
+    {
+        View::render('Stage_view.php');
+    }
 }

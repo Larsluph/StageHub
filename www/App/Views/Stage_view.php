@@ -35,10 +35,10 @@
       </div>
       <div class="stage_offer col-8 mx-auto d-flex mb-4">
         <img alt="Logo_company" class="Logo_company text-center align-self-center mx-4"
-          src="../assets/img/cesi_logo.jpg">
+          src="/assets/img/cesi_logo.jpg">
         <div class="vr align-self-center"></div>
         <div style="padding-right: 45px;">
-          <button onclick="document.location.href='Profile_company_view.html';" class="profile_company mt-4 fs-4 mx-5"
+          <button onclick="document.location.href='/company/profile';" class="profile_company mt-4 fs-4 mx-5"
             type="button">
             Cesi - Engineer School
           </button>

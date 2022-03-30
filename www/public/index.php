@@ -61,6 +61,8 @@ $router->add('student', ['controller' => 'StudentController', 'action' => "stude
 $router->add('student/profile', ['controller' => 'StudentController', 'action' => "studentProfile"]);
 $router->add('student/update', ['controller' => 'StudentController', 'action' => "studentUpdate"]);
 $router->add('student/wishlist', ['controller' => 'StudentController', 'action' => "wishlist"]);
+$router->add('student/applications', ['controller' => 'StudentController', 'action' => "studentStage"]); 
+
 
 // admin routes
 $router->add('admin', ['controller' => 'AdminController', 'action' => "dashboard"]);
