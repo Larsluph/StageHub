@@ -231,7 +231,7 @@ class Entreprise extends Model
     {
         foreach ($localites as $localite) {
             // check if localite exists
-            $id_localite = Localite::readOneByName($localite);
+            $id_localite = Localite::getIdByName($localite);
             // if not, create it
             if (!$id_localite) {
                 $id_localite = Localite::create($localite);

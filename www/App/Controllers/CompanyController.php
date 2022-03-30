@@ -5,7 +5,9 @@ namespace App\Controllers;
 use App\Models\OffreStage;
 use App\Models\Entreprise;
 use Core\Controller;
+use Core\Router;
 use Core\View;
+use DateTime;
 
 /**
  * Company controller
@@ -31,16 +33,17 @@ class CompanyController extends Controller
     public function companyPost()
     {
         if (!empty($_POST)) {
-            OffreStage::create(
+            $new_offre = OffreStage::create(
                 $_POST['offer_name'],
                 $_POST['duration'],
                 $_POST['salary'],
-                $_POST['start_date'],
+                DateTime::createFromFormat('Y-m-d', $_POST['start_date']),
                 $_POST['number_of_offers'],
                 $_POST['id_entreprise'],
                 explode('|', $_POST['location']),
                 explode('|', $_POST['skills']),
             );
+            Router::redirect('/company');
         }
         else
         {
@@ -56,11 +59,13 @@ class CompanyController extends Controller
                 $_POST['offer_name'],
                 $_POST['duration'],
                 $_POST['salary'],
-                $_POST['start_date'],
+                DateTime::createFromFormat('Y-m-d', $_POST['start_date']),
                 $_POST['number_of_offers'],
+                $_POST['id_entreprise'],
                 explode('|', $_POST['location']),
                 explode('|', $_POST['skills'])
             );
+            Router::redirect('/company');
         }
         else
         {

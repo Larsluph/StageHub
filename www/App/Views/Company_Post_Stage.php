@@ -37,51 +37,44 @@
       <div class="container col-3 rounded bg-white mt-5 mb-5">
         <div class="row">
           <div class="border-right">
-          </div>
-          <div class=" border-right">
             <div class="p-3 py-5">
               <div class="d-flex justify-content-between align-items-center mb-3">
                 <h4 class="text-right">Offer Settings</h4>
               </div>
               <form method = "POST" action = "/company/post">
+                <input name="id_entreprise" type="hidden" value="<?php echo $_GET['id_entreprise'] ?>">
                 <div class="row mt-2">
                   <div class="col-md-12 mb-3">
-                    <label class="labels">Offer name :</label>
-                    <input name="offer_name" type="text" class="form-control" placeholder="Enter the name of the offer">
+                    <label class="labels" for="offer_name">Offer name :</label>
+                    <input id="offer_name" name="offer_name" type="text" class="form-control" placeholder="Enter the name of the offer" required>
                   </div>
                   <div class="col-md-12 mb-3">
-                    <label class="labels">ID entreprise :</label>
-                    <input name="id_entreprise" type="hidden" class="form-control" value="<?php echo $_GET['id_entreprise'] ?>" placeholder="Enter the id of the entreprise">
+                    <label class="labels" for="duration">Duration :</label>
+                    <input id="duration" name="duration" type="number" class="form-control" placeholder="Enter the duration of the offer" required>
                   </div>
                   <div class="col-md-12 mb-3">
-                    <label class="labels">Duration :</label>
-                    <input name="duration" type="number" class="form-control" placeholder="Enter the duration of the offer">
+                      <label class="labels" for="location">Location :</label>
+                    <input id="location" name="location" type="text" class="form-control" placeholder="Enter the location of the offer" required>
                   </div>
                   <div class="col-md-12 mb-3">
-                    <label class="labels">Location :</label>
-                    <input name="location" type="text" class="form-control" placeholder="Enter the location of the offer">
+                    <label class="labels" for="salary">Salary (/h) :</label>
+                    <input id="salary" name="salary" type="number" class="form-control" placeholder="Enter the salary" required>
                   </div>
                   <div class="col-md-12 mb-3">
-                    <label class="labels">Salary (/h) :</label>
-                    <input name="salary" type="text" class="form-control" placeholder="Enter the salary">
+                    <label class="labels" for="skills">Skills :</label>
+                    <input id="skills" name="skills" type="text" class="form-control" placeholder="Enter the competences of the offer" required>
                   </div>
                   <div class="col-md-12 mb-3">
-                    <label class="labels">Skills :</label>
-                    <input name="skills" type="text" class="form-control" placeholder="Enter the competences of the offer">
+                    <label class="labels" for="start_date">Start date :</label>
+                    <input id="start_date" name="start_date" type="date" class="form-control" placeholder="Enter the start date" required>
                   </div>
                   <div class="col-md-12 mb-3">
-                    <label class="labels">Start date :</label>
-                    <input name="start_date" type="number" class="form-control" placeholder="Enter the start date">
-                  </div>
-                  <div class="col-md-12 mb-3">
-                    <label class="labels">Number of offers :</label>
-                    <input name="number_of_offers" type="number" class="form-control" placeholder="Enter the number of offers">
+                    <label class="labels" for="number_of_offers">Number of offers :</label>
+                    <input id="number_of_offers" name="number_of_offers" type="number" class="form-control" placeholder="Enter the number of offers" required>
                   </div>
                   <input type="submit" class="button-register px-4 mx-auto mt-5 mb-3" value="Post">
                 </div>
               </form>
-            </div>
-            <div class="col-md-4">
             </div>
           </div>
         </div>
