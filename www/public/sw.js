@@ -9,6 +9,7 @@ self.addEventListener('install', function(event) {
     );
 });
 
+/*
 // On network request
 self.addEventListener('fetch', function(event) {
     event.respondWith(
@@ -19,3 +20,4 @@ self.addEventListener('fetch', function(event) {
         })
     );
 });
+*/
