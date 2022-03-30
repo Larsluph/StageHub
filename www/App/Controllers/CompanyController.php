@@ -74,6 +74,10 @@ class CompanyController extends Controller
         }
     }
 
+    public function companyDelete() {
+        OffreStage::delete($_GET['id_offre']);
+        Router::redirect('/company'); }
+
     public function companyApplications()
     {
         // TODO : company applications 

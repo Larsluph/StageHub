@@ -223,11 +223,6 @@ class OffreStage extends Model
         // fetch db connection
         $db = static::getDB();
 
-        // delete offreStage
-        $stmt = $db->prepare('DELETE FROM offres_stage WHERE id_offre = :id_offre');
-        $stmt->bindValue(':id_offre', $id_offre);
-        $stmt->execute();
-
         // delete localites
         $stmt = $db->prepare('DELETE FROM offre_loc WHERE id_offre = :id_offre');
         $stmt->bindValue(':id_offre', $id_offre);
@@ -235,6 +230,11 @@ class OffreStage extends Model
 
         // delete competences
         $stmt = $db->prepare('DELETE FROM offre_competence WHERE id_offre = :id_offre');
+        $stmt->bindValue(':id_offre', $id_offre);
+        $stmt->execute();
+
+        // delete offreStage
+        $stmt = $db->prepare('DELETE FROM offres_stage WHERE id_offre = :id_offre');
         $stmt->bindValue(':id_offre', $id_offre);
         $stmt->execute();
     }

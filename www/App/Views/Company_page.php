@@ -99,8 +99,11 @@
                         </td>
                       </tr>
                     </table>
-                    <input onclick="document.location.href='/company/update?id_offre=<?php echo $offre['id_offre'] ?>'" type="submit" class="button-register float-start ms-5 px-4 mx-auto mb-3" value="Modify">
-                    <input type="submit" class="button-delete float-start ms-1 px-4 mx-auto mb-3" value="Delete">
+                      <form method="get">
+                          <input type="hidden" name="id_offre" value="<?php echo $offre['id_offre'] ?>">
+                          <input formaction="/company/update" type="submit" class="button-register float-start ms-5 px-4 mx-auto mb-3" value="Modify">
+                          <input formaction="/company/delete" type="submit" class="button-delete float-start ms-1 px-4 mx-auto mb-3" value="Delete">
+                      </form>
                   </div>
                 </div>
               <?php } ?>
