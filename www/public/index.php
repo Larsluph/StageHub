@@ -51,11 +51,16 @@ $router->add('logout', ['controller' => 'AccountController', 'action' => "logout
 $router->add('termsofuse', ['controller' => 'HomeController', 'action' => "terms"]);
 
 // company routes
-$router->add('company', ['controller' => 'CompanyController', 'action' => "companyPage"]);
-$router->add('company/post', ['controller' => 'CompanyController', 'action' => "companyPost"]);
-$router->add('company/update', ['controller' => 'CompanyController', 'action' => "companyUpdate"]);
-$router->add('company/delete', ['controller' => 'CompanyController', 'action' => "companyDelete"]);
-$router->add('company/applications', ['controller' => 'CompanyController', 'action' => "companyApplications"]); 
+$router->add('company', ['controller' => 'CompanyController', 'action' => "index"]);
+$router->add('company/create', ['controller' => 'CompanyController', 'action' => "create"]);
+$router->add('company/update', ['controller' => 'CompanyController', 'action' => "update"]);
+$router->add('company/delete', ['controller' => 'CompanyController', 'action' => "delete"]);
+$router->add('company/applications', ['controller' => 'CompanyController', 'action' => "applications"]);
+
+// offers routes
+$router->add('offers/create', ['controller' => 'OffersController', 'action' => "create"]);
+$router->add('offers/update', ['controller' => 'OffersController', 'action' => "update"]);
+$router->add('offers/delete', ['controller' => 'OffersController', 'action' => "delete"]);
 
 // student routes
 $router->add('student', ['controller' => 'StudentController', 'action' => "studentPage"]);

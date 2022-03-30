@@ -50,7 +50,7 @@
               <div class="d-flex justify-content-between align-items-center mb-3">
                 <h4 class="text-right">Offer Settings</h4>
               </div>
-              <form method = "POST" action = "/company/post">
+              <form method="POST">
                 <input name="id_entreprise" type="hidden" value="<?php echo $_GET['id_entreprise'] ?>">
                 <div class="row mt-2">
                   <div class="col-md-12 mb-3">

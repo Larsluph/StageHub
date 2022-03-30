@@ -42,7 +42,7 @@
     <button onclick="document.location.href='/company/applications'" class="profile float-end mx-lg-5 mt-4 pt-1 fs-6" type="button">
       - APPLICATIONS -
     </button>
-    <button onclick="document.location.href='/company/post?id_entreprise=<?php echo $id_entreprise ?>'" class="profile float-end mx-lg-5 pt-1 mt-4 fs-6" type="button">
+    <button onclick="document.location.href='/offers/create?id_entreprise=<?php echo $id_entreprise ?>'" class="profile float-end mx-lg-5 pt-1 mt-4 fs-6" type="button">
       - NEW POST -
     </button>
   </div>
@@ -61,7 +61,7 @@
       <hr class="col-8 mx-auto mt-4">
       <?php foreach ($notifications as $notification) { ?>
         <div class="notification mt-1 mx-auto col-10">
-          <img alt="Logo_notif" class="mx-2 col-1 pt-1 pb-1 float-start" src="../assets/img/notif_ico.ico">
+          <img alt="Logo_notif" class="mx-2 col-1 pt-1 pb-1 float-start" src="/assets/img/notif_ico.ico">
           <h4 class="fs-6 text-center pt-1 pe-2"><?php echo $notification['nom_poste_offre'] ?></h4>
           <h6 class="fs-6 text-center"><?php echo $notification['content'] ?></h6>
         </div>
@@ -101,8 +101,8 @@
                     </table>
                       <form method="get">
                           <input type="hidden" name="id_offre" value="<?php echo $offre['id_offre'] ?>">
-                          <input formaction="/company/update" type="submit" class="button-register float-start ms-5 px-4 mx-auto mb-3" value="Modify">
-                          <input formaction="/company/delete" type="submit" class="button-delete float-start ms-1 px-4 mx-auto mb-3" value="Delete">
+                          <input formaction="/offers/update" type="submit" class="button-register float-start ms-5 px-4 mx-auto mb-3" value="Modify">
+                          <input formaction="/offers/delete" type="submit" class="button-delete float-start ms-1 px-4 mx-auto mb-3" value="Delete">
                       </form>
                   </div>
                 </div>
