@@ -32,7 +32,7 @@ class StudentController extends Controller
     {
         $user = User::readOnebyId($_SESSION['id_user']);
 
-        View::render('Student_Profile', compact('user'));
+        View::render('Student_Profile.php', compact('user'));
     }
 
     public function studentUpdate()
