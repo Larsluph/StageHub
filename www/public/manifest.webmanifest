@@ -1,20 +1,22 @@
 {
-    "short_name": "SH",
     "name": "StageHub",
-    "icons": [
-      {
-        "src": "/assets/img/icon_192.png",
-        "type": "image/png",
-        "sizes": "192x192"
-      },
-      {
-        "src": "/assets/img/icon_512.png",
-        "type": "image/png",
-        "sizes": "512x512"
-      }
-    ],
+    "short_name": "SH",
+    "description": "Find your internship.",
     "start_url": "/",
-    "background_color": "#000000",
     "display": "standalone",
-    "theme_color": "#ff0000"
-  }
+    "theme_color": "#7132fa",
+    "background_color": "#7132fa",
+    "scope": "/",
+    "icons": [
+        {
+            "src": "/assets/img/icon_192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "/assets/img/icon_512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ]
+}
