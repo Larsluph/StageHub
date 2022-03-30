@@ -39,7 +39,15 @@ class CompanyController extends Controller
     public function companyPost()
     {
         //TODO : company post
-        view::render('Company_Post_Stage.html');
+        /*
+        offer_name
+        duration
+        location
+        salary
+        start_date
+        number_of_offers
+        */
+        view::render('Company_Post_Stage.php');
     }
 
     public function companyUpdate()
