@@ -6,6 +6,7 @@ if (isset($_GET['page']))
   $page_nbr = $_GET['page'];
 else
   $page_nbr = 1;
+
 $pagination = new Pagination($page_nbr, $offres);
 ?>
 
@@ -13,7 +14,9 @@ $pagination = new Pagination($page_nbr, $offres);
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>StageHub - Student</title>
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="manifest" href="/manifest.webmanifest">
