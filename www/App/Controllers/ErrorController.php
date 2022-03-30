@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\User;
 use Core\Controller;
 use Core\View;
+use Exception;
 
 /**
  * Error controller
@@ -25,8 +26,11 @@ class ErrorController extends Controller
         View::render('404.html');
     }
 
-    public static function unknownError() {
+    public static function unknownError(Exception $exception) {
         http_response_code(500);
-        View::render('500.html');
+//        View::render('500.html');
+        echo $exception->getCode();
+        echo $exception->getMessage();
+        echo $exception->getTraceAsString();
     }
 }

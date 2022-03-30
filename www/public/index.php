@@ -84,7 +84,7 @@ try {
             ErrorController::notFound();
             break;
         default:
-            ErrorController::unknownError();
+            ErrorController::unknownError($e);
             break;
     }
 }
