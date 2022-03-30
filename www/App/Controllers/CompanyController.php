@@ -21,21 +21,17 @@ class CompanyController extends Controller
     public function index()
     {
         if (array_key_exists("id_entreprise", $_GET)) {
-            self::profile($_GET["id_entreprise"]);
+            $id_entreprise = $_GET["id_entreprise"];
+            $notifications = array(); // FIXME: get notifications from database
+            $entreprise = Entreprise::readOneById($id_entreprise);
+            $offres = OffreStage::readAllByEntreprise($id_entreprise);
+            View::render('Company.php', compact(["notifications", "entreprise", "offres"]));
         }
         else {
             $notifications = array(); // FIXME: get notifications from database
             $entreprises = Entreprise::readAll();
             View::render('Companies.php', compact("notifications", "entreprises"));
         }
-    }
-
-    public function profile(int $id_entreprise)
-    {
-        $notifications = array(); // FIXME: get notifications from database
-        $entreprise = Entreprise::readOneById($id_entreprise);
-        $offres = OffreStage::readAllByEntreprise($id_entreprise);
-        View::render('Company.php', compact(["notifications", "entreprise", "offres"]));
     }
 
     public function create()
@@ -70,7 +66,8 @@ class CompanyController extends Controller
 
     public function delete()
     {
-        // TODO: delete company
+        Entreprise::delete($_GET['id_entreprise']);
+        Router::redirect('/companies');
     }
 
     public function applications()
