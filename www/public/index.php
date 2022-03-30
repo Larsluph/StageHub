@@ -52,17 +52,16 @@ $router->add('termsofuse', ['controller' => 'HomeController', 'action' => "terms
 
 // company routes
 $router->add('company', ['controller' => 'CompanyController', 'action' => "companyPage"]);
-$router->add('company/profile', ['controller' => 'CompanyController', 'action' => "companyProfile"]);
 $router->add('company/post', ['controller' => 'CompanyController', 'action' => "companyPost"]);
 $router->add('company/update', ['controller' => 'CompanyController', 'action' => "companyUpdate"]);
-$router->add('company/applications', ['controller' => 'CompanyController', 'action' => "companyStage"]); 
+$router->add('company/applications', ['controller' => 'CompanyController', 'action' => "companyApplications"]); 
 
 // student routes
 $router->add('student', ['controller' => 'StudentController', 'action' => "studentPage"]);
 $router->add('student/profile', ['controller' => 'StudentController', 'action' => "studentProfile"]);
 $router->add('student/update', ['controller' => 'StudentController', 'action' => "studentUpdate"]);
 $router->add('student/wishlist', ['controller' => 'StudentController', 'action' => "wishlist"]);
-$router->add('student/applications', ['controller' => 'StudentController', 'action' => "studentStage"]); 
+$router->add('student/applications', ['controller' => 'StudentController', 'action' => "studentApplications"]); 
 
 
 // admin routes
