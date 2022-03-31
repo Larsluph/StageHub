@@ -60,7 +60,7 @@ class User extends Model {
      */
     public static function readAllByRole(int $id_role) {
         $db = static::getDB();
-        $sql = 'SELECT nom_promo, users.* FROM users LEFT JOIN user_promo USING (id_user) LEFT JOIN promotions USING (id_promo) WHERE id_role = :id_role';
+        $sql = 'SELECT FIRST_VALUE(nom_promo) OVER (PARTITION BY nom_promo) AS nom_promo, users.* FROM users LEFT JOIN user_promo USING (id_user) LEFT JOIN promotions USING (id_promo) WHERE id_role = :id_role GROUP BY id_user';
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':id_role', $id_role);
         $stmt->execute();

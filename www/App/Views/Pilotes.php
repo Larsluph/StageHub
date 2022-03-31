@@ -51,7 +51,7 @@ $pagination = new Pagination($page_nbr, $pilotes);
     <div class="search">
         <hr class="separate mx-auto pt-1 mb-3 mt-1 col-10">
         <form class="form text-center col-8 mx-auto mt-0">
-            <input class="text_case col-5 px-4 pt-2 pb-2 fs-6 form-search" type="text" placeholder="Find a pilote...">
+            <input class="text_case col-9 px-4 pt-2 pb-2 fs-6 form-search" type="text" placeholder="Pilote name...">
             <button type="submit" class="button-search px-4 pt-sm-1 pb-sm-1 fs-6">
                 Search
             </button>
@@ -64,11 +64,6 @@ $pagination = new Pagination($page_nbr, $pilotes);
             <hr class="col-8 mx-auto mt-4">
             <?php foreach ($notifications as $notification) { ?>
                 <div class="notification mx-auto col-10">
-                    <img alt="Logo_notif" class="mx-2 col-1 pt-1 pb-1 float-start" src="/assets/img/notif_ico.ico">
-                    <h4 class="fs-6 text-center pt-1 pe-2"><?php echo $notification['title'] ?></h4>
-                    <h6 class="fs-6 text-center"> <?php echo $notification['content'] ?></h6>
-                </div>
-                <div class="notification mt-1 mx-auto col-10">
                     <img alt="Logo_notif" class="mx-2 col-1 pt-1 pb-1 float-start" src="/assets/img/notif_ico.ico">
                     <h4 class="fs-6 text-center pt-1 pe-2"><?php echo $notification['title'] ?></h4>
                     <h6 class="fs-6 text-center"> <?php echo $notification['content'] ?></h6>

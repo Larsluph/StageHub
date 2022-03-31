@@ -24,7 +24,9 @@ class PilotesController extends Controller
     public function index()
     {
         AccountController::blockIfNotLoggedIn();
-        $notifications = array(); // FIXME: get notifications from database
+        $notifications = array(
+            ["title"=> "Isla Stage", "content"=> "New offer !"]
+        );
         $pilotes = User::readAllByRole(Role::TUTOR_ROLE_ID); 
         View::render('Pilotes.php', compact("notifications","pilotes"));
     }

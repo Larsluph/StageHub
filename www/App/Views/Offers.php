@@ -43,9 +43,10 @@ $pagination = new Pagination($page_nbr, $offres);
 <div class="search">
     <hr class="separate mx-auto pt-1 mb-3 mt-1 col-10">
     <form class="form text-center col-8 mx-auto mt-0">
-        <div class="Your_active_post text-center fs-4">
-            - Current Offers -
-        </div>
+            <input class="text_case col-9 px-4 pt-2 pb-2 fs-6 form-search" type="text" placeholder="Offers name...">
+            <button type="submit" class="button-search px-4 pt-sm-1 pb-sm-1 fs-6">
+                Search
+            </button>
     </form>
     <hr class="separate mx-auto pt-1 col-9 mb-3 mt-3">
 </div>
