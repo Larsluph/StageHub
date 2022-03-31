@@ -18,7 +18,7 @@ class AccountController extends Controller
      * @param string|null $required_permission
      * @return void
      */
-    public static function blockIfNotLoggedIn(?string $required_permission = null): void
+    public static function blockIfNotLoggedIn(string $required_permission = 'auth'): void
     {
         // if user isn't logged in or doesn't have required permission
         if (!self::isLoggedIn() || !User::hasPermission($_COOKIE['id_user'], $required_permission)) {
