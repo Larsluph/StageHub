@@ -143,7 +143,7 @@ $pagination = new Pagination($page_nbr, $etudiants);
               <?php foreach ($pagination->get_page_items() as $etudiant) { ?>
                 <div class="stage_offer d-flex mb-4">
                   <div class="col-10 ms-5 table-center">
-                    <h4 class="float-end mt-4 fs-4">Nom Promo</h4>
+                    <h4 class="float-end mt-4 fs-4"><?= $etudiant['nom_promo']?></h4>
                       <h4 class="mt-4 fs-4"><a href="/students/<?= $etudiant['id_user'] ?>"><?= strtoupper($etudiant['nom_user']) . ' ' . ucfirst($etudiant['prenom_user']) ?></a></h4>
 
                       <form method="get">
