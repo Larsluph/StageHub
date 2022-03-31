@@ -20,20 +20,20 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        if (array_key_exists("id_entreprise", $_GET)) {
-            // Show company profile
-            $id_entreprise = $_GET["id_entreprise"];
-            $notifications = array(); // FIXME: get notifications from database
-            $entreprise = Entreprise::readOneById($id_entreprise);
-            $offres = OffreStage::readAllByEntreprise($id_entreprise);
-            View::render('Company.php', compact(["notifications", "entreprise", "offres"]));
-        }
-        else {
-            // Show all companies
-            $notifications = array(); // FIXME: get notifications from database
-            $entreprises = Entreprise::readAll();
-            View::render('Companies.php', compact("notifications", "entreprises"));
-        }
+        // Show all companies
+        $notifications = array(); // FIXME: get notifications from database
+        $entreprises = Entreprise::readAll();
+        View::render('Companies.php', compact("notifications", "entreprises"));
+    }
+
+    public function profile()
+    {
+        // Show company profile
+        $id_entreprise = $this->route_params["id"];
+        $notifications = array(); // FIXME: get notifications from database
+        $entreprise = Entreprise::readOneById($id_entreprise);
+        $offres = OffreStage::readAllByEntreprise($id_entreprise);
+        View::render('Company.php', compact(["notifications", "entreprise", "offres"]));
     }
 
     public function create()

@@ -42,6 +42,7 @@ $router->add('admin', ['controller' => 'AdminController', 'action' => "dashboard
 
 // company routes
 $router->add('companies', ['controller' => 'CompanyController', 'action' => "index"]);
+$router->add('companies/{id:\d+}', ['controller' => 'CompanyController', 'action' => "profile"]);
 $router->add('companies/create', ['controller' => 'CompanyController', 'action' => "create"]);
 $router->add('companies/update', ['controller' => 'CompanyController', 'action' => "update"]);
 $router->add('companies/delete', ['controller' => 'CompanyController', 'action' => "delete"]);

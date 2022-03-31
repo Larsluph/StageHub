@@ -72,7 +72,7 @@ $pagination = new Pagination($page_nbr, $entreprises);
                         <div class="stage_offer d-flex mb-4">
                             <div class="col-10 ms-5 table-center">
                                 <h4 class="float-end mt-4 fs-4"><?= $entreprise['nb_offres_stage'] ?> Offres</h4>
-                                <h4 class="mt-4 fs-4"><a href="/companies?id_entreprise=<?= $entreprise['id_entreprise'] ?>"><?= $entreprise['nom_entreprise'] ?></a></h4>
+                                <h4 class="mt-4 fs-4"><a href="/companies/<?= $entreprise['id_entreprise'] ?>"><?= $entreprise['nom_entreprise'] ?></a></h4>
                                 <hr class="float-start col-5 mb-4">
                                 <table class="col-10 mx-5 my-4">
                                     <tr>
