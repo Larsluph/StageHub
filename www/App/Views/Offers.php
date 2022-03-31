@@ -94,9 +94,8 @@ $pagination = new Pagination($page_nbr, $offres);
                                     </tr>
                                 </table>
                                 <form method="get">
-                                    <input type="hidden" name="id_offre" value="<?php echo $offre['id_offre'] ?>">
-                                    <input formaction="/offers/update" type="submit" class="button-register float-start ms-5 px-4 mx-auto mb-3" value="Modify">
-                                    <input formaction="/offers/delete" type="submit" class="button-delete float-start ms-1 px-4 mx-auto mb-3" value="Delete">
+                                    <input formaction="/offers/<?php echo $offre['id_offre'] ?>/update" type="submit" class="button-register float-start ms-5 px-4 mx-auto mb-3" value="Modify">
+                                    <input formaction="/offers/<?php echo $offre['id_offre'] ?>/delete" type="submit" class="button-delete float-start ms-1 px-4 mx-auto mb-3" value="Delete">
                                 </form>
                             </div>
                         </div>

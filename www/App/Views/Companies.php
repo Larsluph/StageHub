@@ -95,9 +95,8 @@ $pagination = new Pagination($page_nbr, $entreprises);
                                     </tr>
                                 </table>
                                 <form method="get">
-                                    <input type="hidden" name="id_entreprise" value="<?= $entreprise['id_entreprise'] ?>">
-                                    <input formaction="/companies/update" type="submit" class="button-register float-start ms-5 px-4 mx-auto mb-3" value="Modify">
-                                    <input formaction="/companies/delete" type="submit" class="button-delete float-start ms-1 px-4 mx-auto mb-3" value="Delete">
+                                    <input formaction="/companies/<?= $entreprise['id_entreprise'] ?>/update" type="submit" class="button-register float-start ms-5 px-4 mx-auto mb-3" value="Modify">
+                                    <input formaction="/companies/<?= $entreprise['id_entreprise'] ?>/delete" type="submit" class="button-delete float-start ms-1 px-4 mx-auto mb-3" value="Delete">
                                 </form>
                             </div>
                         </div>

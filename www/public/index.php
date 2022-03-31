@@ -44,9 +44,9 @@ $router->add('admin', ['controller' => 'AdminController', 'action' => "dashboard
 $router->add('companies', ['controller' => 'CompanyController', 'action' => "index"]);
 $router->add('companies/{id:\d+}', ['controller' => 'CompanyController', 'action' => "profile"]);
 $router->add('companies/create', ['controller' => 'CompanyController', 'action' => "create"]);
-$router->add('companies/update', ['controller' => 'CompanyController', 'action' => "update"]);
-$router->add('companies/delete', ['controller' => 'CompanyController', 'action' => "delete"]);
-$router->add('companies/applications', ['controller' => 'CompanyController', 'action' => "applications"]);
+$router->add('companies/{id:\d+}/update', ['controller' => 'CompanyController', 'action' => "update"]);
+$router->add('companies/{id:\d+}/delete', ['controller' => 'CompanyController', 'action' => "delete"]);
+$router->add('companies/{id:\d+}/applications', ['controller' => 'CompanyController', 'action' => "applications"]);
 
 // error routes
 $router->add('403', ['controller' => 'ErrorController', 'action' => "forbidden"]);
@@ -59,8 +59,8 @@ $router->add('termsofuse', ['controller' => 'HomeController', 'action' => "terms
 // offers routes
 $router->add('offers', ['controller' => 'OffersController', 'action' => "index"]);
 $router->add('offers/create', ['controller' => 'OffersController', 'action' => "create"]);
-$router->add('offers/update', ['controller' => 'OffersController', 'action' => "update"]);
-$router->add('offers/delete', ['controller' => 'OffersController', 'action' => "delete"]);
+$router->add('offers/{id:\d+}/update', ['controller' => 'OffersController', 'action' => "update"]);
+$router->add('offers/{id:\d+}/delete', ['controller' => 'OffersController', 'action' => "delete"]);
 
 // student routes
 $router->add('student', ['controller' => 'StudentController', 'action' => "index"]);
