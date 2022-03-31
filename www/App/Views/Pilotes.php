@@ -89,12 +89,11 @@ $pagination = new Pagination($page_nbr, $pilotes);
                                     </div>
                                 </div>
                             <?php } ?>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        </td>
-        </tr>
-        </tbody>
-        </table>
-    </div>
     </div>
     <hr class="separate mx-auto pt-1 mb-4 mt-3 col-8">
     <?php $pagination->render() ?>

@@ -66,7 +66,6 @@ class StudentController extends Controller
                 hash("sha256", $_POST['password']),
                 $_POST['nom_user'],
                 $_POST['prenom_user'],
-                explode('|', $_POST['nom_promo']),
                 Role::STUDENT_ROLE_ID
             );
             Router::redirect('/students');
@@ -86,8 +85,7 @@ class StudentController extends Controller
                 hash("sha256", $_POST['password']),
                 $_POST['nom_user'],
                 $_POST['prenom_user'],
-                explode('|', $_POST['nom_promo']),
-                Role::TUTOR_ROLE_ID
+                Role::STUDENT_ROLE_ID
             );
             Router::redirect('/students');
         }
@@ -96,6 +94,7 @@ class StudentController extends Controller
             $user = User::readOneById($id_user);
             View::render('Student_Update.php', compact("user"));
     }
+}
 
     public function delete()
     {
