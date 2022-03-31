@@ -160,6 +160,23 @@ class User extends Model {
     public static function delete(int $id_user)
     {
         $db = static::getDB();
+
+        // delete linked centres
+        $stmt = $db->prepare("DELETE FROM user_centre WHERE id_user = :id_user");
+        $stmt->bindValue(':id_user', $id_user);
+        $stmt->execute();
+
+        // delete linked permissions
+        $stmt = $db->prepare("DELETE FROM user_permission WHERE id_user = :id_user");
+        $stmt->bindValue(':id_user', $id_user);
+        $stmt->execute();
+
+        // delete linked promotions
+        $stmt = $db->prepare("DELETE FROM user_promo WHERE id_user = :id_user");
+        $stmt->bindValue(':id_user', $id_user);
+        $stmt->execute();
+
+        // delete user
         $sql = 'DELETE FROM users WHERE id_user = :id_user';
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':id_user', $id_user);
