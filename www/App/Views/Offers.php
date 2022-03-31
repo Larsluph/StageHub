@@ -39,6 +39,9 @@ $pagination = new Pagination($page_nbr, $offres);
     <button onclick="document.location.href='/logout'" class="button-principal-tologin float-end pb-1 mx-lg-5 mt-4 fs-6" type="button">
         Logout
     </button>
+    <button onclick="document.location.href='/offers/create';" class="profile float-end pt-1 mx-lg-5 mt-4 fs-6" type="button">
+      - New Offer -
+    </button>
 </div>
 <div class="search">
     <hr class="separate mx-auto pt-1 mb-3 mt-1 col-10">
