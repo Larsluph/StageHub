@@ -62,11 +62,12 @@ $router->add('offers/{id:\d+}/delete', ['controller' => 'OffersController', 'act
 
 // student routes
 $router->add('student', ['controller' => 'StudentController', 'action' => "index"]);
-$router->add('student/profile', ['controller' => 'StudentController', 'action' => "profile"]);
-$router->add('student/update', ['controller' => 'StudentController', 'action' => "update"]);
-$router->add('student/delete', ['controller' => 'StudentController', 'action' => "delete"]);
-$router->add('student/wishlist', ['controller' => 'StudentController', 'action' => "wishlist"]);
-$router->add('student/applications', ['controller' => 'StudentController', 'action' => "applications"]);
+$router->add('student/{id:\d+}', ['controller' => 'StudentController', 'action' => "profile"]);
+$router->add('student/{id:\d+}/create', ['controller' => 'StudentController', 'action' => "create"]);
+$router->add('student/{id:\d+}/update', ['controller' => 'StudentController', 'action' => "update"]);
+$router->add('student/{id:\d+}/delete', ['controller' => 'StudentController', 'action' => "delete"]);
+$router->add('student/{id:\d+}/wishlist', ['controller' => 'StudentController', 'action' => "wishlist"]);
+$router->add('student/{id:\d+}/applications', ['controller' => 'StudentController', 'action' => "applications"]);
 
 
 /**
