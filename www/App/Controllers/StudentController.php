@@ -26,7 +26,9 @@ class StudentController extends Controller
     {
         AccountController::redirectIfNotLoggedIn();
 
-        $notifications = array(); // TODO: get notifications from database
+        $notifications = array(
+            ["title"=> "Isla Stage", "content"=> "New offer !"]
+        );
 
         if (array_key_exists('student_name', $_GET)) {
             $name_student = $_GET['student_name'];

@@ -28,6 +28,7 @@ class PilotesController extends Controller
             ["title"=> "Isla Stage", "content"=> "New offer !"]
         );
         $pilotes = User::readAllByRole(Role::TUTOR_ROLE_ID); 
+
         View::render('Pilotes.php', compact("notifications","pilotes"));
     }
     
