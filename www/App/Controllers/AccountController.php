@@ -19,7 +19,7 @@ class AccountController extends Controller
      * @param int|null $required_role
      * @return void
      */
-    public static function blockIfNotLoggedIn(string $required_permission = null, int $required_role = null): void
+    public static function blockIfNotLoggedIn(?string $required_permission = null, ?int $required_role = null): void
     {
         // if user isn't logged in or doesn't have required permission
         if (!self::isLoggedIn() || !User::hasPermission($_COOKIE['id_user'], $required_permission)) {
@@ -29,11 +29,11 @@ class AccountController extends Controller
 
     /**
      * Redirects the user if he doesn't have permission to access the page
-     * @param int|null $required_role
      * @param string|null $required_permission
+     * @param int|null $required_role
      * @return void
      */
-    public static function redirectIfNotLoggedIn(int $required_role = null, string $required_permission = null): void
+    public static function redirectIfNotLoggedIn(?string $required_permission = null, ?int $required_role = null): void
     {
         // if user isn't logged in or doesn't have required permission
         if (!self::isLoggedIn() || !User::hasPermission($_COOKIE['id_user'], $required_permission)) {
