@@ -50,7 +50,7 @@
                 <h4 class="text-right">Offer Settings</h4>
               </div>
               <form method="POST">
-                <input name="id_entreprise" type="hidden" value="<?php echo $offre['id_entreprise'] ?>">
+                <input name="id_entreprise" type="hidden" value="<?= $id_entreprise ?>">
                 <div class="row mt-2">
                   <div class="col-md-12 mb-3">
                     <label class="labels" for="offer_name">Offer name :</label>

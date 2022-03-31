@@ -50,7 +50,9 @@ class OffersController extends Controller
             );
             Router::redirect('/companies' . $_POST['id_entreprise']);
         }
-        View::render('Offer_Create.php');
+
+        $id_entreprise = $_GET['id_entreprise'];
+        View::render('Offer_Create.php', compact("id_entreprise"));
     }
 
     public function update()
