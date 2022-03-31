@@ -25,8 +25,21 @@ class CompanyController extends Controller
         // Show all companies
         $notifications = array(
             ["title"=> "Isla Stage", "content"=> "New offer !"]
-        ); // FIXME: get notifications from database
-        $entreprises = Entreprise::readAll();
+        );
+        
+        if (array_key_exists('company_name', $_GET)) {
+            $name_company = $_GET['company_name'];
+            $entreprises = array();
+            foreach (Entreprise::readAll() as $entreprise) {
+                $full_name = $entreprise['nom_user'] . ' ' . $entreprise['prenom_user'];
+                if (strpos(strtolower($full_name), strtolower($name_company)) !== false) {
+                    $entreprises[] = $entreprise;
+                }
+            }
+        }
+        else {
+            $entreprises = Entreprise::readAll();
+        }
         View::render('Companies.php', compact("notifications", "entreprises"));
     }
 
