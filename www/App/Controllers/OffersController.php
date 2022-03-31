@@ -28,7 +28,7 @@ class OffersController extends Controller
 
         $notifications = array(
             ["title"=> "Isla Stage", "content"=> "New offer !"]
-        ); // FIXME: get notifications from database
+        );
         $offres = OffreStage::readAll();
         View::render('Offers.php', compact("notifications", "offres"));
     }
@@ -48,7 +48,7 @@ class OffersController extends Controller
                 explode('|', $_POST['location']),
                 explode('|', $_POST['skills']),
             );
-            Router::redirect('/companies/' . $_POST['id_entreprise']);
+            Router::redirect('/companies' . $_POST['id_entreprise']);
         }
         View::render('Offer_Create.php');
     }

@@ -9,10 +9,10 @@
   <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
   <link rel="manifest" href="/manifest.webmanifest">
   <script>
-      //if browser support service worker
-      if ('serviceWorker' in navigator) {
-          navigator.serviceWorker.register('sw.js');
-      }
+    //if browser support service worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
   </script>
 </head>
 
@@ -26,8 +26,7 @@
     gradient.initGradient("#canvas");
   </script>
   <div class="mx-5">
-    <img onclick="history.back()" class="mx-5 mt-5" id="back_arrow" src="/assets/img/fleche.png"
-      alt="Back to previous page">
+    <img onclick="history.back()" class="mx-5 mt-5" id="back_arrow" src="/assets/img/fleche.png" alt="Back to previous page">
     <img class="col-1 mx-auto mt-4 mb-3 d-block" id="logo" src="/assets/img/logo_white_alpha.png" alt="Logo">
   </div>
 
@@ -51,7 +50,7 @@
                 <h4 class="text-right">Offer Settings</h4>
               </div>
               <form method="POST">
-                <input name="id_entreprise" type="hidden" value="<?php echo $_GET['id_entreprise'] ?>">
+                <input name="id_entreprise" type="hidden" value="<?php echo $offre['id_entreprise'] ?>">
                 <div class="row mt-2">
                   <div class="col-md-12 mb-3">
                     <label class="labels" for="offer_name">Offer name :</label>
@@ -62,7 +61,7 @@
                     <input id="duration" name="duration" type="number" class="form-control" placeholder="Enter the duration of the offer" required>
                   </div>
                   <div class="col-md-12 mb-3">
-                      <label class="labels" for="location">Location :</label>
+                    <label class="labels" for="location">Location :</label>
                     <input id="location" name="location" type="text" class="form-control" placeholder="Enter the location of the offer" required>
                   </div>
                   <div class="col-md-12 mb-3">
@@ -89,15 +88,16 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <footer class="col-12">
-      <div class="text-center">
-        <div class="copyright text-center p-3">
-          © 2022 - StageHub /
-          <a class="Term-of-use-link" href="/termsofuse">Terms of use</a>
-        </div>
+  <footer class="col-12">
+    <div class="text-center">
+      <div class="copyright text-center p-3">
+        © 2022 - StageHub /
+        <a class="Term-of-use-link" href="/termsofuse">Terms of use</a>
       </div>
-    </footer>
+    </div>
+  </footer>
 </body>
 
 </html>
