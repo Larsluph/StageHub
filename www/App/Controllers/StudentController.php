@@ -6,6 +6,7 @@ use App\Models\Candidature;
 use App\Models\Role;
 use App\Models\User;
 use Core\Controller;
+use Core\Router;
 use Core\View;
 
 /**
@@ -59,7 +60,9 @@ class StudentController extends Controller
     {
         AccountController::blockIfNotLoggedIn('etudiant_delete');
 
-        //TODO: delete student
+        $id_student = $this->route_params["id"];
+        User::delete($id_student);
+        Router::redirect("/students");
     }
 
     public function wishlistIndex()

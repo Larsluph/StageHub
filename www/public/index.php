@@ -35,9 +35,6 @@ $router = new Core\Router();
 $router->add('login', ['controller' => 'AccountController', 'action' => "login"]);
 $router->add('logout', ['controller' => 'AccountController', 'action' => "logout"]);
 
-// admin routes
-$router->add('admin', ['controller' => 'AdminController', 'action' => "dashboard"]);
-
 // company routes
 $router->add('companies', ['controller' => 'CompanyController', 'action' => "index"]);
 $router->add('companies/{id:\d+}', ['controller' => 'CompanyController', 'action' => "profile"]);
@@ -59,6 +56,12 @@ $router->add('offers', ['controller' => 'OffersController', 'action' => "index"]
 $router->add('offers/create', ['controller' => 'OffersController', 'action' => "create"]);
 $router->add('offers/{id:\d+}/update', ['controller' => 'OffersController', 'action' => "update"]);
 $router->add('offers/{id:\d+}/delete', ['controller' => 'OffersController', 'action' => "delete"]);
+
+// pilotes routes
+$router->add('pilotes', ['controller' => 'PilotesController', 'action' => "index"]);
+$router->add('pilotes/create', ['controller' => 'PilotesController', 'action' => "create"]);
+$router->add('pilotes/{id:\d+}/update', ['controller' => 'PilotesController', 'action' => "update"]);
+$router->add('pilotes/{id:\d+}/delete', ['controller' => 'PilotesController', 'action' => "delete"]);
 
 // students routes
 $router->add('students', ['controller' => 'StudentController', 'action' => "index"]);

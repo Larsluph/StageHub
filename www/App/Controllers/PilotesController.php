@@ -8,22 +8,22 @@ use Core\Controller;
 use Core\View;
 
 /**
- * Admin controller
+ * Pilotes controller
  *
  * PHP version 7.0
  */
-class AdminController extends Controller
+class PilotesController extends Controller
 {
 
     /**
-     * Show the admin page
+     * Show the pilote page
      *
      * @return void
      */
-    public function dashboard()
+    public function index()
     {
         AccountController::blockIfNotLoggedIn(null, Role::ADMIN_ROLE_ID);
         // TODO: create page for admin
-        View::render('Admin_page.php');
+        View::render('Pilotes.php');
     }
 }
