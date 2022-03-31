@@ -64,6 +64,10 @@
                                         <input id="username" name="username" type="text" class="form-control" placeholder="Enter the username (name.surname)" required>
                                     </div>
                                     <div class="col-md-12 mb-3">
+                                        <label class="labels" for="nom_promo">Promotion name :</label>
+                                        <input id="nom_promo" name="nom_promo" type="text" class="form-control" placeholder="Enter the promotion name" required>
+                                    </div>
+                                    <div class="col-md-12 mb-3">
                                         <label class="labels" for="password">Password :</label>
                                         <input id="password" name="password" type="password" class="form-control" placeholder="Enter the password" required>
                                     </div>

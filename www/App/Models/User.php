@@ -112,9 +112,10 @@ class User extends Model {
      * @param string $nom_user User's name
      * @param string $prenom_user User's first name
      * @param int $id_role User's role
+     * @param array $nom_promo User's promotion
      * @return int|false User's id or false if user not created
      */
-    public static function create(string $username, string $hash, string $nom_user, string $prenom_user, int $id_role): int
+    public static function create(string $username, string $hash, string $nom_user, string $prenom_user, int $id_role, array $nom_promo): int
     {
         $db = static::getDB();
         $sql = 'INSERT INTO users (username, hash, nom_user, prenom_user, id_role) VALUES (:username, :hash, :nom_user, :prenom_user, :id_role)';
@@ -124,6 +125,7 @@ class User extends Model {
         $stmt->bindValue(':nom_user', $nom_user);
         $stmt->bindValue(':prenom_user', $prenom_user);
         $stmt->bindValue(':id_role', $id_role);
+        $stmt->bindValue(':nom_promo', $nom_promo);
         $stmt->execute();
         return $db->lastInsertId();
     }
@@ -136,9 +138,10 @@ class User extends Model {
      * @param string $nom_user User's name
      * @param string $prenom_user User's first name
      * @param int $id_role User's role
+     * @param array $nom_promo User's promotion
      * @return void
      */
-    public static function update(int $id_user, string $username, string $hash, string $nom_user, string $prenom_user, int $id_role)
+    public static function update(int $id_user, string $username, string $hash, string $nom_user, string $prenom_user, int $id_role, array $nom_promo)
     {
         $db = static::getDB();
         $sql = 'UPDATE users SET username = :username, hash = :hash, nom_user = :nom_user, prenom_user = :prenom_user, id_role = :id_role WHERE id_user = :id_user';
@@ -150,6 +153,7 @@ class User extends Model {
         $stmt->bindValue(':prenom_user', $prenom_user);
         $stmt->bindValue(':id_role', $id_role);
         $stmt->execute();
+        
     }
 
     /**

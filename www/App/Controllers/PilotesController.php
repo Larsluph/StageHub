@@ -42,6 +42,7 @@ class PilotesController extends Controller
                 hash("sha256", $_POST['password']),
                 $_POST['nom_user'],
                 $_POST['prenom_user'],
+                explode('|', $_POST['nom_promo']),
                 Role::TUTOR_ROLE_ID
             );
             Router::redirect('/pilotes');
@@ -61,6 +62,7 @@ class PilotesController extends Controller
                 hash("sha256", $_POST['password']),
                 $_POST['nom_user'],
                 $_POST['prenom_user'],
+                explode('|', $_POST['nom_promo']),
                 Role::TUTOR_ROLE_ID
             );
             Router::redirect('/pilotes');

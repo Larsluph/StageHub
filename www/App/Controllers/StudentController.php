@@ -60,15 +60,41 @@ class StudentController extends Controller
     {
         AccountController::blockIfNotLoggedIn('etudiant_add');
 
-        //TODO: create a new user
+        if (!empty($_POST)) {
+            User::create(
+                $_POST['username'],
+                hash("sha256", $_POST['password']),
+                $_POST['nom_user'],
+                $_POST['prenom_user'],
+                explode('|', $_POST['nom_promo']),
+                Role::STUDENT_ROLE_ID
+            );
+            Router::redirect('/students');
+        }
+        View::render('Students_Create.php');
     }
 
     public function update()
     {
         AccountController::blockIfNotLoggedIn('etudiant_edit');
 
-        //TODO: update student
-        View::render('Student_Update.php');
+        $id_user = $this->route_params['id'];
+        if (!empty($_POST)) {
+            User::update(
+                $id_user,
+                $_POST['username'],
+                hash("sha256", $_POST['password']),
+                $_POST['nom_user'],
+                $_POST['prenom_user'],
+                explode('|', $_POST['nom_promo']),
+                Role::TUTOR_ROLE_ID
+            );
+            Router::redirect('/students');
+        }
+        else
+        {
+            $user = User::readOneById($id_user);
+            View::render('Student_Update.php', compact("user"));
     }
 
     public function delete()
@@ -78,6 +104,7 @@ class StudentController extends Controller
         $id_student = $this->route_params["id"];
         User::delete($id_student);
         Router::redirect("/students");
+        
     }
 
     public function wishlistIndex()
