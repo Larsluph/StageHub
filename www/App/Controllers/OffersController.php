@@ -25,9 +25,8 @@ class OffersController extends Controller
     public function index()
     {
         $notifications = array(); // FIXME: get notifications from database
-        $offres = OffreStage::readAllByEntreprise(1); // FIXME: fetch company id
-        $id_entreprise = 1;
-        View::render('Offers.php', compact("notifications", "offres", "id_entreprise"));
+        $offres = OffreStage::readAll();
+        View::render('Offers.php', compact("notifications", "offres"));
     }
 
     public function create()
@@ -43,7 +42,7 @@ class OffersController extends Controller
                 explode('|', $_POST['location']),
                 explode('|', $_POST['skills']),
             );
-            Router::redirect('/companies?id_entreprise=' . $_POST['id_entreprise']);
+            Router::redirect('/companies/' . $_POST['id_entreprise']);
         }
         View::render('Offer_Create.php');
     }
@@ -74,6 +73,6 @@ class OffersController extends Controller
     public function delete() {
         $id_entreprise = OffreStage::readOneById($_GET['id_offre'])['id_entreprise'];
         OffreStage::delete($_GET['id_offre']);
-        Router::redirect('/companies?id_entreprise=' . $id_entreprise);
+        Router::redirect('/companies/' . $id_entreprise);
     }
 }

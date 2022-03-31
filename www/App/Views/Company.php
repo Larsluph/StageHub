@@ -50,7 +50,7 @@
     <hr class="separate mx-auto pt-1 mb-3 mt-1 col-10">
     <form class="form text-center col-8 mx-auto mt-0">
       <div class="Your_active_post text-center fs-4">
-        - Your active posts -
+        - <?= $entreprise['nom_entreprise'] ?> -
       </div>
     </form>
     <hr class="separate mx-auto pt-1 col-9 mb-3 mt-3">
@@ -76,7 +76,6 @@
               <?php foreach ($pagination->get_page_items() as $offre) { ?>
                 <div class="stage_offer d-flex mb-4">
                   <div class="col-10 ms-5 table-center">
-                    <h4 class="float-end mt-4 fs-4"><?= $entreprise['nom_entreprise'] ?></h4>
                     <h4 class="mt-4 fs-4"><?= $offre['nom_poste_offre'] ?></h4>
                     <hr class="float-start col-5 mb-4">
                     <table class="col-10 mt-4 mx-5 mb-4">

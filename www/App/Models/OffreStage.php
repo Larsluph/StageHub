@@ -19,6 +19,7 @@ class OffreStage extends Model
     public static function readOneById(int $id)
     {
         $sql = "SELECT
+                    (SELECT nom_entreprise FROM entreprises WHERE entreprises.id_entreprise = offres_stage.id_entreprise) AS nom_entreprise,
                     offres_stage.*,
                     GROUP_CONCAT(DISTINCT localites.nom_localite SEPARATOR '|') AS localites,
                     GROUP_CONCAT(DISTINCT competences.nom_competence SEPARATOR '|') AS competences
@@ -47,6 +48,7 @@ class OffreStage extends Model
     public static function readAllByEntreprise(int $id)
     {
         $sql = "SELECT
+                    (SELECT nom_entreprise FROM entreprises WHERE entreprises.id_entreprise = offres_stage.id_entreprise) AS nom_entreprise,
                     offres_stage.*,
                     GROUP_CONCAT(DISTINCT localites.nom_localite SEPARATOR '|') AS localites,
                     GROUP_CONCAT(DISTINCT competences.nom_competence SEPARATOR '|') AS competences
@@ -72,6 +74,8 @@ class OffreStage extends Model
     public static function readAll()
     {
         $sql = "SELECT
+                    id_entreprise,
+                    (SELECT nom_entreprise FROM entreprises WHERE entreprises.id_entreprise = offres_stage.id_entreprise) AS nom_entreprise,
                     offres_stage.*,
                     GROUP_CONCAT(DISTINCT localites.nom_localite SEPARATOR '|') AS localites,
                     GROUP_CONCAT(DISTINCT competences.nom_competence SEPARATOR '|') AS competences

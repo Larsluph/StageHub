@@ -39,18 +39,12 @@ $pagination = new Pagination($page_nbr, $offres);
     <button onclick="document.location.href='/logout'" class="button-principal-tologin float-end pb-1 mx-lg-5 mt-4 fs-6" type="button">
         Logout
     </button>
-    <button onclick="document.location.href='/companies/applications'" class="profile float-end mx-lg-5 mt-4 pt-1 fs-6" type="button">
-        - APPLICATIONS -
-    </button>
-    <button onclick="document.location.href='/offers/create?id_entreprise=<?php echo $id_entreprise ?>'" class="profile float-end mx-lg-5 pt-1 mt-4 fs-6" type="button">
-        - NEW POST -
-    </button>
 </div>
 <div class="search">
     <hr class="separate mx-auto pt-1 mb-3 mt-1 col-10">
     <form class="form text-center col-8 mx-auto mt-0">
         <div class="Your_active_post text-center fs-4">
-            - Your active post -
+            - Current Offers -
         </div>
     </form>
     <hr class="separate mx-auto pt-1 col-9 mb-3 mt-3">
@@ -76,7 +70,7 @@ $pagination = new Pagination($page_nbr, $offres);
                     <?php foreach ($pagination->get_page_items() as $offre) { ?>
                         <div class="stage_offer d-flex mb-4">
                             <div class="col-10 ms-5 table-center">
-                                <h4 class="float-end mt-4 fs-4">Company name</h4>
+                                <h4 class="float-end mt-4 fs-4"><a href="/companies/<?= $offre['id_entreprise'] ?>"><?= $offre['nom_entreprise'] ?></a></h4>
                                 <h4 class="mt-4 fs-4"><?php echo $offre['nom_poste_offre'] ?></h4>
                                 <hr class="float-start col-5 mb-4">
                                 <table class="col-10 mt-4 mx-5 mb-4">
