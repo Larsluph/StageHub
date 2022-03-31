@@ -27,7 +27,20 @@ class StudentController extends Controller
         AccountController::redirectIfNotLoggedIn();
 
         $notifications = array(); // TODO: get notifications from database
-        $etudiants = User::readAllByRole(Role::STUDENT_ROLE_ID);
+
+        if (array_key_exists('student_name', $_GET)) {
+            $name_student = $_GET['student_name'];
+            $etudiants = array();
+            foreach (User::readAllByRole(Role::STUDENT_ROLE_ID) as $etudiant) {
+                $full_name = $etudiant['nom_user'] . ' ' . $etudiant['prenom_user'];
+                if (strpos(strtolower($full_name), strtolower($name_student)) !== false) {
+                    $etudiants[] = $etudiant;
+                }
+            }
+        }
+        else {
+            $etudiants = User::readAllByRole(Role::STUDENT_ROLE_ID);
+        }
 
         View::render('Students.php', compact("notifications", "etudiants"));
     }

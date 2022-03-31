@@ -42,83 +42,20 @@ $pagination = new Pagination($page_nbr, $etudiants);
     <button onclick="document.location.href='/logout'" class="button-principal-tologin float-end pb-1 mx-lg-5 mt-4 fs-6" type="button">
       Logout
     </button>
-    <button onclick="document.location.href='/students/<?= $_COOKIE['id_user'] ?>';" class="profile float-end pt-1 mx-lg-5 mt-4 fs-6" type="button">
-      - PROFILE -
-    </button>
-    <button onclick="document.location.href='/students/wishlist';" class="profile float-end pt-1 mx-lg-5 mt-4 fs-6" type="button">
-      - MY WISHLIST -
-    </button>
-    <button onclick="document.location.href='/students/applications';" class="profile float-end pt-1 mx-lg-5 mt-4 fs-6" type="button">
-      - YOUR APPLICATIONS -
+    <button onclick="document.location.href='/students/create';" class="profile float-end pt-1 mx-lg-5 mt-4 fs-6" type="button">
+      - New Student -
     </button>
   </div>
   <div class="search">
     <hr class="separate mx-auto pt-1 mb-3 mt-1 col-10">
     <form class="form text-center col-8 mx-auto mt-0">
-      <input class="text_case col-5 px-4 pt-2 pb-2 fs-6 form-search" type="text" placeholder="Type of internship...">
-      <input class="text_case col-4 px-4 pt-2 pb-2 fs-6 form-location" type="text" placeholder="Location...">
-      <button type="submit" class="button-search px-4 pt-sm-1 pb-sm-1 fs-6">
-        Search
-      </button>
+      <input name="student_name" class="text_case col-9 px-4 pt-2 pb-2 fs-6 form-search" type="text" placeholder="Student name...">
+      <button type="submit" class="button-search px-4 pt-sm-1 pb-sm-1 fs-6">Search</button>
     </form>
     <hr class="separate mx-auto pt-1 col-9 mb-3 mt-3">
   </div>
   <div id="contenu">
     <div class="dashboard float-start col-2 pt-3 pb-2 ms-4 mt-0">
-      <h5 class="col-2 position-absolute text-center">Filter</h5>
-      <hr class="col-8 mx-auto mt-4">
-      <table class="table_filter col-10 mx-auto table-striped table-bordered">
-        <tr>
-          <td>
-            <div class="box d-flex">
-              <select class="mx-auto col-12 fs-6 pt-1 pb-1" name="Level">
-                <option value="none">Level of study</option>
-                <option value="Bac">Bac</option>
-                <option value="Bac+1">Bac+1</option>
-                <option value="Bac+2">Bac+2</option>
-                <option value="Bac+3">Bac+3</option>
-                <option value="Bac+4">Bac+4</option>
-                <option value="Bac+5">Bac+5</option>
-                <option value="More">More</option>
-              </select>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="box d-flex">
-              <select class="mx-auto col-12 fs-6 pt-1 pb-1" name="Duration">
-                <option value="none">Duration</option>
-                <option value="Less">Less</option>
-                <option value="1_month">1 month</option>
-                <option value="2_month">2 month</option>
-                <option value="3_month">3 month</option>
-                <option value="4_month">4 month</option>
-                <option value="5_month">5 month</option>
-                <option value="More">More</option>
-              </select>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="box d-flex">
-              <select class="mx-auto col-12 fs-6 pt-1 pb-1" name="Duration">
-                <option value="none">Minimum wage</option>
-                <option value="3€/h">3€/h</option>
-                <option value="4€/h">4€/h</option>
-                <option value="5€/h">5€/h</option>
-                <option value="6€/h">6€/h</option>
-                <option value="7€/h">7€/h</option>
-                <option value="More">More</option>
-              </select>
-            </div>
-          </td>
-        </tr>
-      </table>
-      <hr class="col-8 mx-auto">
-    </div>
-    <div class="dashboard float-end col-2 pt-3 pb-2 me-4 mt-0">
       <h5 class="col-2 position-absolute text-center">Notification</h5>
       <hr class="col-8 mx-auto mt-4">
       <?php foreach ($notifications as $notification) { ?>
@@ -144,21 +81,20 @@ $pagination = new Pagination($page_nbr, $etudiants);
                 <div class="stage_offer d-flex mb-4">
                   <div class="col-10 ms-5 table-center">
                     <h4 class="float-end mt-4 fs-4"><?= $etudiant['nom_promo']?></h4>
-                      <h4 class="mt-4 fs-4"><a href="/students/<?= $etudiant['id_user'] ?>"><?= strtoupper($etudiant['nom_user']) . ' ' . ucfirst($etudiant['prenom_user']) ?></a></h4>
+                    <h4 class="mt-4 fs-4"><a href="/students/<?= $etudiant['id_user'] ?>"><?= strtoupper($etudiant['nom_user']) . ' ' . ucfirst($etudiant['prenom_user']) ?></a></h4>
 
-                      <form method="get">
-                          <input formaction="/students/<?= $etudiant['id_user'] ?>/update" type="submit" class="button-register float-start ms-5 px-4 mx-auto mb-3" value="Modify">
-                          <input formaction="/students/<?= $etudiant['id_user'] ?>/delete" type="submit" class="button-delete float-start ms-1 px-4 mx-auto mb-3" value="Delete">
-                      </form>
+                    <form method="get">
+                      <input formaction="/students/<?= $etudiant['id_user'] ?>/update" type="submit" class="button-register float-start ms-5 px-4 mx-auto mb-3" value="Modify">
+                      <input formaction="/students/<?= $etudiant['id_user'] ?>/delete" type="submit" class="button-delete float-start ms-1 px-4 mx-auto mb-3" value="Delete">
+                    </form>
                   </div>
                 </div>
               <?php } ?>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    </td>
-    </tr>
-    </tbody>
-    </table>
-  </div>
   </div>
   <hr class="separate mx-auto pt-1 mb-4 mt-3 col-8">
   <?php $pagination->render() ?>
