@@ -8,8 +8,6 @@
 
 use App\Controllers\ErrorController;
 
-session_start();
-
 /**
  * Composer
  */

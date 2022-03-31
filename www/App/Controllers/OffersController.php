@@ -24,6 +24,8 @@ class OffersController extends Controller
      */
     public function index()
     {
+        AccountController::redirectIfNotLoggedIn();
+
         $notifications = array(); // FIXME: get notifications from database
         $offres = OffreStage::readAll();
         View::render('Offers.php', compact("notifications", "offres"));
@@ -31,6 +33,8 @@ class OffersController extends Controller
 
     public function create()
     {
+        AccountController::blockIfNotLoggedIn('offre_add');
+
         if (!empty($_POST)) {
             OffreStage::create(
                 $_POST['offer_name'],
@@ -49,9 +53,12 @@ class OffersController extends Controller
 
     public function update()
     {
+        AccountController::blockIfNotLoggedIn('offre_edit');
+
+        $id_offre = $this->route_params['id'];
         if (!empty($_POST)) {
             OffreStage::update(
-                $_POST['id_offre'],
+                $id_offre,
                 $_POST['offer_name'],
                 $_POST['duration'],
                 $_POST['salary'],
@@ -65,14 +72,17 @@ class OffersController extends Controller
         }
         else
         {
-            $offre = OffreStage::readOneById($_GET['id_offre']);
+            $offre = OffreStage::readOneById($id_offre);
             view::render('Offer_Update.php', compact("offre"));
         }
     }
 
     public function delete() {
-        $id_entreprise = OffreStage::readOneById($_GET['id_offre'])['id_entreprise'];
-        OffreStage::delete($_GET['id_offre']);
+        AccountController::blockIfNotLoggedIn('offre_delete');
+
+        $id_offre = $this->route_params['id'];
+        $id_entreprise = OffreStage::readOneById($id_offre)['id_entreprise'];
+        OffreStage::delete($id_offre);
         Router::redirect('/companies/' . $id_entreprise);
     }
 }

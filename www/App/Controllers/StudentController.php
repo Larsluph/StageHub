@@ -22,6 +22,8 @@ class StudentController extends Controller
      */
     public function index()
     {
+        AccountController::redirectIfNotLoggedIn();
+
         $notifications = array(); // TODO: get notifications from database
         $offres = Candidature::readAllByUser(1); // FIXME: get correct user id
 
@@ -30,24 +32,32 @@ class StudentController extends Controller
 
     public function profile()
     {
-        $user = User::readOnebyId($_SESSION['id_user']);
+        AccountController::redirectIfNotLoggedIn();
+
+        $user = User::readOnebyId($_COOKIE['id_user']);
 
         View::render('Student_Profile.php', compact('user'));
     }
 
     public function create()
     {
+        AccountController::blockIfNotLoggedIn('etudiant_add');
+
         //TODO: create a new user
     }
 
     public function update()
     {
+        AccountController::blockIfNotLoggedIn('etudiant_edit');
+
         //TODO: update student
-        view::render('Student_Update.php');
+        View::render('Student_Update.php');
     }
 
     public function delete()
     {
+        AccountController::blockIfNotLoggedIn('etudiant_delete');
+
         //TODO: delete student
     }
 
@@ -59,6 +69,8 @@ class StudentController extends Controller
 
     public function applications()
     {
+        AccountController::blockIfNotLoggedIn();
+
         //TODO : student application
         View::render('Student_Applications.php');
     }

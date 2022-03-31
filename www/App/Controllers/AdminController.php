@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Role;
 use App\Models\User;
 use Core\Controller;
 use Core\View;
@@ -21,6 +22,7 @@ class AdminController extends Controller
      */
     public function dashboard()
     {
+        AccountController::blockIfNotLoggedIn(null, Role::ADMIN_ROLE_ID);
         // TODO: create page for admin
         View::render('Admin_page.php');
     }

@@ -15,14 +15,14 @@ class AccountController extends Controller
 {
     /**
      * Returns 403 to the user if he doesn't have permission to access the page
-     * @param int|null $required_role
      * @param string|null $required_permission
+     * @param int|null $required_role
      * @return void
      */
-    public static function blockIfNotLoggedIn(int $required_role = null, string $required_permission = null): void
+    public static function blockIfNotLoggedIn(string $required_permission = null, int $required_role = null): void
     {
         // if user isn't logged in or doesn't have required permission
-        if (!self::isLoggedIn() || !User::hasPermission($_SESSION['id_user'], $required_permission)) {
+        if (!self::isLoggedIn() || !User::hasPermission($_COOKIE['id_user'], $required_permission)) {
             ErrorController::forbidden();
         }
     }
@@ -36,7 +36,7 @@ class AccountController extends Controller
     public static function redirectIfNotLoggedIn(int $required_role = null, string $required_permission = null): void
     {
         // if user isn't logged in or doesn't have required permission
-        if (!self::isLoggedIn() || !User::hasPermission($_SESSION['id_user'], $required_permission)) {
+        if (!self::isLoggedIn() || !User::hasPermission($_COOKIE['id_user'], $required_permission)) {
             Router::redirect('/login');
         }
     }
@@ -48,7 +48,6 @@ class AccountController extends Controller
         else {
             if (self::checkForLogin($_POST['Email'], $_POST['password'])) {
                 // Login successful
-                print_r($_SESSION);
                 Router::redirect('/student');
             }
             else {
@@ -59,7 +58,8 @@ class AccountController extends Controller
     }
 
     public function logout() {
-        session_destroy();
+        setcookie('loggedin', false, time() - 3600);
+        setcookie('id_user', '', time() - 3600);
         Router::redirect('/login');
     }
 
@@ -67,8 +67,8 @@ class AccountController extends Controller
         $hash = hash('sha256', $password);
         $user = User::readOneByLogin($username, $hash);
         if ($user) {
-            $_SESSION['loggedin'] = true;
-            $_SESSION['id_user'] = $user['id_user'];
+            setcookie("loggedin", "true", time() + (86400 * 30), "/");
+            setcookie("id_user", $user['id_user'], time() + (86400 * 30), "/");
             return true;
         }
         return false;
@@ -76,7 +76,7 @@ class AccountController extends Controller
 
     public static function isLoggedIn(): bool
     {
-        return (array_key_exists('loggedin', $_SESSION) && $_SESSION['loggedin'] == true);
+        return (array_key_exists('loggedin', $_COOKIE) && $_COOKIE['loggedin'] == true);
     }
 
     /**
@@ -87,7 +87,7 @@ class AccountController extends Controller
     public static function checkForPermission(string $permission): bool
     {
         if (self::isLoggedIn()) {
-            return User::hasPermission($_SESSION['id_user'], $permission);
+            return User::hasPermission($_COOKIE['id_user'], $permission);
         }
         else return false;
     }

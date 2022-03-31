@@ -20,6 +20,8 @@ class CompanyController extends Controller
      */
     public function index()
     {
+        AccountController::redirectIfNotLoggedIn();
+
         // Show all companies
         $notifications = array(); // FIXME: get notifications from database
         $entreprises = Entreprise::readAll();
@@ -28,6 +30,8 @@ class CompanyController extends Controller
 
     public function profile()
     {
+        AccountController::redirectIfNotLoggedIn();
+
         // Show company profile
         $id_entreprise = $this->route_params["id"];
         $notifications = array(); // FIXME: get notifications from database
@@ -38,6 +42,8 @@ class CompanyController extends Controller
 
     public function create()
     {
+        AccountController::blockIfNotLoggedIn('entreprise_create');
+
         if (!empty($_POST)) {
             Entreprise::create(
                 $_POST['nom_entreprise'],
@@ -51,9 +57,12 @@ class CompanyController extends Controller
 
     public function update()
     {
+        AccountController::blockIfNotLoggedIn('entreprise_edit');
+
+        $id_entreprise = $this->route_params["id"];
         if (!empty($_POST)) {
             Entreprise::update(
-                $_POST['id_entreprise'],
+                $id_entreprise,
                 $_POST['nom_entreprise'],
                 explode('|', $_POST['localites']),
                 explode('|', $_POST['secteurs'])
@@ -61,20 +70,26 @@ class CompanyController extends Controller
             Router::redirect('/companies');
         }
         else {
-            $entreprise = Entreprise::readOneById($_GET['id_entreprise']);
+            $entreprise = Entreprise::readOneById($id_entreprise);
             View::render('Company_Update.php', compact('entreprise'));
         }
     }
 
     public function delete()
     {
-        Entreprise::delete($_GET['id_entreprise']);
+        AccountController::blockIfNotLoggedIn('entreprise_delete');
+
+        $id_entreprise = $this->route_params['id'];
+        Entreprise::delete($id_entreprise);
         Router::redirect('/companies');
     }
 
     public function applications()
     {
-        $id_entreprise = $_GET['id_entreprise'];
+        AccountController::blockIfNotLoggedIn();
+
+
+        $id_entreprise = $this->route_params['id'];
         $candidatures = array();
         foreach (OffreStage::readAllByEntreprise($id_entreprise) as $offre) {
             $candidatures = array_merge($candidatures, Candidature::readAllByOffre($offre['id_offre']));
