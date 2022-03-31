@@ -57,7 +57,7 @@ $pagination = new Pagination($page_nbr, $offres);
         <?php foreach ($notifications as $notification) { ?>
             <div class="notification mt-1 mx-auto col-10">
                 <img alt="Logo_notif" class="mx-2 col-1 pt-1 pb-1 float-start" src="/assets/img/notif_ico.ico">
-                <h4 class="fs-6 text-center pt-1 pe-2"><?php echo $notification['nom_poste_offre'] ?></h4>
+                <h4 class="fs-6 text-center pt-1 pe-2"><?php echo $notification['title'] ?></h4>
                 <h6 class="fs-6 text-center"><?php echo $notification['content'] ?></h6>
             </div>
         <?php } ?>

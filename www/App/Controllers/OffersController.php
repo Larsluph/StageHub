@@ -26,7 +26,9 @@ class OffersController extends Controller
     {
         AccountController::redirectIfNotLoggedIn();
 
-        $notifications = array(); // FIXME: get notifications from database
+        $notifications = array(
+            ["title"=> "Isla Stage", "content"=> "New offer !"]
+        ); // FIXME: get notifications from database
         $offres = OffreStage::readAll();
         View::render('Offers.php', compact("notifications", "offres"));
     }

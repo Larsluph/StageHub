@@ -23,7 +23,9 @@ class CompanyController extends Controller
         AccountController::redirectIfNotLoggedIn();
 
         // Show all companies
-        $notifications = array(); // FIXME: get notifications from database
+        $notifications = array(
+            ["title"=> "Isla Stage", "content"=> "New offer !"]
+        ); // FIXME: get notifications from database
         $entreprises = Entreprise::readAll();
         View::render('Companies.php', compact("notifications", "entreprises"));
     }
