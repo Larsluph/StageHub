@@ -7,7 +7,7 @@ if (isset($_GET['page']))
 else
   $page_nbr = 1;
 
-$pagination = new Pagination($page_nbr, $offres);
+$pagination = new Pagination($page_nbr, $etudiants);
 ?>
 
 <!DOCTYPE html>
@@ -42,13 +42,13 @@ $pagination = new Pagination($page_nbr, $offres);
     <button onclick="document.location.href='/logout'" class="button-principal-tologin float-end pb-1 mx-lg-5 mt-4 fs-6" type="button">
       Logout
     </button>
-    <button onclick="document.location.href='/student/profile';" class="profile float-end pt-1 mx-lg-5 mt-4 fs-6" type="button">
+    <button onclick="document.location.href='/students/<?= $_COOKIE['id_user'] ?>';" class="profile float-end pt-1 mx-lg-5 mt-4 fs-6" type="button">
       - PROFILE -
     </button>
-    <button onclick="document.location.href='/student/wishlist';" class="profile float-end pt-1 mx-lg-5 mt-4 fs-6" type="button">
+    <button onclick="document.location.href='/students/wishlist';" class="profile float-end pt-1 mx-lg-5 mt-4 fs-6" type="button">
       - MY WISHLIST -
     </button>
-    <button onclick="document.location.href='/student/applications';" class="profile float-end pt-1 mx-lg-5 mt-4 fs-6" type="button">
+    <button onclick="document.location.href='/students/applications';" class="profile float-end pt-1 mx-lg-5 mt-4 fs-6" type="button">
       - YOUR APPLICATIONS -
     </button>
   </div>
@@ -140,35 +140,16 @@ $pagination = new Pagination($page_nbr, $offres);
         <tbody>
           <tr>
             <td>
-              <?php foreach ($pagination->get_page_items() as $offre) { ?>
+              <?php foreach ($pagination->get_page_items() as $etudiant) { ?>
                 <div class="stage_offer d-flex mb-4">
                   <div class="col-10 ms-5 table-center">
-                    <h4 class="float-end mt-4 fs-4">Company name</h4>
-                    <h4 class="mt-4 fs-4"><?php echo $offre['nom_poste_offre'] ?></h4>
-                    <hr class="col-5 mx-5 mb-4">
-                    <table class="col-10 mt-4 mx-5 mb-4">
-                      <tr>
-                        <th class="h4 ms-5 fs-6 fw-bold">
-                          Quality required :
-                          <hr class="col-4 mx-1 mb-1">
-                        </th>
-                        <th class="h4 fs-6 fw-bold">
-                          Location :
-                          <hr class="col-4 mx-1 mb-1">
-                        </th>
-                      </tr>
-                      <tr>
-                        <td class="col-10 mt-3 fs-6">
-                          <?php echo implode(" - ", explode("|", $offre['competences'])); ?>
-                        </td>
-                        <td class="col-10 mt-3 fs-6">
-                          <?php echo implode(" - ", explode("|", $offre['localites'])); ?>
-                        </td>
-                      </tr>
-                    </table>
+                    <h4 class="float-end mt-4 fs-4">Nom Promo</h4>
+                      <h4 class="mt-4 fs-4"><a href="/students/<?= $etudiant['id_user'] ?>"><?= strtoupper($etudiant['nom_user']) . ' ' . ucfirst($etudiant['prenom_user']) ?></a></h4>
 
-                    <input type="submit" class="button-register float-start ms-5 px-4 mx-auto mb-3" value="Apply">
-                    <input type="submit" class="button-register float-start ms-1 px-4 mx-auto mb-3" value="Add to my wishlist">
+                      <form method="get">
+                          <input formaction="/students/<?= $etudiant['id_user'] ?>/update" type="submit" class="button-register float-start ms-5 px-4 mx-auto mb-3" value="Modify">
+                          <input formaction="/students/<?= $etudiant['id_user'] ?>/delete" type="submit" class="button-delete float-start ms-1 px-4 mx-auto mb-3" value="Delete">
+                      </form>
                   </div>
                 </div>
               <?php } ?>

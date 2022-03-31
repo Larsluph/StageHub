@@ -10,6 +10,20 @@ use PDO;
  */
 class User extends Model {
     /**
+     * Get user by id
+     * @param int $id User's id
+     * @return array|false User's data or false if user not found
+     */
+    public static function readOneById(int $id) {
+        $sql = 'SELECT * FROM users WHERE id_user = :id';
+        $db = static::getDB();
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':id', $id);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    /**
      * Get user by email and password
      * @param string $username User's email
      * @param string $hash User's hash
@@ -27,30 +41,30 @@ class User extends Model {
     }
 
     /**
-     * Get user by id
-     * @param int $id User's id
-     * @return array|false User's data or false if user not found
-     */
-    public static function readOneById(int $id) {
-        $sql = 'SELECT * FROM users WHERE id_user = :id';
-        $db = static::getDB();
-        $stmt = $db->prepare($sql);
-        $stmt->bindValue(':id', $id);
-        $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
-    }
-
-    /**
      * Get user role by id
      * @param int $id User's id
      * @return array|false User's data or false if user not found
      */
-    public static function readRoleById(int $id) {
+    public static function getUserRole(int $id) {
         $db = static::getDB();
         $stmt = $db->prepare("SELECT id_role FROM users WHERE id_user = :id");
         $stmt->bindValue(':id', $id);
         $stmt->execute();
         return $stmt->fetchColumn();
+    }
+
+    /**
+     * Get all users by role
+     * @param int $id_role User's role
+     * @return array|false Users' data or false if user not found
+     */
+    public static function readAllByRole(int $id_role) {
+        $db = static::getDB();
+        $sql = 'SELECT * FROM users WHERE id_role = :id_role';
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':id_role', $id_role);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     /**

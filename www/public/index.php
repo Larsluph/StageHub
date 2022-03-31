@@ -60,14 +60,16 @@ $router->add('offers/create', ['controller' => 'OffersController', 'action' => "
 $router->add('offers/{id:\d+}/update', ['controller' => 'OffersController', 'action' => "update"]);
 $router->add('offers/{id:\d+}/delete', ['controller' => 'OffersController', 'action' => "delete"]);
 
-// student routes
-$router->add('student', ['controller' => 'StudentController', 'action' => "index"]);
-$router->add('student/{id:\d+}', ['controller' => 'StudentController', 'action' => "profile"]);
-$router->add('student/{id:\d+}/create', ['controller' => 'StudentController', 'action' => "create"]);
-$router->add('student/{id:\d+}/update', ['controller' => 'StudentController', 'action' => "update"]);
-$router->add('student/{id:\d+}/delete', ['controller' => 'StudentController', 'action' => "delete"]);
-$router->add('student/{id:\d+}/wishlist', ['controller' => 'StudentController', 'action' => "wishlist"]);
-$router->add('student/{id:\d+}/applications', ['controller' => 'StudentController', 'action' => "applications"]);
+// students routes
+$router->add('students', ['controller' => 'StudentController', 'action' => "index"]);
+$router->add('students/{id:\d+}', ['controller' => 'StudentController', 'action' => "profile"]);
+$router->add('students/{id:\d+}/create', ['controller' => 'StudentController', 'action' => "create"]);
+$router->add('students/{id:\d+}/update', ['controller' => 'StudentController', 'action' => "update"]);
+$router->add('students/{id:\d+}/delete', ['controller' => 'StudentController', 'action' => "delete"]);
+$router->add('students/{id:\d+}/wishlist', ['controller' => 'StudentController', 'action' => "wishlistIndex"]);
+$router->add('students/{id:\d+}/wishlist/add/{to_add:\d+}', ['controller' => 'StudentController', 'action' => "wishlistAdd"]);
+$router->add('students/{id:\d+}/wishlist/delete/{to_delete:\d+}', ['controller' => 'StudentController', 'action' => "wishlistDelete"]);
+$router->add('students/{id:\d+}/applications', ['controller' => 'StudentController', 'action' => "applications"]);
 
 
 /**

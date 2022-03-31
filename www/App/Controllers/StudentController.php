@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Candidature;
+use App\Models\Role;
 use App\Models\User;
 use Core\Controller;
 use Core\View;
@@ -25,16 +26,16 @@ class StudentController extends Controller
         AccountController::redirectIfNotLoggedIn();
 
         $notifications = array(); // TODO: get notifications from database
-        $offres = Candidature::readAllByUser(1); // FIXME: get correct user id
+        $etudiants = User::readAllByRole(Role::STUDENT_ROLE_ID);
 
-        View::render('Student_Page.php', compact("notifications", "offres"));
+        View::render('Students.php', compact("notifications", "etudiants"));
     }
 
     public function profile()
     {
         AccountController::redirectIfNotLoggedIn();
 
-        $user = User::readOnebyId($_COOKIE['id_user']);
+        $user = User::readOnebyId($this->route_params['id']);
 
         View::render('Student_Profile.php', compact('user'));
     }
@@ -61,10 +62,22 @@ class StudentController extends Controller
         //TODO: delete student
     }
 
-    public function wishlist()
+    public function wishlistIndex()
     {
+        AccountController::redirectIfNotLoggedIn();
+
         //TODO : wishlist gestion etc 
         view::render('Wishlist.html');
+    }
+
+    public function wishlistAdd()
+    {
+        $id = $this->route_params['to_add'];
+    }
+
+    public function wishlistDelete()
+    {
+        $id = $this->route_params['to_delete'];
     }
 
     public function applications()

@@ -16,10 +16,9 @@ class AccountController extends Controller
     /**
      * Returns 403 to the user if he doesn't have permission to access the page
      * @param string|null $required_permission
-     * @param int|null $required_role
      * @return void
      */
-    public static function blockIfNotLoggedIn(?string $required_permission = null, ?int $required_role = null): void
+    public static function blockIfNotLoggedIn(?string $required_permission = null): void
     {
         // if user isn't logged in or doesn't have required permission
         if (!self::isLoggedIn() || !User::hasPermission($_COOKIE['id_user'], $required_permission)) {
@@ -30,10 +29,9 @@ class AccountController extends Controller
     /**
      * Redirects the user if he doesn't have permission to access the page
      * @param string|null $required_permission
-     * @param int|null $required_role
      * @return void
      */
-    public static function redirectIfNotLoggedIn(?string $required_permission = null, ?int $required_role = null): void
+    public static function redirectIfNotLoggedIn(string $required_permission = 'auth'): void
     {
         // if user isn't logged in or doesn't have required permission
         if (!self::isLoggedIn() || !User::hasPermission($_COOKIE['id_user'], $required_permission)) {
@@ -42,18 +40,25 @@ class AccountController extends Controller
     }
 
     public function login() {
-        if (empty($_POST)) {
-            View::render("Login_page.html");
+        // if user is already logged in
+        if (self::isLoggedIn()) {
+            Router::redirect('/students');
         }
-        else {
+
+        // if user submitted the form
+        if (!empty($_POST)) {
             if (self::checkForLogin($_POST['Email'], $_POST['password'])) {
                 // Login successful
-                Router::redirect('/student');
+                Router::redirect('/students');
             }
             else {
                 // Login failed
                 View::render("Login_page.html");
             }
+        }
+        // else display form
+        else {
+            View::render("Login_page.html");
         }
     }
 
