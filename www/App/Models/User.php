@@ -104,4 +104,65 @@ class User extends Model {
 
         return $id_role == Role::ADMIN_ROLE_ID || Permission::$defaultPerms[$id_role][$permission];
     }
+
+    /**
+     * Create user
+     * @param string $username User's email
+     * @param string $hash User's hash
+     * @param string $nom_user User's name
+     * @param string $prenom_user User's first name
+     * @param int $id_role User's role
+     * @return int|false User's id or false if user not created
+     */
+    public static function create(string $username, string $hash, string $nom_user, string $prenom_user, int $id_role): int
+    {
+        $db = static::getDB();
+        $sql = 'INSERT INTO users (username, hash, nom_user, prenom_user, id_role) VALUES (:username, :hash, :nom_user, :prenom_user, :id_role)';
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':username', $username);
+        $stmt->bindValue(':hash', $hash);
+        $stmt->bindValue(':nom_user', $nom_user);
+        $stmt->bindValue(':prenom_user', $prenom_user);
+        $stmt->bindValue(':id_role', $id_role);
+        $stmt->execute();
+        return $db->lastInsertId();
+    }
+
+    /**
+     * Update user
+     * @param int $id_user User's id
+     * @param string $username User's email
+     * @param string $hash User's hash
+     * @param string $nom_user User's name
+     * @param string $prenom_user User's first name
+     * @param int $id_role User's role
+     * @return void
+     */
+    public static function update(int $id_user, string $username, string $hash, string $nom_user, string $prenom_user, int $id_role)
+    {
+        $db = static::getDB();
+        $sql = 'UPDATE users SET username = :username, hash = :hash, nom_user = :nom_user, prenom_user = :prenom_user, id_role = :id_role WHERE id_user = :id_user';
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':id_user', $id_user);
+        $stmt->bindValue(':username', $username);
+        $stmt->bindValue(':hash', $hash);
+        $stmt->bindValue(':nom_user', $nom_user);
+        $stmt->bindValue(':prenom_user', $prenom_user);
+        $stmt->bindValue(':id_role', $id_role);
+        $stmt->execute();
+    }
+
+    /**
+     * Delete user
+     * @param int $id_user User's id
+     * @return void
+     */
+    public static function delete(int $id_user)
+    {
+        $db = static::getDB();
+        $sql = 'DELETE FROM users WHERE id_user = :id_user';
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':id_user', $id_user);
+        $stmt->execute();
+    }
 }
