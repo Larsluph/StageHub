@@ -66,14 +66,13 @@ $router->add('pilotes/{id:\d+}/delete', ['controller' => 'PilotesController', 'a
 // students routes
 $router->add('students', ['controller' => 'StudentController', 'action' => "index"]);
 $router->add('students/{id:\d+}', ['controller' => 'StudentController', 'action' => "profile"]);
-$router->add('students/{id:\d+}/create', ['controller' => 'StudentController', 'action' => "create"]);
+$router->add('students/create', ['controller' => 'StudentController', 'action' => "create"]);
 $router->add('students/{id:\d+}/update', ['controller' => 'StudentController', 'action' => "update"]);
 $router->add('students/{id:\d+}/delete', ['controller' => 'StudentController', 'action' => "delete"]);
 $router->add('students/{id:\d+}/wishlist', ['controller' => 'StudentController', 'action' => "wishlistIndex"]);
 $router->add('students/{id:\d+}/wishlist/add/{to_add:\d+}', ['controller' => 'StudentController', 'action' => "wishlistAdd"]);
 $router->add('students/{id:\d+}/wishlist/delete/{to_delete:\d+}', ['controller' => 'StudentController', 'action' => "wishlistDelete"]);
 $router->add('students/{id:\d+}/applications', ['controller' => 'StudentController', 'action' => "applications"]);
-
 
 /**
  * Processing / Rendering (call to Controllers)
