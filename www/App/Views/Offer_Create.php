@@ -49,9 +49,16 @@
               <div class="d-flex justify-content-between align-items-center mb-3">
                 <h4 class="text-right">Offer Settings</h4>
               </div>
-              <form method="POST">
-                <input name="id_entreprise" type="hidden" value="<?= $id_entreprise ?>">
+              <form method="POST">  
                 <div class="row mt-2">
+                  <?php if (array_key_exists('id_entreprise', $_GET)) { ?>
+                  <input id="id_entreprise" name="id_entreprise" value="<?= $_GET['id_entreprise'] ?>" type="hidden" class="form-control" placeholder="Enter the id of the company" required>
+                  <?php } else { ?>
+                    <div class="col-md-12 mb-3">
+                    <label class="labels" for="id_entreprise">ID company :</label>
+                    <input id="id_entreprise" name="id_entreprise" type="number" class="form-control" placeholder="Enter the id of the company" required>
+                  </div>
+                  <?php } ?>
                   <div class="col-md-12 mb-3">
                     <label class="labels" for="offer_name">Offer name :</label>
                     <input id="offer_name" name="offer_name" type="text" class="form-control" placeholder="Enter the name of the offer" required>

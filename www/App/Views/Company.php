@@ -39,7 +39,7 @@
     <button onclick="document.location.href='/logout'" class="button-principal-tologin float-end pb-1 mx-lg-5 mt-4 fs-6" type="button">
       Logout
     </button>
-    <button onclick="document.location.href='/companies/applications?id_entreprise=<?= $entreprise['id_entreprise'] ?>'" class="profile float-end mx-lg-5 mt-4 pt-1 fs-6" type="button">
+    <button onclick="document.location.href='/companies/<?= $entreprise['id_entreprise'] ?>/applications'" class="profile float-end mx-lg-5 mt-4 pt-1 fs-6" type="button">
       - APPLICATIONS -
     </button>
     <button onclick="document.location.href='/offers/create?id_entreprise=<?= $entreprise['id_entreprise'] ?>'" class="profile float-end mx-lg-5 pt-1 mt-4 fs-6" type="button">
@@ -100,8 +100,8 @@
                     </table>
                       <form method="get">
                           <input type="hidden" name="id_offre" value="<?= $offre['id_offre'] ?>">
-                          <input formaction="/offers/update" type="submit" class="button-register float-start ms-5 px-4 mx-auto mb-3" value="Modify">
-                          <input formaction="/offers/delete" type="submit" class="button-delete float-start ms-1 px-4 mx-auto mb-3" value="Delete">
+                          <input formaction="/offers/<?= $offre['id_offre'] ?>/update" type="submit" class="button-register float-start ms-5 px-4 mx-auto mb-3" value="Modify">
+                          <input formaction="/offers/<?= $offre['id_offre'] ?>/delete" type="submit" class="button-delete float-start ms-1 px-4 mx-auto mb-3" value="Delete">
                       </form>
                   </div>
                 </div>
