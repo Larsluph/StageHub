@@ -150,6 +150,7 @@ class User extends Model {
         $stmt->bindValue(':prenom_user', $prenom_user);
         $stmt->bindValue(':id_role', $id_role);
         $stmt->execute();
+        
     }
 
     /**

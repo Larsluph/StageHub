@@ -24,11 +24,24 @@ class PilotesController extends Controller
     public function index()
     {
         AccountController::blockIfNotLoggedIn();
+        
         $notifications = array(
             ["title"=> "Isla Stage", "content"=> "New offer !"]
         );
-        $pilotes = User::readAllByRole(Role::TUTOR_ROLE_ID); 
 
+        if (array_key_exists('tutor_name', $_GET)) {
+            $name_tutor = $_GET['tutor_name'];
+            $pilotes = array();
+            foreach (User::readAllByRole(Role::TUTOR_ROLE_ID) as $tutor) {
+                $full_name = $tutor['nom_user'] . ' ' . $tutor['prenom_user'];
+                if (strpos(strtolower($full_name), strtolower($name_tutor)) !== false) {
+                    $pilotes[] = $tutor;
+                }
+            }
+        }
+        else {
+            $pilotes = User::readAllByRole(Role::TUTOR_ROLE_ID);
+        }
         View::render('Pilotes.php', compact("notifications","pilotes"));
     }
     
