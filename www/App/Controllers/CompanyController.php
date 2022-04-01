@@ -31,8 +31,7 @@ class CompanyController extends Controller
             $name_company = $_GET['company_name'];
             $entreprises = array();
             foreach (Entreprise::readAll() as $entreprise) {
-                $full_name = $entreprise['nom_user'] . ' ' . $entreprise['prenom_user'];
-                if (strpos(strtolower($full_name), strtolower($name_company)) !== false) {
+                if (strpos(strtolower($entreprise['nom_entreprise']), strtolower($name_company)) !== false) {
                     $entreprises[] = $entreprise;
                 }
             }

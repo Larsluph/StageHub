@@ -25,11 +25,23 @@ class OffersController extends Controller
     public function index()
     {
         AccountController::redirectIfNotLoggedIn();
-
+        
         $notifications = array(
             ["title"=> "Isla Stage", "content"=> "New offer !"]
         );
-        $offres = OffreStage::readAll();
+        
+        if (array_key_exists('offer_name', $_GET)) {
+            $name_offer = $_GET['offer_name'];
+            $offres = array();
+            foreach (OffreStage::readAll() as $offre) {
+                if (strpos(strtolower($offre['nom_poste_offre']), strtolower($name_offer)) !== false) {
+                    $offres[] = $offre;
+                }
+            }
+        }
+        else {
+            $offres = OffreStage::readAll();
+        }
         View::render('Offers.php', compact("notifications", "offres"));
     }
 
