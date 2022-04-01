@@ -60,11 +60,10 @@ class OffersController extends Controller
                 explode('|', $_POST['location']),
                 explode('|', $_POST['skills']),
             );
-            Router::redirect('/companies' . $_POST['id_entreprise']);
+            Router::redirect('/companies/' . $_POST['id_entreprise']);
         }
 
-        $id_entreprise = $_GET['id_entreprise'];
-        View::render('Offer_Create.php', compact("id_entreprise"));
+        View::render('Offer_Create.php');
     }
 
     public function update()
