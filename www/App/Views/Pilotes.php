@@ -17,7 +17,8 @@ $pagination = new Pagination($page_nbr, $pilotes);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StageHub - Pilotes</title>
+  <meta name="description" content="List of tutors">
+    <title>StageHub - Tutors</title>
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="manifest" href="/manifest.webmanifest">
     <script>

@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StageHub - Update</title>
+    <meta name="description" content="Update student">
+    <title>StageHub - Update student</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
     <link rel="manifest" href="/manifest.webmanifest">
